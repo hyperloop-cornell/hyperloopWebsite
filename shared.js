@@ -38,13 +38,12 @@ function renderFooter() {
   <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin py-12 max-w-container-max mx-auto items-center">
     <div class="flex flex-col gap-2">
       <span class="text-on-surface font-bold uppercase tracking-widest text-lg">CORNELL HYPERLOOP</span>
-      <span class="text-on-surface-variant text-sm">© 2025 Cornell Hyperloop. Engineered for Velocity.</span>
+      <span class="text-on-surface-variant text-sm">© 2025 Cornell Hyperloop Electrical</span>
     </div>
     <div class="flex flex-col md:flex-row gap-4 md:justify-center">
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Upson Hall, Ithaca, NY</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Contact</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Privacy Policy</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Team Mission</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener noreferrer">Equal Opportunity</a>
     </div>
     <div class="flex justify-end gap-4 text-on-surface-variant">
