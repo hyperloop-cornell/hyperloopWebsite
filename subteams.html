@@ -102,17 +102,31 @@ tailwind.config = {
     </div>
   </section>
 
-  <!-- Mechanical Track -->
+  <!-- Engineering Tracks -->
   <section class="py-10 border-b border-outline-variant relative overflow-hidden">
     <div class="grid-overlay absolute inset-0 opacity-10"></div>
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
-      <div class="flex items-center gap-4 mb-6">
-        <span class="track-label font-label-caps text-label-caps text-primary-container tracking-[0.2em] text-xs">TRACK-M</span>
-        <span class="w-[2px] h-12 bg-primary-container block"></span>
-        <span class="material-symbols-outlined text-primary-container text-5xl">settings</span>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">Mechanical</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+      <!-- Engineering tracks layout -->
+      <div class="flex flex-col gap-gutter">
+
+        <!-- Track labels row -->
+        <div class="hidden md:flex gap-6">
+          <div class="flex items-center gap-3 flex-[3]">
+            <span class="material-symbols-outlined text-primary-container text-3xl">settings</span>
+            <div>
+              <span class="font-label-caps text-[9px] text-primary-container tracking-[0.15em] uppercase block">TRACK-M</span>
+              <span class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight">Mechanical</span>
+            </div>
+            <span class="flex-1 h-[1px] bg-primary-container/40 block ml-2"></span>
+          </div>
+        </div>
+
+        <!-- Card rows -->
+        <div class="flex flex-col gap-gutter">
+
+          <!-- Row 1: 3 mechanical cards -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 
         <!-- Structures -->
         <a href="subteam-structures.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
@@ -162,21 +176,19 @@ tailwind.config = {
           </span>
         </a>
 
-      </div>
-    </div>
-  </section>
+          </div>
 
-  <!-- Electrical Track -->
-  <section class="py-10 border-b border-outline-variant relative overflow-hidden bg-surface-container-low">
-    <div class="grid-overlay absolute inset-0 opacity-10"></div>
-    <div class="relative z-10 max-w-container-max mx-auto px-margin">
-      <div class="flex items-center gap-4 mb-6">
-        <span class="track-label font-label-caps text-label-caps text-primary-container tracking-[0.2em] text-xs">TRACK-E</span>
-        <span class="w-[2px] h-12 bg-primary-container block"></span>
-        <span class="material-symbols-outlined text-primary-container text-5xl">electric_bolt</span>
-        <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">Electrical</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+        <div class="flex items-center gap-3 flex-[2]">
+            <span class="material-symbols-outlined text-primary-container text-3xl">electric_bolt</span>
+            <div>
+              <span class="font-label-caps text-[9px] text-primary-container tracking-[0.15em] uppercase block">TRACK-E</span>
+              <span class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight">Electrical</span>
+            </div>
+            <span class="flex-1 h-[1px] bg-primary-container/40 block ml-2"></span>
+        </div>
+
+          <!-- Row 2: 2 electrical cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
 
         <!-- ECC -->
         <a href="subteam-ecc.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
@@ -210,6 +222,9 @@ tailwind.config = {
           </span>
         </a>
 
+          </div>
+
+        </div>
       </div>
     </div>
   </section>
