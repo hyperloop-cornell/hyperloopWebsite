@@ -45,6 +45,7 @@ function renderFooter() {
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Contact</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Privacy Policy</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Team Mission</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener noreferrer">Equal Opportunity</a>
     </div>
     <div class="flex justify-end gap-4 text-on-surface-variant">
       <a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">language</span></a>

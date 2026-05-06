@@ -125,7 +125,7 @@ tailwind.config = {
         <span class="w-8 h-[1px] bg-primary block"></span>
         Project Mission
       </span>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
         <div>
           <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-6">The Fifth Mode <br/> of Transport</h2>
           <p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
@@ -137,6 +137,46 @@ tailwind.config = {
             Our team contributes to this global vision by designing and prototyping autonomous, scale-model pods. We focus on mastering the two core challenges of hyperloop physics: Magnetic Levitation to eliminate contact with the track, and Linear Induction Motors (LIM) to provide efficient electromagnetic propulsion. Through hands-on research and iterative testing, we bridge the gap between theoretical physics and the future of scalable infrastructure.
           </p>
         </div>
+      </div>
+
+      <!-- Media Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+        <!-- Video Card -->
+        <div class="group relative border border-outline-variant bg-surface-container hover:border-primary transition-colors duration-300 overflow-hidden">
+          <span class="absolute top-3 left-3 font-label-caps text-label-caps text-primary tracking-widest uppercase z-20">Pod Demo</span>
+          <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-20">VID-01</span>
+          <div class="relative aspect-video">
+            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Kyc69w9Pzhw" title="Pod Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-4">
+            <p class="font-body-md text-body-md text-on-surface-variant">Watch our scale-model pod in action — magnetic levitation and LIM propulsion on the test track.</p>
+          </div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+        </div>
+
+        <!-- CAD Card -->
+        <div class="group relative border border-outline-variant bg-surface-container hover:border-primary transition-colors duration-300 overflow-hidden">
+          <span class="absolute top-3 left-3 font-label-caps text-label-caps text-primary tracking-widest uppercase z-20">2025 Pod CAD</span>
+          <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-20">CAD-01</span>
+          <div class="relative aspect-video overflow-hidden">
+            <img src="res/podCad2025.png" alt="2025 Pod CAD model" class="w-full h-full object-contain bg-surface-container-lowest group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-surface/40 group-hover:bg-transparent transition-all duration-300"></div>
+            <!-- Hover overlay -->
+            <div class="absolute inset-0 flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="flex gap-3">
+                <span class="font-label-caps text-label-caps text-on-surface bg-surface-container/90 px-3 py-1 border border-outline-variant">Maglev System</span>
+                <span class="font-label-caps text-label-caps text-on-surface bg-surface-container/90 px-3 py-1 border border-outline-variant">LIM Drive</span>
+                <span class="font-label-caps text-label-caps text-on-surface bg-surface-container/90 px-3 py-1 border border-outline-variant">Chassis</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <p class="font-body-md text-body-md text-on-surface-variant">Full assembly CAD of our 2025 competition pod, integrating levitation, propulsion, and structural subsystems.</p>
+          </div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+        </div>
+
       </div>
     </div>
   </section>
