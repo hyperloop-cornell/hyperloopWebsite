@@ -7,7 +7,6 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
 tailwind.config = {
   darkMode: "class",
@@ -65,22 +64,204 @@ tailwind.config = {
                       linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+  .card-hover-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: #d22b2b;
+    transition: width 0.4s ease;
+  }
+  .card-hover-line:hover::after { width: 100%; }
+  .track-label {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
 <div id="nav-placeholder"></div>
+
 <main>
+  <!-- Hero -->
   <section class="relative py-32 border-b border-outline-variant overflow-hidden">
     <div class="grid-overlay absolute inset-0 opacity-30"></div>
+    <div class="absolute inset-0 z-0">
+      <img src="res/CompetitionPhotoWithPod.jpg" alt="Cornell Hyperloop team" class="w-full h-full object-cover opacity-20"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40"></div>
+    </div>
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
       <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
         <span class="w-8 h-[1px] bg-primary block"></span>Engineering Divisions
       </span>
-      <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase">Subteams</h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-6">Content coming soon.</p>
+      <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase leading-none mb-6">Engineering<br/><span class="text-primary-container">Architecture</span></h1>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+        Our pod's design is driven by specialized technical units across three core tracks: Mechanical, Electrical, and Business. Precision engineering and rigorous system integration define our approach to velocity.
+      </p>
+    </div>
+  </section>
+
+  <!-- Mechanical Track -->
+  <section class="py-10 border-b border-outline-variant relative overflow-hidden">
+    <div class="grid-overlay absolute inset-0 opacity-10"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="track-label font-label-caps text-label-caps text-primary-container tracking-[0.2em] text-xs">TRACK-M</span>
+        <span class="w-[2px] h-12 bg-primary-container block"></span>
+        <span class="material-symbols-outlined text-primary-container text-5xl">settings</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">Mechanical</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+        <!-- Structures -->
+        <a href="subteam-structures.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M1</span>
+          <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
+            <img src="res/structuresAnsysPhysicalTest.png" alt="Structures subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Structures</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">
+            Designing the aerospace-grade chassis and aerodynamic aeroshell. Ensuring structural integrity under immense loads while minimizing mass.
+          </p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            VIEW SPECS <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+        <!-- Braking -->
+        <a href="subteam-braking.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M2</span>
+          <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
+            <img src="res/sideViewPod.png" alt="Braking subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Braking</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">
+            Developing fail-safe friction and eddy-current braking systems capable of decelerating the pod from sub-sonic speeds within strict spatial parameters.
+          </p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            VIEW SPECS <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+        <!-- Magnetic -->
+        <a href="subteam-magnetic.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M3</span>
+          <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
+            <img src="res/levResearchGraph.png" alt="Magnetic subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Magnetic</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">
+            Engineering the magnetic levitation and linear induction motor systems that lift and propel the pod along the track without physical contact.
+          </p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            VIEW SPECS <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Electrical Track -->
+  <section class="py-10 border-b border-outline-variant relative overflow-hidden bg-surface-container-low">
+    <div class="grid-overlay absolute inset-0 opacity-10"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin">
+      <div class="flex items-center gap-4 mb-6">
+        <span class="track-label font-label-caps text-label-caps text-primary-container tracking-[0.2em] text-xs">TRACK-E</span>
+        <span class="w-[2px] h-12 bg-primary-container block"></span>
+        <span class="material-symbols-outlined text-primary-container text-5xl">electric_bolt</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">Electrical</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+        <!-- ECC -->
+        <a href="subteam-ecc.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-E1</span>
+          <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
+            <img src="res/PCBschematic.png" alt="ECC subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">ECC</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">
+            Electronics, Controls & Communications. Programming the pod's brain — embedded systems, state machines, sensor fusion, and high-bandwidth telemetry links.
+          </p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            VIEW SPECS <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+        <!-- Power Systems -->
+        <a href="subteam-power.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-E2</span>
+          <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
+            <img src="res/3dPCBCOmpass.png" alt="Power Systems subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
+          </div>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Power Systems</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">
+            Architecting high-voltage battery packs and power distribution networks. Managing thermal risks and optimizing energy delivery to all critical subsystems.
+          </p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            VIEW SPECS <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Business Track -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="grid-overlay absolute inset-0 opacity-10"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: text -->
+        <div>
+          <div class="flex items-center gap-4 mb-8">
+            <span class="track-label font-label-caps text-label-caps text-primary-container tracking-[0.2em] text-xs">TRACK-B</span>
+            <span class="w-[2px] h-12 bg-primary-container block"></span>
+            <span class="material-symbols-outlined text-primary-container text-5xl">groups</span>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase tracking-tight">Business</h2>
+          </div>
+          <span class="font-label-caps text-[10px] text-outline-variant mb-4 block">UNIT-B1</span>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+            The operational backbone of Cornell Hyperloop. Our business team manages sponsorships, outreach, and team operations — sustaining and growing our presence in the broader engineering and innovation community.
+          </p>
+          <div class="grid grid-cols-2 gap-6 mb-10">
+            <div class="flex flex-col gap-1 relative pl-4">
+              <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Sponsors</span>
+              <span class="font-mono-stats text-[32px] text-on-surface leading-none">12<span class="text-headline-md text-primary-container">+</span></span>
+            </div>
+            <div class="flex flex-col gap-1 relative pl-4">
+              <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Outreach Events</span>
+              <span class="font-mono-stats text-[32px] text-on-surface leading-none">20<span class="text-headline-md text-primary-container">+</span></span>
+            </div>
+          </div>
+          <a href="subteam-business.html" class="bg-primary-container text-on-primary-container px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200 inline-flex items-center gap-2">
+            VIEW TEAM <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+        <!-- Right: photo -->
+        <div class="relative">
+          <div class="absolute -inset-4 border border-outline-variant/30 hidden lg:block"></div>
+          <div class="relative border border-outline-variant overflow-hidden">
+            <img src="res/teamHeadshots/2025 Spring Hyperloop.JPG" alt="Cornell Hyperloop team" class="w-full h-80 object-cover transition-all duration-700"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-primary-container/0 hover:bg-primary-container/10 transition-all duration-300"></div>
+            <span class="absolute bottom-4 right-4 font-label-caps text-label-caps text-on-surface-variant/60">TEAM · 2025</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </main>
+
 <div id="footer-placeholder"></div>
 <script src="shared.js"></script>
 </body>
