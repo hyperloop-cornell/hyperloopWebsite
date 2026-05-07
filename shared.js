@@ -63,3 +63,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("nav-placeholder").innerHTML = renderNav();
   document.getElementById("footer-placeholder").innerHTML = renderFooter();
 });
+
+if ("serviceWorker" in navigator) {
+  const swPath = (isSubdir() ? "../" : "") + "sw.js";
+  navigator.serviceWorker.register(swPath, { scope: "/" })
+    .then(reg => {
+      window.addEventListener("load", () => {
+        const sw = reg.active || reg.installing || reg.waiting;
+        if (sw) sw.postMessage("prefetch");
+        else reg.addEventListener("updatefound", () => {
+          reg.installing.addEventListener("statechange", function() {
+            if (this.state === "activated") this.postMessage("prefetch");
+          });
+        });
+      });
+    });
+}
