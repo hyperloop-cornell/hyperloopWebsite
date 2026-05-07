@@ -64,6 +64,8 @@ tailwind.config = {
   }
   .member-photo { transition: transform 0.4s ease; }
   .group:hover .member-photo { transform: scale(1.04); }
+  .img-skeleton { background: linear-gradient(90deg, #151b2d 25%, #23293c 50%, #151b2d 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
+  @keyframes shimmer { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
@@ -250,17 +252,31 @@ fetch("res/members.json")
     });
 
     const container = document.getElementById("members-by-subteam");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        const { subteam, members } = entry.target._data;
+        entry.target.innerHTML = `
+          <div class="flex items-center gap-4 mb-6">
+            <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.15em]">${subteam}</span>
+            <div class="h-px bg-outline-variant flex-grow opacity-40"></div>
+            <span class="font-mono text-xs text-on-surface-variant opacity-40">${String(members.length).padStart(2,"0")} members</span>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+            ${members.map(memberCard).join("")}
+          </div>`;
+      });
+    }, { rootMargin: "200px" });
+
     Object.entries(grouped).forEach(([subteam, members]) => {
       const section = document.createElement("div");
-      section.innerHTML = `
-        <div class="flex items-center gap-4 mb-6">
-          <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.15em]">${subteam}</span>
-          <div class="h-px bg-outline-variant flex-grow opacity-40"></div>
-          <span class="font-mono text-xs text-on-surface-variant opacity-40">${String(members.length).padStart(2,"0")} members</span>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-          ${members.map(memberCard).join("")}
-        </div>`;
+      const cardHeight = 260;
+      const rows = Math.ceil(members.length / 5);
+      section.style.minHeight = (rows * cardHeight + 80) + "px";
+      section.innerHTML = `<div class="flex items-center gap-4 mb-6"><span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.15em]">${subteam}</span><div class="h-px bg-outline-variant flex-grow opacity-40"></div></div><div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">${members.map(() => `<div class="img-skeleton h-[260px]"></div>`).join("")}</div>`;
+      section._data = { subteam, members };
+      observer.observe(section);
       container.appendChild(section);
     });
   });
