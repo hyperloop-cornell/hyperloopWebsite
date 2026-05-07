@@ -10,51 +10,49 @@
 <script>
 tailwind.config = {
   darkMode: "class",
-  theme: {
-    extend: {
-      colors: {
-        "on-tertiary-container": "#f0f2ff", "inverse-primary": "#bb171d",
-        "surface-container-low": "#151b2d", "primary-fixed-dim": "#ffb4ac",
-        "secondary-fixed-dim": "#b7c8e1", "on-tertiary-fixed-variant": "#3f465c",
-        "primary-fixed": "#ffdad6", "surface-container-high": "#23293c",
-        "on-surface": "#dce1fb", "tertiary-fixed-dim": "#bec6e0",
-        "primary": "#ffb4ac", "surface-bright": "#33394c",
-        "on-error": "#690005", "surface-container-highest": "#2e3447",
-        "on-error-container": "#ffdad6", "secondary": "#b7c8e1",
-        "on-tertiary": "#283044", "on-primary": "#690007",
-        "on-secondary-container": "#a9bad3", "surface-variant": "#2e3447",
-        "secondary-fixed": "#d3e4fe", "surface": "#0c1324",
-        "on-primary-fixed-variant": "#93000e", "on-primary-fixed": "#410003",
-        "outline": "#ab8985", "background": "#0c1324",
-        "surface-dim": "#0c1324", "inverse-surface": "#dce1fb",
-        "secondary-container": "#3a4a5f", "error": "#ffb4ab",
-        "tertiary-container": "#666e85", "outline-variant": "#5b403d",
-        "on-secondary": "#213145", "on-secondary-fixed-variant": "#38485d",
-        "surface-tint": "#ffb4ac", "on-tertiary-fixed": "#131b2e",
-        "on-background": "#dce1fb", "tertiary": "#bec6e0",
-        "error-container": "#93000a", "surface-container": "#191f31",
-        "on-surface-variant": "#e4beb9", "tertiary-fixed": "#dae2fd",
-        "on-primary-container": "#ffeeec", "on-secondary-fixed": "#0b1c30",
-        "surface-container-lowest": "#070d1f", "primary-container": "#d22b2b",
-        "inverse-on-surface": "#2a3043"
-      },
-      spacing: { "unit": "4px", "container-max": "1280px", "gutter": "24px", "margin": "48px" },
-      fontFamily: {
-        "headline-xl": ["Space Grotesk"], "headline-lg": ["Space Grotesk"],
-        "headline-md": ["Space Grotesk"], "body-md": ["Inter"],
-        "body-lg": ["Inter"], "label-caps": ["Space Grotesk"], "mono-stats": ["Space Grotesk"]
-      },
-      fontSize: {
-        "headline-xl": ["64px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
-        "headline-lg": ["40px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
-        "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
-        "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
-        "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
-        "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" }],
-        "mono-stats": ["48px", { lineHeight: "1", letterSpacing: "-0.02em", fontWeight: "700" }]
-      }
+  theme: { extend: {
+    colors: {
+      "on-tertiary-container": "#f0f2ff", "inverse-primary": "#bb171d",
+      "surface-container-low": "#151b2d", "primary-fixed-dim": "#ffb4ac",
+      "secondary-fixed-dim": "#b7c8e1", "on-tertiary-fixed-variant": "#3f465c",
+      "primary-fixed": "#ffdad6", "surface-container-high": "#23293c",
+      "on-surface": "#dce1fb", "tertiary-fixed-dim": "#bec6e0",
+      "primary": "#ffb4ac", "surface-bright": "#33394c",
+      "on-error": "#690005", "surface-container-highest": "#2e3447",
+      "on-error-container": "#ffdad6", "secondary": "#b7c8e1",
+      "on-tertiary": "#283044", "on-primary": "#690007",
+      "on-secondary-container": "#a9bad3", "surface-variant": "#2e3447",
+      "secondary-fixed": "#d3e4fe", "surface": "#0c1324",
+      "on-primary-fixed-variant": "#93000e", "on-primary-fixed": "#410003",
+      "outline": "#ab8985", "background": "#0c1324",
+      "surface-dim": "#0c1324", "inverse-surface": "#dce1fb",
+      "secondary-container": "#3a4a5f", "error": "#ffb4ab",
+      "tertiary-container": "#666e85", "outline-variant": "#5b403d",
+      "on-secondary": "#213145", "on-secondary-fixed-variant": "#38485d",
+      "surface-tint": "#ffb4ac", "on-tertiary-fixed": "#131b2e",
+      "on-background": "#dce1fb", "tertiary": "#bec6e0",
+      "error-container": "#93000a", "surface-container": "#191f31",
+      "on-surface-variant": "#e4beb9", "tertiary-fixed": "#dae2fd",
+      "on-primary-container": "#ffeeec", "on-secondary-fixed": "#0b1c30",
+      "surface-container-lowest": "#070d1f", "primary-container": "#d22b2b",
+      "inverse-on-surface": "#2a3043"
+    },
+    spacing: { "unit": "4px", "container-max": "1280px", "gutter": "24px", "margin": "48px" },
+    fontFamily: {
+      "headline-xl": ["Space Grotesk"], "headline-lg": ["Space Grotesk"],
+      "headline-md": ["Space Grotesk"], "body-md": ["Inter"],
+      "body-lg": ["Inter"], "label-caps": ["Space Grotesk"], "mono-stats": ["Space Grotesk"]
+    },
+    fontSize: {
+      "headline-xl": ["64px", { lineHeight: "1.1", letterSpacing: "-0.04em", fontWeight: "700" }],
+      "headline-lg": ["40px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "700" }],
+      "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],
+      "body-md": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+      "body-lg": ["18px", { lineHeight: "1.6", fontWeight: "400" }],
+      "label-caps": ["14px", { lineHeight: "1", letterSpacing: "0.1em", fontWeight: "600" }],
+      "mono-stats": ["48px", { lineHeight: "1", letterSpacing: "-0.02em", fontWeight: "700" }]
     }
-  }
+  }}
 }
 </script>
 <style>
@@ -64,23 +62,208 @@ tailwind.config = {
                       linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+  .member-photo { transition: transform 0.4s ease; }
+  .group:hover .member-photo { transform: scale(1.04); }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
 <div id="nav-placeholder"></div>
+
 <main>
+  <!-- Page Header -->
   <section class="relative py-32 border-b border-outline-variant overflow-hidden">
     <div class="grid-overlay absolute inset-0 opacity-30"></div>
+    <div class="absolute inset-0 z-0">
+      <img src="res/teamPhoto.jpg" alt="Cornell Hyperloop team" class="w-full h-full object-cover opacity-30"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40"></div>
+    </div>
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
-      <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
-        <span class="w-8 h-[1px] bg-primary block"></span>The Team
-      </span>
-      <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase">Members</h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-6">Content coming soon.</p>
+      <div class="border-l-2 border-primary-container pl-8">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
+          <span class="w-8 h-[1px] bg-primary block"></span>Personnel
+        </span>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tighter mb-4">The Roster</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+          Engineers, designers, and strategists. The core unit driving Cornell Hyperloop's mechanical excellence and velocity-focused innovation.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Faculty Advisors -->
+  <section class="py-20 border-b border-outline-variant">
+    <div class="max-w-container-max mx-auto px-margin">
+      <div class="flex items-center gap-4 mb-10">
+        <h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight whitespace-nowrap">Faculty Advisors</h2>
+        <div class="h-px bg-outline-variant flex-grow opacity-50"></div>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase whitespace-nowrap">FAC-00</span>
+      </div>
+      <div id="faculty" class="grid grid-cols-1 md:grid-cols-2 gap-gutter"></div>
+    </div>
+  </section>
+
+  <!-- Team Leads -->
+  <section class="py-20 border-b border-outline-variant">
+    <div class="max-w-container-max mx-auto px-margin">
+      <div class="flex items-center gap-4 mb-10">
+        <h2 class="font-headline-md text-headline-md text-primary uppercase tracking-tight whitespace-nowrap">Leads</h2>
+        <div class="h-px bg-outline-variant flex-grow opacity-50"></div>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase whitespace-nowrap">LDR-01</span>
+      </div>
+      <div id="team-leads" class="grid grid-cols-1 md:grid-cols-2 gap-gutter"></div>
+    </div>
+  </section>
+
+  <!-- Subteam Leads -->
+  <section class="py-20 border-b border-outline-variant">
+    <div class="max-w-container-max mx-auto px-margin">
+      <div class="flex items-center gap-4 mb-10">
+        <h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight whitespace-nowrap">Subteam Leads</h2>
+        <div class="h-px bg-outline-variant flex-grow opacity-50"></div>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase whitespace-nowrap">LDR-02</span>
+      </div>
+      <div id="subteam-leads" class="grid grid-cols-2 md:grid-cols-3 gap-gutter"></div>
+    </div>
+  </section>
+
+  <!-- Members by Subteam -->
+  <section class="py-20">
+    <div class="max-w-container-max mx-auto px-margin">
+      <div class="flex items-center gap-4 mb-10">
+        <h2 class="font-headline-md text-headline-md text-on-surface uppercase tracking-tight whitespace-nowrap">Active Roster</h2>
+        <div class="h-px bg-outline-variant flex-grow opacity-50"></div>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase whitespace-nowrap">RST-03</span>
+      </div>
+      <div id="members-by-subteam" class="space-y-16"></div>
     </div>
   </section>
 </main>
+
 <div id="footer-placeholder"></div>
 <script src="shared.js"></script>
+<script>
+const PHOTO_BASE = "res/teamHeadshots/";
+
+function cardWrapper(person, inner) {
+  const tag = person.linkedin ? "a" : "div";
+  const attrs = person.linkedin
+    ? `href="${person.linkedin}" target="_blank" rel="noopener noreferrer"`
+    : "";
+  return `<${tag} ${attrs} class="group relative bg-surface-container-low border border-surface-variant flex flex-col overflow-hidden hover:border-primary/50 transition-colors duration-300 cursor-pointer">${inner}</${tag}>`;
+}
+
+function leadCard(person) {
+  return cardWrapper(person, `
+    <div class="absolute inset-0 overflow-hidden">
+      <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
+           class="member-photo w-full h-full object-cover object-top" style="height:480px"/>
+    </div>
+    <div class="h-[480px] relative">
+      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/75 to-transparent"></div>
+      <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-[2px] bg-primary-container block"></span>
+          <span class="font-label-caps text-[10px] text-primary uppercase tracking-widest">${person.role}</span>
+        </div>
+        <h3 class="font-headline-lg text-headline-lg text-on-surface uppercase group-hover:text-primary transition-colors leading-none">${person.name}</h3>
+      </div>
+    </div>`);
+}
+
+function subteamLeadCard(person) {
+  return cardWrapper(person, `
+    <div class="absolute inset-0 overflow-hidden">
+      <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
+           class="member-photo w-full h-full object-cover object-top" style="height:360px"/>
+    </div>
+    <div class="h-[360px] relative">
+      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/70 to-transparent"></div>
+      <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+        <div class="flex items-center gap-2">
+          <span class="w-4 h-[2px] bg-primary-container block"></span>
+          <span class="font-label-caps text-[10px] text-primary uppercase tracking-widest">${person.subteam} · ${person.role}</span>
+        </div>
+        <h3 class="font-headline-md text-[18px] text-on-surface uppercase group-hover:text-primary transition-colors leading-tight">${person.name}</h3>
+      </div>
+    </div>`);
+}
+
+function memberCard(person) {
+  return `
+  <div class="group relative bg-surface-container-low border border-surface-variant flex flex-col h-[260px] overflow-hidden hover:border-primary/50 transition-all duration-300">
+    <div class="absolute inset-0 overflow-hidden">
+      <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
+           class="member-photo w-full h-full object-cover object-top"/>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-t from-surface from-10% via-surface/60 to-transparent"></div>
+    <div class="relative z-10 flex flex-col justify-end h-full p-4 gap-1">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-[2px] bg-primary-container block"></span>
+        <span class="font-label-caps text-[9px] text-primary uppercase tracking-widest">${person.subteam}</span>
+      </div>
+      <h4 class="font-headline-md text-[15px] text-on-surface uppercase group-hover:text-primary transition-colors leading-tight">${person.name}</h4>
+    </div>
+  </div>`;
+}
+
+function facultyCard(person) {
+  return cardWrapper(person, `
+    <div class="absolute inset-0 overflow-hidden">
+      <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
+           class="member-photo w-full h-full object-cover object-top" style="height:380px"/>
+    </div>
+    <div class="h-[380px] relative">
+      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/75 to-transparent"></div>
+      <div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/50 transition-colors pointer-events-none"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
+        <div class="flex items-center gap-2">
+          <span class="w-5 h-[2px] bg-secondary block"></span>
+          <span class="font-label-caps text-[10px] text-secondary uppercase tracking-widest">${person.role} · ${person.department}</span>
+        </div>
+        <h3 class="font-headline-lg text-headline-lg text-on-surface uppercase group-hover:text-secondary transition-colors leading-none">${person.name}</h3>
+      </div>
+    </div>`);
+}
+
+fetch("res/members.json")
+  .then(r => r.json())
+  .then(data => {
+    // Faculty
+    document.getElementById("faculty").innerHTML =
+      data.faculty.map(facultyCard).join("");
+
+    // Team leads
+    document.getElementById("team-leads").innerHTML =
+      data.teamLeads.map(leadCard).join("");
+
+    // Subteam leads
+    document.getElementById("subteam-leads").innerHTML =
+      data.subteamLeads.map(subteamLeadCard).join("");
+
+    // Group members by subteam
+    const grouped = {};
+    data.members.forEach(m => {
+      if (!grouped[m.subteam]) grouped[m.subteam] = [];
+      grouped[m.subteam].push(m);
+    });
+
+    const container = document.getElementById("members-by-subteam");
+    Object.entries(grouped).forEach(([subteam, members]) => {
+      const section = document.createElement("div");
+      section.innerHTML = `
+        <div class="flex items-center gap-4 mb-6">
+          <span class="font-label-caps text-label-caps text-primary uppercase tracking-[0.15em]">${subteam}</span>
+          <div class="h-px bg-outline-variant flex-grow opacity-40"></div>
+          <span class="font-mono text-xs text-on-surface-variant opacity-40">${String(members.length).padStart(2,"0")} members</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+          ${members.map(memberCard).join("")}
+        </div>`;
+      container.appendChild(section);
+    });
+  });
+</script>
 </body>
 </html>

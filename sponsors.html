@@ -68,18 +68,158 @@ tailwind.config = {
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
 <div id="nav-placeholder"></div>
+
 <main>
+
+  <!-- Hero -->
   <section class="relative py-32 border-b border-outline-variant overflow-hidden">
-    <div class="grid-overlay absolute inset-0 opacity-30"></div>
+    <div class="grid-overlay absolute inset-0 opacity-85"></div>
+    <div class="absolute inset-0 z-0">
+      <img src="res/CompetitionPhotoWithPod.jpg" alt="Cornell Hyperloop at competition" class="w-full h-full object-cover opacity-30"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40"></div>
+    </div>
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
-      <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
-        <span class="w-8 h-[1px] bg-primary block"></span>Partners & Support
-      </span>
-      <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase">Sponsors</h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-6">Content coming soon.</p>
+      <div class="border-l-2 border-primary-container pl-8 max-w-3xl">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
+          <span class="w-8 h-[1px] bg-primary block"></span>Partnerships
+        </span>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tighter mb-6">Powering<br/>the Next Leap.</h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+          A big thank you to our sponsors! While funded by Cornell Engineering and donations, Hyperloop is excited for our future and all extra help is appreciated.
+        </p>
+        <a href="mailto:hyperloop@cornell.edu" class="bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase px-8 py-4 tracking-widest hover:bg-primary transition-colors duration-200 inline-flex items-center gap-2">
+          Become a Partner <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </a>
+      </div>
     </div>
   </section>
+
+  <!-- Our Sponsors -->
+  <section class="py-24 bg-surface border-b border-outline-variant">
+    <div class="max-w-container-max mx-auto px-margin">
+      <div class="flex items-end justify-between mb-12 border-b border-outline-variant pb-6">
+        <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase">Our Partners</h2>
+        <span class="font-label-caps text-label-caps text-on-surface-variant tracking-widest">2024–2025 Season</span>
+      </div>
+
+      <!-- Platinum -->
+      <div class="relative border border-outline-variant bg-surface-container p-8 mb-gutter">
+        <span class="absolute top-4 right-4 font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs tracking-widest">PLATINUM</span>
+        <p class="font-label-caps text-label-caps text-primary tracking-[0.15em] uppercase mb-8 flex items-center gap-2">
+          <span class="w-6 h-[1px] bg-primary block"></span>Platinum Sponsors
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter">
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors duration-300 p-6">
+            <span class="material-symbols-outlined text-[40px] text-on-surface-variant group-hover:text-primary transition-colors">rocket_launch</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Cornell Engineering</span>
+          </div>
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors duration-300 p-6">
+            <span class="material-symbols-outlined text-[40px] text-on-surface-variant group-hover:text-primary transition-colors">precision_manufacturing</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor Name</span>
+          </div>
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors duration-300 p-6">
+            <span class="material-symbols-outlined text-[40px] text-on-surface-variant group-hover:text-primary transition-colors">memory</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor Name</span>
+          </div>
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors duration-300 p-6">
+            <span class="material-symbols-outlined text-[40px] text-on-surface-variant group-hover:text-primary transition-colors">electric_bolt</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor Name</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gold + Stats row -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-gutter">
+        <!-- Gold -->
+        <div class="md:col-span-2 relative border border-outline-variant bg-surface-container p-8">
+          <span class="absolute top-4 right-4 font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs tracking-widest">GOLD</span>
+          <p class="font-label-caps text-label-caps text-primary tracking-[0.15em] uppercase mb-8 flex items-center gap-2">
+            <span class="w-6 h-[1px] bg-primary block"></span>Gold Sponsors
+          </p>
+          <div class="grid grid-cols-3 gap-gutter">
+            <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors duration-300 p-4">
+              <span class="material-symbols-outlined text-[32px] text-on-surface-variant group-hover:text-primary transition-colors">architecture</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor Name</span>
+            </div>
+            <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors duration-300 p-4">
+              <span class="material-symbols-outlined text-[32px] text-on-surface-variant group-hover:text-primary transition-colors">group_add</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor Name</span>
+            </div>
+            <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-3 hover:border-primary transition-colors duration-300 p-4">
+              <span class="material-symbols-outlined text-[32px] text-on-surface-variant group-hover:text-primary transition-colors">science</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor Name</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="border border-outline-variant bg-surface-container p-8 flex flex-col justify-center gap-8">
+          <div class="relative pl-4">
+            <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs block mb-1">Total Funding</span>
+            <span class="font-mono-stats text-mono-stats text-on-surface">$120K</span>
+          </div>
+          <div class="relative pl-4">
+            <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs block mb-1">Corporate Partners</span>
+            <span class="font-mono-stats text-mono-stats text-on-surface">34</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Silver -->
+      <div class="relative border border-outline-variant bg-surface-container p-8">
+        <span class="absolute top-4 right-4 font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs tracking-widest">SILVER</span>
+        <p class="font-label-caps text-label-caps text-primary tracking-[0.15em] uppercase mb-8 flex items-center gap-2">
+          <span class="w-6 h-[1px] bg-primary block"></span>Silver Sponsors
+        </p>
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-gutter">
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-2 hover:border-primary transition-colors duration-300 p-4">
+            <span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors">hub</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor</span>
+          </div>
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-2 hover:border-primary transition-colors duration-300 p-4">
+            <span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors">developer_board</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor</span>
+          </div>
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-2 hover:border-primary transition-colors duration-300 p-4">
+            <span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors">sensors</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor</span>
+          </div>
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-2 hover:border-primary transition-colors duration-300 p-4">
+            <span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors">bolt</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor</span>
+          </div>
+          <div class="group border border-outline-variant bg-surface-container-high aspect-[3/2] flex flex-col items-center justify-center gap-2 hover:border-primary transition-colors duration-300 p-4">
+            <span class="material-symbols-outlined text-[28px] text-on-surface-variant group-hover:text-primary transition-colors">construction</span>
+            <span class="font-label-caps text-label-caps text-on-surface-variant text-xs tracking-widest text-center">Sponsor</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 relative overflow-hidden border-b border-outline-variant">
+    <div class="grid-overlay absolute inset-0 opacity-30"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin text-center">
+      <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-6">Partner with the Future</h2>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mx-auto mb-10">
+        Align your brand with top-tier engineering talent and groundbreaking transportation technology. Contact us to learn about sponsorship opportunities.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="mailto:hyperloop@cornell.edu" class="bg-primary-container text-on-primary-container px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200 flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">mail</span>Contact Us
+        </a>
+        <a href="#" class="border border-outline-variant text-on-surface-variant px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:border-primary hover:text-primary transition-colors duration-200 flex items-center gap-2">
+          <span class="material-symbols-outlined text-[18px]">download</span>Sponsorship Packet
+        </a>
+      </div>
+    </div>
+  </section>
+
 </main>
+
 <div id="footer-placeholder"></div>
 <script src="shared.js"></script>
 </body>

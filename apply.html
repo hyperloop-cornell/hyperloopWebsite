@@ -58,28 +58,241 @@ tailwind.config = {
 }
 </script>
 <style>
+  html { scroll-behavior: smooth; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 }
   .grid-overlay {
     background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
                       linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+  .card-hover-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: #d22b2b;
+    transition: width 0.4s ease;
+  }
+  .card-hover-line:hover::after { width: 100%; }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden">
 <div id="nav-placeholder"></div>
+
 <main>
-  <section class="relative py-32 border-b border-outline-variant overflow-hidden">
+
+  <!-- Hero -->
+  <section class="relative py-16 border-b border-outline-variant overflow-hidden">
     <div class="grid-overlay absolute inset-0 opacity-30"></div>
+    <div class="absolute inset-0 z-0">
+      <img src="res/recruitment.jpg" alt="Cornell Hyperloop pod" class="w-full h-full object-cover opacity-40"/>
+      <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40"></div>
+    </div>
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
-      <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
-        <span class="w-8 h-[1px] bg-primary block"></span>Join the Mission
-      </span>
-      <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase">Apply</h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-6">Content coming soon.</p>
+      <div class="border-l-2 border-primary-container pl-8 max-w-3xl">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
+          <span class="w-8 h-[1px] bg-primary block"></span>Recruitment
+        </span>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tighter mb-6">
+          Join the<br/><span class="text-primary-container">Team.</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+          Join an elite collective of engineers, designers, and strategists pushing the boundaries of high-speed transport. Our team is open to students from all majors and backgrounds who bring dedication and a drive to build the future of transportation.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#coffee-chat" class="bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase px-8 py-4 tracking-widest hover:bg-primary transition-colors duration-200 inline-flex items-center gap-2">
+            Book a Coffee Chat <span class="material-symbols-outlined text-base">calendar_today</span>
+          </a>
+          <a href="#process" class="border border-outline text-on-surface font-label-caps text-label-caps uppercase px-8 py-4 tracking-widest hover:bg-surface-container-high transition-colors duration-200 inline-block">
+            Application Process
+          </a>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Application Trajectory -->
+  <section id="process" class="py-24 border-b border-outline-variant bg-surface-container-low relative overflow-hidden">
+    <div class="grid-overlay absolute inset-0 opacity-10"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin">
+      <div class="mb-16">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
+          <span class="w-8 h-[1px] bg-primary block"></span>Process
+        </span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">
+          Application <span class="text-primary">Trajectory</span>
+        </h2>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          The path to joining the team is rigorous and multi-staged, designed to identify top-tier engineering and operational talent.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter relative">
+        <!-- Connector line -->
+        <div class="hidden md:block absolute top-12 left-0 w-full h-[1px] bg-outline-variant z-0"></div>
+
+        <!-- Step 01 -->
+        <div class="relative z-10 bg-surface border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant">APP-01</span>
+          <div class="font-mono-stats text-mono-stats text-primary mb-4 border-l-4 border-primary-container pl-4">01</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2 uppercase">Application</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">Submit your resume and portfolio showcasing relevant projects.</p>
+          <span class="font-label-caps text-label-caps text-secondary">DUE: SEP 15</span>
+        </div>
+
+        <!-- Step 02 -->
+        <div class="relative z-10 bg-surface border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant">APP-02</span>
+          <div class="font-mono-stats text-mono-stats text-primary mb-4 border-l-4 border-primary-container pl-4">02</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2 uppercase">Interview I</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">Initial technical screening with subteam leads.</p>
+          <span class="font-label-caps text-label-caps text-secondary">SEP 20 – 27</span>
+        </div>
+
+        <!-- Step 03 -->
+        <div class="relative z-10 bg-surface border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant">APP-03</span>
+          <div class="font-mono-stats text-mono-stats text-primary mb-4 border-l-4 border-primary-container pl-4">03</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2 uppercase">Interview II</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">In-depth technical and behavioral assessment.</p>
+          <span class="font-label-caps text-label-caps text-secondary">OCT 01 – 05</span>
+        </div>
+
+        <!-- Step 04 -->
+        <div class="relative z-10 bg-surface border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant">APP-04</span>
+          <div class="font-mono-stats text-mono-stats text-primary mb-4 border-l-4 border-primary-container pl-4">04</div>
+          <h3 class="font-headline-md text-headline-md text-on-surface mb-2 uppercase">Onboarding</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4">Integration into your subteam's workflow and systems.</p>
+          <span class="font-label-caps text-label-caps text-secondary">OCT 10</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Apply Now + Coffee Chat -->
+  <section class="py-24 border-t border-outline-variant relative overflow-hidden">
+    <div class="grid-overlay absolute inset-0 opacity-10"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+
+        <!-- Apply Now -->
+        <div class="bg-surface-container border border-outline-variant p-10 relative hover:border-primary-container transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant">ACT-01</span>
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
+            <span class="w-6 h-[1px] bg-primary block"></span>Ready to Build
+          </span>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">Apply Now</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+            Submit your application to join Cornell Hyperloop. We welcome students from all majors and backgrounds who are passionate about engineering and innovation.
+          </p>
+          <a href="#" class="bg-primary-container text-on-primary-container font-label-caps text-label-caps uppercase px-8 py-4 tracking-widest hover:bg-primary transition-colors duration-200 inline-flex items-center gap-2">
+            Start Application <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </a>
+        </div>
+
+        <!-- Coffee Chat -->
+        <div id="coffee-chat" class="bg-surface-container-low border border-outline-variant p-10 relative hover:border-primary-container transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant">ACT-02</span>
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
+            <span class="w-6 h-[1px] bg-primary block"></span>Have Questions?
+          </span>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">Book a Coffee Chat</h2>
+          <p class="font-body-lg text-body-lg text-on-surface-variant mb-8">
+            Schedule a 15–30 minute conversation with a current team member. We'll help you understand the team, our learning experiences, and how you can contribute.
+          </p>
+          <a href="#" class="border border-outline text-on-surface font-label-caps text-label-caps uppercase px-8 py-4 tracking-widest hover:bg-surface-container-high transition-colors duration-200 inline-flex items-center gap-2">
+            Book Now <span class="material-symbols-outlined text-base">calendar_today</span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Roles -->
+  <section id="roles" class="py-24 border-t border-outline-variant relative overflow-hidden">
+    <div class="grid-overlay absolute inset-0 opacity-10"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-margin">
+      <div class="flex items-center gap-4 mb-12">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2">
+          <span class="w-8 h-[1px] bg-primary block"></span>Open Roles
+        </span>
+        <div class="h-px bg-outline-variant flex-grow opacity-50"></div>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase">ROL-06</span>
+      </div>
+      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mb-12">
+        We recruit across all engineering disciplines and backgrounds. Find the subteam that matches your skills and ambitions.
+      </p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+        <a href="subteam-views/subteam-structures.html" class="group relative bg-surface-container border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M1</span>
+          <span class="material-symbols-outlined text-primary-container text-3xl mb-4 block">architecture</span>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Structures</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">Aerospace-grade chassis and aeroshell design. CAD, FEA, and composite manufacturing.</p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="subteam-views/subteam-braking.html" class="group relative bg-surface-container border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M2</span>
+          <span class="material-symbols-outlined text-primary-container text-3xl mb-4 block">speed</span>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Braking</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">Fail-safe friction and eddy-current braking systems for sub-sonic deceleration.</p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="subteam-views/subteam-magnetic.html" class="group relative bg-surface-container border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M3</span>
+          <span class="material-symbols-outlined text-primary-container text-3xl mb-4 block">ssid_chart</span>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Magnetics</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">Magnetic levitation and linear induction motor systems for contactless propulsion.</p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="subteam-views/subteam-ecc.html" class="group relative bg-surface-container border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-E1</span>
+          <span class="material-symbols-outlined text-primary-container text-3xl mb-4 block">developer_board</span>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">ECC</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">Electronics, Controls & Communications. Embedded systems, sensor fusion, and telemetry.</p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="subteam-views/subteam-power.html" class="group relative bg-surface-container border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-E2</span>
+          <span class="material-symbols-outlined text-primary-container text-3xl mb-4 block">electric_bolt</span>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Power Systems</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">High-voltage battery packs and power distribution. Thermal management and energy optimization.</p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+        <a href="subteam-views/subteam-business.html" class="group relative bg-surface-container border border-outline-variant p-6 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-B1</span>
+          <span class="material-symbols-outlined text-primary-container text-3xl mb-4 block">groups</span>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Business</h3>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">Sponsorships, outreach, and team operations. The backbone sustaining our engineering mission.</p>
+          <span class="font-label-caps text-label-caps text-primary border border-outline-variant px-4 py-2 group-hover:border-primary group-hover:bg-surface-container-high transition-all duration-200 inline-flex items-center gap-2">
+            Learn More <span class="material-symbols-outlined text-base">arrow_forward</span>
+          </span>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
 </main>
+
 <div id="footer-placeholder"></div>
 <script src="shared.js"></script>
 </body>

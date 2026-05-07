@@ -88,17 +88,19 @@ tailwind.config = {
   <section class="relative py-32 border-b border-outline-variant overflow-hidden">
     <div class="grid-overlay absolute inset-0 opacity-30"></div>
     <div class="absolute inset-0 z-0">
-      <img src="res/CompetitionPhotoWithPod.jpg" alt="Cornell Hyperloop team" class="w-full h-full object-cover opacity-20"/>
+      <img src="res/FullPodArialShot.jpg" alt="Cornell Hyperloop team" class="w-full h-full object-cover opacity-55"/>
       <div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/40"></div>
     </div>
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
-      <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
-        <span class="w-8 h-[1px] bg-primary block"></span>Engineering Divisions
-      </span>
-      <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase leading-none mb-6">Engineering<br/><span class="text-primary-container">Architecture</span></h1>
-      <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-        Our pod's design is driven by specialized technical units across three core tracks: Mechanical, Electrical, and Business. Precision engineering and rigorous system integration define our approach to velocity.
-      </p>
+      <div class="border-l-2 border-primary-container pl-8 max-w-3xl">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
+          <span class="w-8 h-[1px] bg-primary block"></span>Engineering Divisions
+        </span>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase leading-none mb-6">Engineering<br/><span class="text-primary-container">Architecture</span></h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant">
+          Our pod's design is driven by specialized technical units across three core tracks: Mechanical, Electrical, and Business. Precision engineering and rigorous system integration define our approach to velocity.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -129,10 +131,10 @@ tailwind.config = {
           <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
 
         <!-- Structures -->
-        <a href="subteam-structures.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+        <a href="subteam-views/subteam-structures.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
           <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M1</span>
           <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
-            <img src="res/structuresAnsysPhysicalTest.png" alt="Structures subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <img src="res/oldPodCAD.png" alt="Structures subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
             <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
           </div>
           <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Structures</h3>
@@ -145,10 +147,10 @@ tailwind.config = {
         </a>
 
         <!-- Braking -->
-        <a href="subteam-braking.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+        <a href="subteam-views/subteam-braking.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
           <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M2</span>
           <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
-            <img src="res/sideViewPod.png" alt="Braking subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <img src="res/braking2.jpg" alt="Braking subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
             <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
           </div>
           <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Braking</h3>
@@ -161,13 +163,13 @@ tailwind.config = {
         </a>
 
         <!-- Magnetic -->
-        <a href="subteam-magnetic.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+        <a href="subteam-views/subteam-magnetic.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
           <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-M3</span>
           <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
-            <img src="res/levResearchGraph.png" alt="Magnetic subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <img src="res/mag1.jpg" alt="Magnetics subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
             <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
           </div>
-          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Magnetic</h3>
+          <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Magnetics</h3>
           <p class="font-body-md text-body-md text-on-surface-variant mb-4 text-sm">
             Engineering the magnetic levitation and linear induction motor systems that lift and propel the pod along the track without physical contact.
           </p>
@@ -191,10 +193,10 @@ tailwind.config = {
           <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
 
         <!-- ECC -->
-        <a href="subteam-ecc.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+        <a href="subteam-views/subteam-ecc.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
           <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-E1</span>
           <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
-            <img src="res/PCBschematic.png" alt="ECC subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <img src="res/gui.png" alt="ECC subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
             <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
           </div>
           <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">ECC</h3>
@@ -207,10 +209,10 @@ tailwind.config = {
         </a>
 
         <!-- Power Systems -->
-        <a href="subteam-power.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
+        <a href="subteam-views/subteam-power.html" class="group relative bg-surface-container border border-outline-variant p-8 hover:border-primary-container transition-colors duration-300 card-hover-line overflow-hidden block">
           <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">UNIT-E2</span>
           <div class="relative aspect-video mb-4 overflow-hidden border border-outline-variant">
-            <img src="res/3dPCBCOmpass.png" alt="Power Systems subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
+            <img src="res/inverter.png" alt="Power Systems subteam" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"/>
             <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/10 transition-all duration-300"></div>
           </div>
           <h3 class="font-headline-md text-headline-md text-primary mb-2 uppercase">Power Systems</h3>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cornell Hyperloop — Magnetic</title>
+<title>Cornell Hyperloop — Structures</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700;900&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -62,6 +62,7 @@ tailwind.config = {
                       linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+  .hero-clip { clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%); }
   .scan-line {
     background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(210,43,43,0.03) 2px, rgba(210,43,43,0.03) 4px);
   }
@@ -78,28 +79,29 @@ tailwind.config = {
   <!-- Hero -->
   <section class="relative min-h-[70vh] flex items-end overflow-hidden border-b border-outline-variant">
     <div class="absolute inset-0 z-0">
-      <img src="res/levResearchGraph.png" alt="Magnetic levitation research" class="w-full h-full object-cover grayscale opacity-30"/>
+      <img src="../res/structures3.png" alt="Structures team" class="w-full h-full object-cover opacity-50"/>
       <div class="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
     </div>
-    <div class="grid-overlay absolute inset-0 opacity-20"></div>
+    <div class="grid-overlay absolute inset-0 opacity-30"></div>
+    <!-- Decorative ghost lines -->
     <div class="absolute top-1/3 left-0 right-0 h-[1px] bg-outline-variant/20 hidden lg:block"></div>
     <div class="absolute left-1/3 top-0 bottom-0 w-[1px] bg-outline-variant/20 hidden lg:block"></div>
 
     <div class="relative z-10 w-full max-w-container-max mx-auto px-margin pb-16 pt-32">
       <div class="fade-up">
-        <a href="subteams.html" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-2 mb-8">
+        <a href="../subteams.html" class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors inline-flex items-center gap-2 mb-8">
           <span class="material-symbols-outlined text-base">arrow_back</span> All Subteams
         </a>
       </div>
       <div class="fade-up-2 flex items-center gap-3 mb-4">
         <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2">
-          <span class="w-8 h-[1px] bg-primary block"></span>Mechanical · UNIT-M3
+          <span class="w-8 h-[1px] bg-primary block"></span>Mechanical · UNIT-M1
         </span>
       </div>
-      <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase leading-none mb-6 fade-up-2">Magnetic</h1>
+      <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase leading-none mb-6 fade-up-2">Structures</h1>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl fade-up-3">
-        Engineering the magnetic levitation and linear induction motor systems that lift and propel the pod without any physical contact with the track.
+        A subteam of Mechanical responsible for the overall structural design of the pod — chassis, electronic enclosures, and aeroshell fabrication.
       </p>
     </div>
   </section>
@@ -109,23 +111,23 @@ tailwind.config = {
     <div class="max-w-container-max mx-auto px-margin py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Lev Type</span>
-        <span class="font-headline-md text-headline-md text-on-surface">Passive Maglev</span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Material</span>
+        <span class="font-headline-md text-headline-md text-on-surface">Carbon Fiber</span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Lift Gap</span>
-        <span class="font-mono-stats text-[36px] text-on-surface leading-none">~5<span class="text-headline-md text-primary-container">mm</span></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Pod Mass</span>
+        <span class="font-mono-stats text-[36px] text-on-surface leading-none">~35<span class="text-headline-md text-primary-container">kg</span></span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Drive</span>
-        <span class="font-headline-md text-headline-md text-on-surface">LIM</span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Safety Factor</span>
+        <span class="font-mono-stats text-[36px] text-on-surface leading-none">2.5<span class="text-headline-md text-primary-container">×</span></span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Top Speed</span>
-        <span class="font-mono-stats text-[36px] text-on-surface leading-none">300<span class="text-headline-md text-primary-container">km/h</span></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Sim Tool</span>
+        <span class="font-headline-md text-headline-md text-on-surface">ANSYS FEA</span>
       </div>
     </div>
   </section>
@@ -136,78 +138,85 @@ tailwind.config = {
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
 
+        <!-- Left: description -->
         <div class="lg:col-span-7 space-y-8">
           <div>
             <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
-              <span class="w-8 h-[1px] bg-primary block"></span>Mission
+              <span class="w-8 h-[1px] bg-primary block"></span>Structures
             </span>
-            <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-6">Frictionless.<br/>Contactless. Fast.</h2>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-6">Built to Withstand<br/>Extreme Forces</h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
-              The Magnetic subteam tackles the two defining physics challenges of hyperloop: levitation and propulsion. We design passive Halbach array levitation systems that lift the pod off the track using permanent magnets, and linear induction motors (LIM) that accelerate it electromagnetically.
+              The Structures subteam is responsible for the overall structural design of the Hyperloop pod. We design the chassis, built primarily from aluminum, with steel and carbon fiber where needed, develop enclosures for high and low voltage electronic systems, and fabricate the aerodynamic aeroshell.
             </p>
             <p class="font-body-md text-body-md text-on-surface-variant">
-              Our research spans electromagnetic simulation, custom coil winding, and precision gap control. We iterate rapidly between simulation and physical bench testing to validate our models and push performance boundaries.
+              We work closely with the Electrical teams to ensure all electronics are mounted and secured properly, promoting both safety and functionality. Every structural component undergoes rigorous FEA in ANSYS before fabrication, validated against physical load testing.
             </p>
           </div>
 
+          <!-- Responsibilities -->
           <div>
             <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
               <span class="w-8 h-[1px] bg-primary block"></span>Core Responsibilities
             </span>
             <div class="space-y-3">
-              <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
+              <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors group">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Halbach Array Design</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Permanent magnet arrays optimized for maximum lift force at minimum weight.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Chassis Design</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Primary load-bearing frame using carbon fiber monocoque construction.</span>
                 </div>
               </div>
-              <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
+              <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors group">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Linear Induction Motor</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Custom LIM stator design for contactless electromagnetic propulsion.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Aeroshell</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Aerodynamic outer shell optimized for drag reduction in low-pressure tube environments.</span>
                 </div>
               </div>
-              <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
+              <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors group">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">EM Simulation</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">COMSOL and ANSYS Maxwell simulations of magnetic field distributions.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">FEA Simulation</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Finite element analysis of all structural members under competition load cases.</span>
                 </div>
               </div>
-              <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
+              <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors group">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Bench Testing</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Physical force measurement and gap characterization on test rigs.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Physical Testing</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Destructive and non-destructive testing to validate simulation models.</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- Right: image + tools -->
         <div class="lg:col-span-5 space-y-6">
           <div class="relative border border-outline-variant overflow-hidden group">
-            <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-10">IMG-M3-01</span>
-            <img src="res/levResearchGraph.png" alt="Levitation research graph" class="w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"/>
+            <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-10">IMG-M1-01</span>
+            <img src="../res/structures1.jpg" alt="Structures" class="w-full max-h-[400px] object-cover group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/5 transition-all duration-300"></div>
             <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
           </div>
           <div class="relative border border-outline-variant overflow-hidden group">
-            <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-10">IMG-M3-02</span>
-            <img src="res/miniPodCloseUp.jpg" alt="Mini pod close up" class="w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"/>
+            <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-10">IMG-M1-02</span>
+            <img src="../res/structures2.png" alt="Structures" class="w-full max-h-[400px] object-cover group-hover:scale-105 transition-all duration-500"/>
+            <div class="absolute inset-0 bg-primary-container/0 group-hover:bg-primary-container/5 transition-all duration-300"></div>
             <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
           </div>
+
+          <!-- Tools -->
           <div class="bg-surface-container border border-outline-variant p-6">
             <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
               <span class="w-6 h-[1px] bg-primary block"></span>Tools & Software
             </span>
             <div class="flex flex-wrap gap-2">
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">COMSOL</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">ANSYS Maxwell</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">MATLAB</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Python</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Halbach Arrays</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">SolidWorks</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">ANSYS FEA</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Carbon Fiber Layup</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">CNC Machining</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Vacuum Bagging</span>
             </div>
           </div>
         </div>
@@ -222,17 +231,17 @@ tailwind.config = {
     <div class="relative z-10 max-w-container-max mx-auto px-margin flex flex-col md:flex-row items-center justify-between gap-8">
       <div>
         <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase block mb-2">Join the Team</span>
-        <h3 class="font-headline-md text-headline-md text-on-surface uppercase">Interested in Magnetic?</h3>
+        <h3 class="font-headline-md text-headline-md text-on-surface uppercase">Interested in Structures?</h3>
       </div>
       <div class="flex gap-4">
-        <a href="apply.html" class="bg-primary-container text-on-primary-container px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">APPLY NOW</a>
-        <a href="subteams.html" class="border border-outline-variant text-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:border-primary hover:bg-surface-container-high transition-all duration-200">ALL SUBTEAMS</a>
+        <a href="../apply.html" class="bg-primary-container text-on-primary-container px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">APPLY NOW</a>
+        <a href="../subteams.html" class="border border-outline-variant text-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:border-primary hover:bg-surface-container-high transition-all duration-200">ALL SUBTEAMS</a>
       </div>
     </div>
   </section>
 </main>
 
 <div id="footer-placeholder"></div>
-<script src="shared.js"></script>
+<script src="../shared.js"></script>
 </body>
 </html>
