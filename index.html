@@ -5,8 +5,10 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Cornell Hyperloop</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Space+Grotesk:wght@600;700;900&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_forward,electric_bolt,groups,language,mail,menu,settings&display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
 tailwind.config = {
   darkMode: "class",
@@ -81,7 +83,7 @@ tailwind.config = {
   <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden border-b border-outline-variant">
     <div class="absolute inset-0 z-0">
       <div class="absolute inset-0 bg-surface/80 z-10"></div>
-      <img alt="Hyperloop pod visualization" class="w-full h-full object-contain grayscale opacity-30" src="res/noBGartwork.png"/>
+      <img alt="Hyperloop pod visualization" class="w-full h-full object-contain grayscale opacity-30" src="res/noBGartwork.png" loading="lazy" decoding="async"/>
     </div>
     <div class="grid-overlay absolute inset-0 z-10 opacity-50"></div>
     <div class="relative z-20 w-full grid grid-cols-1 md:grid-cols-12 items-stretch min-h-[90vh]">
@@ -108,7 +110,7 @@ tailwind.config = {
       <!-- Right: triangular photo panel -->
       <div class="hidden md:block md:col-span-5 relative">
         <div class="hero-photo-clip absolute inset-0 overflow-hidden">
-          <img alt="Cornell Hyperloop team at competition" class="w-full h-full object-cover transition-all duration-700" src="res/compressed_teamPhotos/2025 Spring Hyperloop.JPG"/>
+          <img alt="Cornell Hyperloop team at competition" class="w-full h-full object-cover" src="res/compressed_teamPhotos/2025 Spring Hyperloop.JPG" fetchpriority="high" decoding="async"/>
           <div class="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent"></div>
           <div class="absolute inset-0 bg-primary-container/10"></div>
         </div>
@@ -146,8 +148,13 @@ tailwind.config = {
         <div class="group relative border border-outline-variant bg-surface-container hover:border-primary transition-colors duration-300 overflow-hidden">
           <span class="absolute top-3 left-3 font-label-caps text-label-caps text-primary tracking-widest uppercase z-20">Pod Demo</span>
           <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-20">VID-01</span>
-          <div class="relative aspect-video">
-            <iframe class="w-full h-full" src="https://www.youtube.com/embed/Kyc69w9Pzhw" title="Pod Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="relative aspect-video bg-surface-container-lowest cursor-pointer" id="yt-facade" onclick="this.innerHTML='<iframe class=\'w-full h-full\' src=\'https://www.youtube.com/embed/Kyc69w9Pzhw?autoplay=1\' title=\'Pod Demo\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen></iframe>';this.onclick=null;">
+            <img src="https://i.ytimg.com/vi/Kyc69w9Pzhw/hqdefault.jpg" alt="Pod Demo video thumbnail" class="w-full h-full object-cover" loading="lazy" decoding="async"/>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="w-16 h-16 bg-primary-container/90 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <svg viewBox="0 0 24 24" class="w-8 h-8 fill-on-primary ml-1"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
           </div>
           <div class="p-4">
             <p class="font-body-md text-body-md text-on-surface-variant">Watch our scale-model pod in action — magnetic levitation and LIM propulsion on the test track.</p>
@@ -228,7 +235,7 @@ tailwind.config = {
             <span class="absolute top-2 right-2 font-label-caps text-label-caps text-outline-variant/50">SYS-ID: CH-V4.2</span>
           </div>
           <div class="relative z-10 w-full h-full max-w-[400px] overflow-hidden border border-outline p-2 bg-surface">
-            <img alt="Cornell Hyperloop Pod" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500" src="res/dailySunArticle.png"/>
+            <img alt="Cornell Hyperloop Pod" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500" src="res/dailySunArticle.webp" loading="lazy" decoding="async"/>
           </div>
         </div>
       </div>
