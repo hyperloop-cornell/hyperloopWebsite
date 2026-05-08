@@ -6,31 +6,33 @@ const NAV_LINKS = [
   { href: "sponsors.html", label: "Sponsors" },
 ];
 
-function isSubdir() {
-  return location.pathname.includes("/subteam-views/");
-}
+// Derive the site root from wherever shared.js lives — works locally and on any GitHub Pages path.
+const ROOT = (() => {
+  const src = document.currentScript?.src ||
+    [...document.querySelectorAll('script[src]')].find(s => s.src.includes('shared.js'))?.src;
+  return src ? src.replace(/shared\.js$/, '') : '/';
+})();
 
 function currentPage() {
   return location.pathname.split("/").pop() || "index.html";
 }
 
 function renderNav() {
-  const prefix = isSubdir() ? "../" : "";
   const links = NAV_LINKS.map(({ href, label }) => {
     const active = currentPage() === href;
     const base = "font-headline-md text-headline-md font-bold uppercase tracking-tighter transition-all duration-200 hover:bg-surface-container-high px-2 py-1";
     const cls = active
       ? `${base} text-primary border-b-2 border-primary pb-1`
       : `${base} text-on-surface-variant hover:text-primary`;
-    return `<a class="${cls}" href="${prefix}${href}">${label}</a>`;
+    return `<a class="${cls}" href="${ROOT}${href}">${label}</a>`;
   }).join("");
 
   return `
 <header class="bg-surface text-primary top-0 z-50 border-b border-outline-variant sticky">
   <div class="flex justify-between items-center w-full px-margin py-4 max-w-container-max mx-auto">
-    <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase" href="${prefix}index.html"><img src="${prefix}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto"/>CORNELL HYPERLOOP</a>
+    <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase" href="${ROOT}index.html"><img src="${ROOT}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto"/>CORNELL HYPERLOOP</a>
     <nav class="hidden md:flex gap-gutter items-center">${links}</nav>
-    <a href="${prefix}apply.html" class="hidden md:block bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
+    <a href="${ROOT}apply.html" class="hidden md:block bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
     <button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
   </div>
 </header>`;
@@ -77,8 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 if ("serviceWorker" in navigator) {
-  const swPath = (isSubdir() ? "../" : "") + "sw.js";
-  navigator.serviceWorker.register(swPath, { scope: "./" })
+  navigator.serviceWorker.register(ROOT + "sw.js", { scope: ROOT })
     .then(reg => {
       window.addEventListener("load", () => {
         const sw = reg.active || reg.installing || reg.waiting;
