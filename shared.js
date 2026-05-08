@@ -29,7 +29,7 @@ function renderNav() {
   return `
 <header class="bg-surface text-primary top-0 z-50 border-b border-outline-variant sticky">
   <div class="flex justify-between items-center w-full px-margin py-4 max-w-container-max mx-auto">
-    <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase" href="${prefix}index.html"><img src="${prefix}res/logoNoBG.png" alt="Hyperloop logo" class="h-8 w-auto"/>CORNELL HYPERLOOP</a>
+    <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase" href="${prefix}index.html"><img src="${prefix}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto"/>CORNELL HYPERLOOP</a>
     <nav class="hidden md:flex gap-gutter items-center">${links}</nav>
     <a href="${prefix}apply.html" class="hidden md:block bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
     <button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
