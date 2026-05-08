@@ -27,13 +27,27 @@ function renderNav() {
     return `<a class="${cls}" href="${ROOT}${href}">${label}</a>`;
   }).join("");
 
+  const mobileLinks = NAV_LINKS.map(({ href, label }) => {
+    const active = currentPage() === href;
+    const cls = active
+      ? "block px-4 py-3 font-label-caps text-label-caps uppercase tracking-widest text-primary border-l-2 border-primary bg-surface-container"
+      : "block px-4 py-3 font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors";
+    return `<a class="${cls}" href="${ROOT}${href}">${label}</a>`;
+  }).join("");
+
   return `
 <header class="bg-surface text-primary top-0 z-50 border-b border-outline-variant sticky">
   <div class="flex justify-between items-center w-full px-margin py-4 max-w-container-max mx-auto">
-    <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase" href="${ROOT}index.html"><img src="${ROOT}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto"/>CORNELL HYPERLOOP</a>
+    <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase min-w-0" href="${ROOT}index.html"><img src="${ROOT}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto flex-shrink-0"/><span class="hidden sm:inline">CORNELL HYPERLOOP</span><span class="sm:hidden">HYPERLOOP</span></a>
     <nav class="hidden md:flex gap-gutter items-center">${links}</nav>
     <a href="${ROOT}apply.html" class="hidden md:block bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
-    <button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
+    <button id="mobile-menu-btn" class="md:hidden text-primary p-2 flex-shrink-0" aria-label="Toggle menu" aria-expanded="false"><span class="material-symbols-outlined text-[28px]">menu</span></button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+    <nav class="flex flex-col py-2">${mobileLinks}</nav>
+    <div class="px-4 py-3 border-t border-outline-variant">
+      <a href="${ROOT}apply.html" class="block w-full text-center bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
+    </div>
   </div>
 </header>`;
 }
@@ -63,6 +77,17 @@ function renderFooter() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("nav-placeholder").innerHTML = renderNav();
   document.getElementById("footer-placeholder").innerHTML = renderFooter();
+
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  if (btn && menu) {
+    btn.addEventListener("click", () => {
+      const open = !menu.classList.contains("hidden");
+      menu.classList.toggle("hidden", open);
+      btn.setAttribute("aria-expanded", String(!open));
+      btn.querySelector(".material-symbols-outlined").textContent = open ? "menu" : "-"
+    });
+  }
 
   const prefetched = new Set();
   document.getElementById("nav-placeholder").addEventListener("mouseover", e => {
