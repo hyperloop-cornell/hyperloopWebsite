@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.suo
+*.user
+*.swp
+*~
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Logs & temp
+*.log
+*.tmp
+
+# Original/uncompressed assets (large, not needed in repo)
+res/originals/
+res/unused/
+res/*.psd
+res/*.ai
+
+# Local dev server artifacts
+.cache/
