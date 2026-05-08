@@ -1,15 +1,15 @@
 const CACHE = "hyperloop-v4";
 
 const PAGES = [
-  "/", "index.html", "subteams.html", "members.html",
-  "apply.html", "sponsors.html", "updates.html",
-  "subteam-views/subteam-structures.html",
-  "subteam-views/subteam-braking.html",
-  "subteam-views/subteam-ecc.html",
-  "subteam-views/subteam-magnetic.html",
-  "subteam-views/subteam-power.html",
-  "subteam-views/subteam-business.html",
-  "shared.js", "res/members.json"
+  "./", "./index.html", "./subteams.html", "./members.html",
+  "./apply.html", "./sponsors.html", "./updates.html",
+  "./subteam-views/subteam-structures.html",
+  "./subteam-views/subteam-braking.html",
+  "./subteam-views/subteam-ecc.html",
+  "./subteam-views/subteam-magnetic.html",
+  "./subteam-views/subteam-power.html",
+  "./subteam-views/subteam-business.html",
+  "./shared.js", "./res/members.json"
 ];
 
 self.addEventListener("install", e => {

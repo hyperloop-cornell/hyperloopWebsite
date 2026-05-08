@@ -7,8 +7,7 @@ const NAV_LINKS = [
 ];
 
 function isSubdir() {
-  const parts = location.pathname.split("/").filter(Boolean);
-  return parts.length >= 2 && parts[parts.length - 2] !== "hyperloop_website";
+  return location.pathname.includes("/subteam-views/");
 }
 
 function currentPage() {
@@ -79,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 if ("serviceWorker" in navigator) {
   const swPath = (isSubdir() ? "../" : "") + "sw.js";
-  navigator.serviceWorker.register(swPath, { scope: "/" })
+  navigator.serviceWorker.register(swPath, { scope: "./" })
     .then(reg => {
       window.addEventListener("load", () => {
         const sw = reg.active || reg.installing || reg.waiting;
