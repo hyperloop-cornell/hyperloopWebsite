@@ -1,4 +1,4 @@
-const CACHE = "hyperloop-v1";
+const CACHE = "hyperloop-v3";
 
 const PAGES = [
   "/", "index.html", "subteams.html", "members.html",
