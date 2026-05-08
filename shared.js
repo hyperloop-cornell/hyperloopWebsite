@@ -62,6 +62,19 @@ function renderFooter() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("nav-placeholder").innerHTML = renderNav();
   document.getElementById("footer-placeholder").innerHTML = renderFooter();
+
+  const prefetched = new Set();
+  document.getElementById("nav-placeholder").addEventListener("mouseover", e => {
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+    const href = a.getAttribute("href");
+    if (!href || href.startsWith("#") || prefetched.has(href)) return;
+    prefetched.add(href);
+    const link = document.createElement("link");
+    link.rel = "prefetch";
+    link.href = href;
+    document.head.appendChild(link);
+  });
 });
 
 if ("serviceWorker" in navigator) {
