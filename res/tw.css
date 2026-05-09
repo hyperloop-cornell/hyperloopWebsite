@@ -787,6 +787,10 @@ input:where([type='file']):focus {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .absolute {
   position: absolute;
 }
@@ -956,6 +960,10 @@ input:where([type='file']):focus {
   margin-top: 2rem;
 }
 
+.mr-\[-120px\] {
+  margin-right: -120px;
+}
+
 .block {
   display: block;
 }
@@ -1040,6 +1048,14 @@ input:where([type='file']):focus {
   height: 1px;
 }
 
+.h-\[700px\] {
+  height: 700px;
+}
+
+.h-\[900px\] {
+  height: 900px;
+}
+
 .max-h-\[220px\] {
   max-height: 220px;
 }
@@ -1106,6 +1122,14 @@ input:where([type='file']):focus {
 
 .w-full {
   width: 100%;
+}
+
+.w-\[700px\] {
+  width: 700px;
+}
+
+.w-\[900px\] {
+  width: 900px;
 }
 
 .min-w-0 {
@@ -1862,13 +1886,11 @@ input:where([type='file']):focus {
 }
 
 .text-on-surface {
-  --tw-text-opacity: 1;
-  color: rgb(220 225 251 / var(--tw-text-opacity, 1));
+  color: rgb(220 225 251 / 0.83);
 }
 
 .text-on-surface-variant {
-  --tw-text-opacity: 1;
-  color: rgb(228 190 185 / var(--tw-text-opacity, 1));
+  color: rgb(228 190 185 / 0.73);
 }
 
 .text-on-surface-variant\/50 {
@@ -1880,8 +1902,7 @@ input:where([type='file']):focus {
 }
 
 .text-outline-variant {
-  --tw-text-opacity: 1;
-  color: rgb(91 64 61 / var(--tw-text-opacity, 1));
+  color: rgb(91 64 61 / 0.53);
 }
 
 .text-outline-variant\/50 {
@@ -1939,6 +1960,16 @@ input:where([type='file']):focus {
   opacity: 0.85;
 }
 
+.opacity-\[0\.13\] {
+  opacity: 0.13;
+}
+
+.ring {
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+}
+
 .grayscale {
   --tw-grayscale: grayscale(100%);
   filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
@@ -1984,6 +2015,10 @@ input:where([type='file']):focus {
 
 .duration-700 {
   transition-duration: 700ms;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .selection\:bg-primary-container *::-moz-selection {
