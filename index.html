@@ -29,21 +29,20 @@
 
 <main>
   <!-- Hero -->
-  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden border-b border-outline-variant">
+  <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-surface-container-low border-b border-outline-variant">
     <div class="absolute inset-0 z-0">
-      <div class="absolute inset-0 bg-surface/80 z-10"></div>
-      <img alt="Hyperloop pod visualization" class="w-full h-full object-contain grayscale opacity-30" src="res/noBGartwork.avif" loading="lazy" decoding="async"/>
+      <img alt="Hyperloop pod visualization" class="w-full h-full object-contain grayscale opacity-5" src="res/noBGartwork.avif" loading="lazy" decoding="async"/>
     </div>
-    <div class="grid-overlay absolute inset-0 z-10 opacity-50"></div>
+    <div class="grid-overlay absolute inset-0 z-10 opacity-30"></div>
     <div class="relative z-20 w-full grid grid-cols-1 md:grid-cols-12 items-stretch min-h-[90vh]">
       <!-- Left: text content -->
-      <div class="md:col-span-7 flex flex-col justify-center items-start gap-6 px-6 md:px-margin py-20 md:py-24">
+      <div class="md:col-span-7 flex flex-col justify-center items-start gap-6 px-margin py-20 md:py-24">
         <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2">
           <span class="w-8 h-[1px] bg-primary block"></span>
           Cornell Hyperloop
         </span>
-        <h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight uppercase relative inline-block" style="font-size:clamp(1.75rem,10vw,4rem)">
-          Revolutionizing <br/> the future of <span class="text-primary-container">Transportation</span>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight uppercase relative inline-block whitespace-nowrap text-[clamp(1.5rem,4vw,var(--font-size-headline-xl,3rem))]">
+          Revolutionizing <br/> <span class="text-primary-container">Transportation</span>
         </h1>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
           Cornell's student lead project team designing and innovating hyperloop pods at the frontier of transport technology.
@@ -83,16 +82,6 @@
             Cornell Hyperloop is engineering the "fifth mode of transport": a high-speed transit system designed to move pods through low-pressure vacuum tubes. By eliminating air resistance and surface friction, we are building the foundation for sustainable, 700-mph ground travel.
           </p>
         </div>
-        <div>
-          <p class="font-body-lg text-body-lg text-on-surface-variant">
-            Our team contributes to this global vision by designing and prototyping autonomous, scale-model pods. We focus on mastering the two core challenges of hyperloop physics: Magnetic Levitation to eliminate contact with the track, and Linear Induction Motors (LIM) to provide efficient electromagnetic propulsion. Through hands-on research and iterative testing, we bridge the gap between theoretical physics and the future of scalable infrastructure.
-          </p>
-        </div>
-      </div>
-
-      <!-- Media Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
-
         <!-- Video Card -->
         <div class="group relative border border-outline-variant bg-surface-container hover:border-primary transition-colors duration-300 overflow-hidden">
           <span class="absolute top-3 left-3 font-label-caps text-label-caps text-primary tracking-widest uppercase z-20">Pod Demo</span>
@@ -110,6 +99,10 @@
           </div>
           <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
         </div>
+      </div>
+
+      <!-- Media Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
 
         <!-- CAD Card -->
         <div class="group relative border border-outline-variant bg-surface-container hover:border-primary transition-colors duration-300 overflow-hidden">
@@ -131,6 +124,12 @@
             <p class="font-body-md text-body-md text-on-surface-variant">Full assembly CAD of our 2025 competition pod, integrating levitation, propulsion, and structural subsystems.</p>
           </div>
           <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+        </div>
+
+        <div>
+          <p class="font-body-lg text-body-lg text-on-surface-variant">
+            Our team contributes to this global vision by designing and prototyping autonomous, scale-model pods. We focus on mastering the two core challenges of hyperloop physics: Magnetic Levitation to eliminate contact with the track, and Linear Induction Motors (LIM) to provide efficient electromagnetic propulsion. Through hands-on research and iterative testing, we bridge the gap between theoretical physics and the future of scalable infrastructure.
+          </p>
         </div>
 
       </div>
