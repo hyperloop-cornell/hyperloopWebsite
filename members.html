@@ -117,7 +117,7 @@ function leadCard(person) {
            class="member-photo w-full h-full object-cover object-top" style="height:480px"/>
     </div>
     <div class="h-[480px] relative">
-      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/75 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/35 to-transparent"></div>
       <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none"></div>
       <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
         <div class="flex items-center gap-2">
@@ -136,7 +136,7 @@ function subteamLeadCard(person) {
            class="member-photo w-full h-full object-cover object-top" style="height:360px"/>
     </div>
     <div class="h-[360px] relative">
-      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/70 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/35 to-transparent"></div>
       <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none"></div>
       <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
         <div class="flex items-center gap-2">
@@ -155,7 +155,7 @@ function memberCard(person) {
       <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
            class="member-photo w-full h-full object-cover object-top"/>
     </div>
-    <div class="absolute inset-0 bg-gradient-to-t from-surface from-10% via-surface/60 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-surface from-10% via-surface/35 to-transparent"></div>
     <div class="relative z-10 flex flex-col justify-end h-full p-4 gap-1">
       <div class="flex items-center gap-2">
         <span class="w-3 h-[2px] bg-primary-container block"></span>
@@ -170,10 +170,10 @@ function facultyCard(person) {
   return cardWrapper(person, `
     <div class="absolute inset-0 overflow-hidden">
       <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
-           class="member-photo w-full h-full object-cover object-top" style="height:380px"/>
+           class="member-photo w-full h-full object-contain object-center" style="height:380px"/>
     </div>
     <div class="h-[380px] relative">
-      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/75 to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/45 to-transparent"></div>
       <div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/50 transition-colors pointer-events-none"></div>
       <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
         <div class="flex items-center gap-2">

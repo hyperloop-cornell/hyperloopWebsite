@@ -1196,6 +1196,11 @@ input:where([type='file']):focus {
   height: 45%;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .max-h-\[220px\] {
   max-height: 220px;
 }
@@ -1654,6 +1659,10 @@ input:where([type='file']):focus {
   --tw-gradient-from-position: 20%;
 }
 
+.from-15\% {
+  --tw-gradient-from-position: 15%;
+}
+
 .via-background\/70 {
   --tw-gradient-to: rgb(12 19 36 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), rgb(12 19 36 / 0.7) var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -1682,6 +1691,16 @@ input:where([type='file']):focus {
 .via-transparent {
   --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-surface\/45 {
+  --tw-gradient-to: rgb(12 19 36 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(12 19 36 / 0.45) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.via-surface\/35 {
+  --tw-gradient-to: rgb(12 19 36 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(12 19 36 / 0.35) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-background\/20 {
@@ -1713,6 +1732,11 @@ input:where([type='file']):focus {
 .object-top {
   -o-object-position: top;
      object-position: top;
+}
+
+.object-center {
+  -o-object-position: center;
+     object-position: center;
 }
 
 .p-10 {

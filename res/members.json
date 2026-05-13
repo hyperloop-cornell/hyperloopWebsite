@@ -11,8 +11,8 @@
   "subteamLeads": [
     { "name": "Anubhav Nigam", "role": "Magnetics Lead", "subteam": "Magnetics", "photo": "Anubhav.jpg" },
     { "name": "Tokunbo Oshinowo", "role": "Structures Lead", "subteam": "Structures", "photo": "Tokunbo Oshinowo.jpg" },
-    { "name": "Lalo Esparza", "role": "Power Systems Lead", "subteam": "Power", "photo": "Lalo Esparza.jpg" },
     { "name": "Weston Clark", "role": "ECC Lead", "subteam": "ECC", "photo": "Weston Clark.jpg" },
+    { "name": "Lalo Esparza", "role": "Power Systems Lead", "subteam": "Power", "photo": "Lalo Esparza.jpg" },
     { "name": "Shreya Anand", "role": "Braking Lead", "subteam": "Braking", "photo": "Shreya Anand.jpg" },
     { "name": "Carter McClintock-Comeaux", "role": "Braking Lead", "subteam": "Braking", "photo": "Carter McClintock-Comeaux.jpg" },
     { "name": "Daniel Akinwale", "role": "Composites Lead", "subteam": "Mechanical", "photo": "Daniel.jpg" },
