@@ -2498,6 +2498,10 @@ input:where([type='file']):focus {
 }
 
 @media (min-width: 1024px) {
+  .lg\:left-\[-8\%\] {
+    left: -8%;
+  }
+
   .lg\:col-span-5 {
     grid-column: span 5 / span 5;
   }
@@ -2540,12 +2544,20 @@ input:where([type='file']):focus {
 }
 
 @media (min-width: 1280px) {
+  .xl\:left-\[-12\%\] {
+    left: -12%;
+  }
+
   .xl\:h-\[60\%\] {
     height: 60%;
   }
 }
 
 @media (min-width: 1536px) {
+  .\32xl\:left-\[-16\%\] {
+    left: -16%;
+  }
+
   .\32xl\:h-\[60\%\] {
     height: 60%;
   }
