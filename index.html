@@ -12,6 +12,7 @@
   @font-face{font-family:'Space Grotesk';src:url('res/fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.subset.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
   .material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24 }
+  .opacity3 { opacity: 3%; }
   .grid-overlay {
     background-image: linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
                       linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
@@ -55,11 +56,11 @@
   <!-- Hero -->
   <section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-surface-container-low border-b border-outline-variant">
     <div class="absolute inset-0 z-0 lg:left-[-8%] xl:left-[-12%] 2xl:left-[-16%]">
-      <img alt="Hyperloop pod visualization" class="w-full h-full object-contain grayscale opacity-5" src="res/noBGartwork.avif" loading="lazy" decoding="async"/>
+      <img alt="Hyperloop pod visualization" class="w-full h-full object-contain opacity3" src="res/claireArt.avif" loading="lazy" decoding="async"/>
     </div>
     <div class="grid-overlay absolute inset-0 z-10 opacity-30"></div>
     <!-- Decorative rings -->
-    <svg id="hero-ring-tl" class="absolute -top-[70%] -left-60 md:-top-[55%] md:-left-70 w-[620px] h-[620px] z-10 pointer-events-none" viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg id="hero-ring-tl" class="absolute -top-[70%] -left-60 md:-top-[55%] md:-left-70 w-[620px] h-[620px] opacity-85 z-10 pointer-events-none" viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g class="ring-spin"><circle cx="310" cy="310" r="295" stroke="#d22b2b" stroke-width="0.5" opacity="0.15"/>
         <line x1="310" y1="15" x2="310" y2="30" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
         <line x1="310" y1="590" x2="310" y2="605" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
@@ -76,7 +77,7 @@
       <g class="ring-spin"><circle cx="310" cy="310" r="200" stroke="#d22b2b" stroke-width="1.5" opacity="0.20"/></g>
       <g class="ring-spin"><circle cx="310" cy="310" r="170" stroke="#d22b2b" stroke-width="0.5" stroke-dasharray="4 6" opacity="0.15"/></g>
     </svg>
-    <svg id="hero-ring-br" class="absolute -bottom-[75%] -right-20 md:-bottom-40 md:-right-40 w-[580px] h-[580px] z-10 pointer-events-none" viewBox="0 0 580 580" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg id="hero-ring-br" class="absolute -bottom-[75%] -right-20 md:-bottom-40 md:-right-40 w-[580px] h-[580px] opacity-85 z-10 pointer-events-none" viewBox="0 0 580 580" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <g class="ring-spin"><circle cx="290" cy="290" r="270" stroke="#d22b2b" stroke-width="0.5" opacity="0.15"/>
         <line x1="290" y1="20" x2="290" y2="35" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
         <line x1="290" y1="545" x2="290" y2="560" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
@@ -96,14 +97,14 @@
     <div class="relative z-20 w-full flex items-stretch min-h-[90vh]" style="--hero-spread: 120px">
       <!-- Left: text content -->
       <div class="flex flex-col justify-center items-start gap-6 py-20 md:py-24 px-6 md:px-[var(--hero-spread)]">
-        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.8em] uppercase flex items-center gap-2">
           <span class="w-8 h-[1px] bg-primary block"></span>
           Cornell Hyperloop
         </span>
-        <h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight uppercase relative inline-block text-[clamp(1.75rem,6vw,var(--font-size-headline-xl,3rem))]">
+        <h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight uppercase relative inline-block text-[clamp(1.75rem,6vw,var(--font-size-headline-2xl,6rem))]">
           Revolutionizing <br/> <span class="text-primary-container">Transportation</span>
         </h1>
-        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
+        <p class="font-body-4xl text-body-4xl text-on-surface-variant max-w-md">
           Cornell's student lead project team designing and innovating hyperloop pods at the frontier of transport technology.
         </p>
         <div class="flex flex-wrap gap-4 mt-4">

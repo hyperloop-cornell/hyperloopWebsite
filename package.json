@@ -1,0 +1,13 @@
+{
+  "type": "module",
+  "scripts": {
+    "build:css": "tailwindcss -i input.css -o res/tw.css --minify",
+    "watch:css": "tailwindcss -i input.css -o res/tw.css --watch",
+    "demo:record": "node demo-recorder.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@tailwindcss/forms": "^0.5.11",
+    "tailwindcss": "^3.4.19"
+  }
+}
