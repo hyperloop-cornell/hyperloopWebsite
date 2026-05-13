@@ -787,6 +787,10 @@ input:where([type='file']):focus {
   pointer-events: none;
 }
 
+.visible {
+  visibility: visible;
+}
+
 .invisible {
   visibility: hidden;
 }

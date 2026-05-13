@@ -25,7 +25,7 @@
   #hero-ring-tl g.ring-spin { transform-origin: 310px 310px; }
   #hero-ring-br g.ring-spin { transform-origin: 290px 290px; }
 
-  /* --- Photo panel: page-load entrance --- */
+  /* --- Photo panel: page-load entrance + scroll animation --- */
   #hero-panel {
     opacity: 0;
     clip-path: polygon(100% 5%, 100% 5%, 100% 85%, 100% 85%);
@@ -294,11 +294,6 @@
 <script src="shared.js"></script>
 <script>
 (function(){
-  // --- Hero parallax ---
-  var panel = document.getElementById('hero-panel');
-  var img   = document.getElementById('hero-panel-img');
-  var heroH = panel ? panel.closest('section').offsetHeight : 0;
-
   // --- Ring scroll-spin ---
   // dirs: TL rings alternate CW/CCW starting CW; BR starts CCW
   var tlRings = Array.from(document.querySelectorAll('#hero-ring-tl g.ring-spin'));
@@ -310,8 +305,143 @@
   var mults = [1.0, 0.75, 0.55, 0.40, 0.28, 0.18];
 
   var lastScrollY = window.scrollY;
-  var scrollVel = 0; // px/frame smoothed
   var rafId = null;
+
+  // --- Panel scroll animation ---
+  var panelEl = document.getElementById('hero-panel');
+  var borderPoly = document.getElementById('hero-border-poly');
+  var panelLabel = document.getElementById('hero-panel-label');
+  
+  // Capture initial panel position on page load
+  var initialPanelTop = null;
+  var panelScrollAnimationActive = false; // Don't apply scroll animation until first scroll
+  
+  // Define animation keyframes as interpolation targets
+  // Progress 0 = fully on-screen (final state), Progress 1 = scrolled off (initial state)
+  var panelAnimationConfig = {
+    // Panel reveal: from (100%, 5%, 100%, 5%, 100%, 85%, 100%, 85%) to (24%, 5%, 90%, 5%, 90%, 85%, 0%, 85%)
+    clipPath: {
+      start: [100, 5, 100, 5, 100, 85, 100, 85],
+      end: [24, 5, 90, 5, 90, 85, 0, 85],
+      duration: 1.1,
+      delay: 0.3,
+      easing: 'cubic-bezier(0.16,1,0.3,1)'
+    },
+    opacity: {
+      start: 0,
+      end: 1,
+      duration: 1.1,
+      delay: 0.3,
+      easing: 'cubic-bezier(0.16,1,0.3,1)'
+    },
+    strokeDashoffset: {
+      start: 400,
+      end: 0,
+      duration: 1.2,
+      delay: 0.8,
+      easing: 'cubic-bezier(0.4,0,0.2,1)'
+    },
+    labelOpacity: {
+      start: 0,
+      end: 1,
+      duration: 0.5,
+      delay: 1.6,
+      easing: 'ease'
+    }
+  };
+
+  // Cubic bezier easing function approximations
+  function cubicBezier(p0, p1, p2, p3, t) {
+    var mt = 1 - t;
+    return mt * mt * mt * p0 + 3 * mt * mt * t * p1 + 3 * mt * t * t * p2 + t * t * t * p3;
+  }
+
+  function applyEasing(easing, t) {
+    if (easing === 'cubic-bezier(0.16,1,0.3,1)') {
+      // panel-reveal curve
+      return cubicBezier(0, 0.16, 0.3, 1, t);
+    } else if (easing === 'cubic-bezier(0.4,0,0.2,1)') {
+      // poly-draw curve
+      return cubicBezier(0, 0.4, 0.2, 1, t);
+    } else if (easing === 'ease') {
+      return cubicBezier(0, 0.25, 0.75, 1, t);
+    }
+    return t; // linear
+  }
+
+  function updatePanelAnimation(scrollProgress) {
+    // scrollProgress: 0 = fully on-screen, 1 = fully scrolled off
+    // We need to reverse it because animation goes from initial to final,
+    // but scroll goes from final to initial
+    var animProgress = 1 - scrollProgress;
+
+    // Panel clip-path: interpolate between start and end
+    var clipPathConfig = panelAnimationConfig.clipPath;
+    var clipDelay = clipPathConfig.delay;
+    var clipDuration = clipPathConfig.duration;
+    var clipT = Math.max(0, Math.min(1, (animProgress - clipDelay / 2) / (clipDuration / 2)));
+    var clipEased = applyEasing(clipPathConfig.easing, clipT);
+    var clipStart = clipPathConfig.start;
+    var clipEnd = clipPathConfig.end;
+    var clipValues = clipStart.map(function(v, i) {
+      return v + (clipEnd[i] - v) * clipEased;
+    });
+    panelEl.style.clipPath = 'polygon(' + clipValues[0] + '% ' + clipValues[1] + '%, ' +
+                              clipValues[2] + '% ' + clipValues[3] + '%, ' +
+                              clipValues[4] + '% ' + clipValues[5] + '%, ' +
+                              clipValues[6] + '% ' + clipValues[7] + '%)';
+
+    // Panel opacity
+    var opacityConfig = panelAnimationConfig.opacity;
+    var opDelay = opacityConfig.delay;
+    var opDuration = opacityConfig.duration;
+    var opT = Math.max(0, Math.min(1, (animProgress - opDelay / 2) / (opDuration / 2)));
+    var opEased = applyEasing(opacityConfig.easing, opT);
+    var finalOpacity = opacityConfig.start + (opacityConfig.end - opacityConfig.start) * opEased;
+    panelEl.style.opacity = finalOpacity;
+
+    // Border stroke-dashoffset
+    var strokeConfig = panelAnimationConfig.strokeDashoffset;
+    var strokeDelay = strokeConfig.delay;
+    var strokeDuration = strokeConfig.duration;
+    var strokeT = Math.max(0, Math.min(1, (animProgress - strokeDelay / 2) / (strokeDuration / 2)));
+    var strokeEased = applyEasing(strokeConfig.easing, strokeT);
+    var finalStrokeDashoffset = strokeConfig.start + (strokeConfig.end - strokeConfig.start) * strokeEased;
+    borderPoly.style.strokeDashoffset = finalStrokeDashoffset;
+
+    // Label opacity
+    var labelConfig = panelAnimationConfig.labelOpacity;
+    var labelDelay = labelConfig.delay;
+    var labelDuration = labelConfig.duration;
+    var labelT = Math.max(0, Math.min(1, (animProgress - labelDelay / 2) / (labelDuration / 2)));
+    var labelEased = applyEasing(labelConfig.easing, labelT);
+    var finalLabelOpacity = labelConfig.start + (labelConfig.end - labelConfig.start) * labelEased;
+    panelLabel.style.opacity = finalLabelOpacity;
+  }
+
+  // Calculate scroll progress for panel
+  function calculatePanelScrollProgress() {
+    // Capture initial position on first call
+    if (initialPanelTop === null) {
+      var rect = panelEl.getBoundingClientRect();
+      initialPanelTop = rect.top;
+    }
+
+    var rect = panelEl.getBoundingClientRect();
+    var windowHeight = window.innerHeight;
+    var panelHeight = rect.height;
+    
+    // Progress based on how much panel has scrolled from initial position
+    // 0 = at initial position (fully on screen)
+    // 1 = completely scrolled off top (bottom of panel at top of viewport)
+    var panelTop = rect.top;
+    var triggerEnd = -panelHeight; // bottom of panel at top of viewport
+    
+    var progress = (initialPanelTop - panelTop) / (initialPanelTop - triggerEnd);
+    return Math.max(0, Math.min(1, progress));
+  }
+
+  // Page-load animation plays via CSS; scroll animation takes over on first scroll
 
   // --- Page-load spin-up then spin-down ---
   var loadTime = 0;
@@ -328,24 +458,60 @@
     });
   }
 
+  // --- Scroll impulse: re-trigger the same bell-curve spin on scroll ---
+  var scrollImpulseTime = -1;
+  var scrollImpulseDuration = 80;  // frames
+  var scrollImpulsePeak = 30;
+
+  window.addEventListener('scroll', function(){
+    var s = window.scrollY;
+    var delta = s - lastScrollY;
+    lastScrollY = s;
+    if (Math.abs(delta) > 1) {
+      scrollImpulseTime = 0; // restart impulse
+      
+      // On first scroll, activate the scroll animation and remove CSS animations
+      if (!panelScrollAnimationActive) {
+        panelScrollAnimationActive = true;
+        panelEl.style.animation = 'none';
+        borderPoly.style.animation = 'none';
+        panelLabel.style.animation = 'none';
+      }
+    }
+    // Update panel scroll animation (only after first scroll)
+    if (panelScrollAnimationActive && panelEl.offsetParent !== null) {
+      var progress = calculatePanelScrollProgress();
+      updatePanelAnimation(progress);
+    }
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }, {passive: true});
+
   function tick() {
     rafId = null;
-    // page-load impulse: ramp up then ramp down like a bell curve
     if (loadActive) {
       var t = loadTime / loadPeak;
       var loadDrive = loadTime < loadPeak
-        ? t * t * 2.2                          // ease-in up to peak
-        : Math.max(0, 1 - (loadTime - loadPeak) / (loadDuration - loadPeak)) * 2.2; // ease-out
+        ? t * t * 2.2
+        : Math.max(0, 1 - (loadTime - loadPeak) / (loadDuration - loadPeak)) * 2.2;
       tlState.forEach(function(s, i) { s.v += s.dir * loadDrive * mults[i]; });
       brState.forEach(function(s, i) { s.v += s.dir * loadDrive * mults[i]; });
       loadTime++;
       if (loadTime > loadDuration) loadActive = false;
     }
-    // drive velocity from scroll speed; scale factor controls visual impact
-    var drive = scrollVel * 0.045;
+    if (scrollImpulseTime >= 0) {
+      var st = scrollImpulseTime / scrollImpulsePeak;
+      var sDrive = scrollImpulseTime < scrollImpulsePeak
+        ? st * st * 2.2
+        : Math.max(0, 1 - (scrollImpulseTime - scrollImpulsePeak) / (scrollImpulseDuration - scrollImpulsePeak)) * 2.2;
+      tlState.forEach(function(s, i) { s.v += s.dir * sDrive * mults[i]; });
+      brState.forEach(function(s, i) { s.v += s.dir * sDrive * mults[i]; });
+      scrollImpulseTime++;
+      if (scrollImpulseTime > scrollImpulseDuration) scrollImpulseTime = -1;
+    }
+    var drive = 0;
     tlState.forEach(function(s, i) {
       s.v += s.dir * drive * mults[i];
-      s.v *= 0.88; // friction / spin-down
+      s.v *= 0.88;
       s.a += s.v;
     });
     brState.forEach(function(s, i) {
@@ -353,10 +519,8 @@
       s.v *= 0.88;
       s.a += s.v;
     });
-    scrollVel *= 0.80; // scroll velocity decay
     applyRotations();
-    // keep ticking while rings are still moving or load anim is active
-    var anyMoving = loadActive ||
+    var anyMoving = loadActive || scrollImpulseTime >= 0 ||
                     tlState.some(function(s){ return Math.abs(s.v) > 0.001; }) ||
                     brState.some(function(s){ return Math.abs(s.v) > 0.001; });
     if (anyMoving) rafId = requestAnimationFrame(tick);
@@ -364,19 +528,6 @@
 
   // kick off load animation immediately
   rafId = requestAnimationFrame(tick);
-
-  window.addEventListener('scroll', function(){
-    var s = window.scrollY;
-    scrollVel += (s - lastScrollY);
-    lastScrollY = s;
-
-    if (s <= heroH) {
-      if (panel) panel.style.transform = 'translateY(' + (s * 0.10) + 'px)';
-      if (img)   img.style.transform   = 'scale(1.08) translateY(' + (s * -0.05) + 'px)';
-    }
-
-    if (!rafId) rafId = requestAnimationFrame(tick);
-  }, {passive: true});
 })();
 </script>
 </body>
