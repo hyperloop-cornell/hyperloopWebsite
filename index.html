@@ -21,7 +21,30 @@
   .hero-photo-clip {
     clip-path: polygon(24% 5%, 90% 5%, 90% 85%, 0% 85%);
   }
+  /* Rings: transform-origin set here; rotation driven by JS scroll handler */
+  #hero-ring-tl g.ring-spin { transform-origin: 310px 310px; }
+  #hero-ring-br g.ring-spin { transform-origin: 290px 290px; }
 
+  /* --- Photo panel: page-load entrance --- */
+  #hero-panel {
+    opacity: 0;
+    clip-path: polygon(100% 5%, 100% 5%, 100% 85%, 100% 85%);
+    animation: panel-reveal 1.1s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+  }
+  @keyframes panel-reveal {
+    to { opacity: 1; clip-path: polygon(24% 5%, 90% 5%, 90% 85%, 0% 85%); }
+  }
+  #hero-border-poly {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: poly-draw 1.2s cubic-bezier(0.4,0,0.2,1) 0.8s forwards;
+  }
+  @keyframes poly-draw { to { stroke-dashoffset: 0; } }
+  #hero-panel-label {
+    opacity: 0;
+    animation: fade-in 0.5s ease 1.6s forwards;
+  }
+  @keyframes fade-in { to { opacity: 1; } }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
@@ -36,43 +59,39 @@
     </div>
     <div class="grid-overlay absolute inset-0 z-10 opacity-30"></div>
     <!-- Decorative rings -->
-    <svg class="absolute -top-[70%] -left-60 md:-top-[55%] md:-left-70 w-[620px] h-[620px] z-10 pointer-events-none" viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="310" cy="310" r="295" stroke="#d22b2b" stroke-width="0.5" opacity="0.15"/>
-      <circle cx="310" cy="310" r="275" stroke="#d22b2b" stroke-width="1" stroke-dasharray="6 4" opacity="0.25"/>
-      <circle cx="310" cy="310" r="250" stroke="#d22b2b" stroke-width="2" opacity="0.35"/>
-      <circle cx="310" cy="310" r="225" stroke="#d22b2b" stroke-width="0.75" stroke-dasharray="2 8" opacity="0.30"/>
-      <circle cx="310" cy="310" r="200" stroke="#d22b2b" stroke-width="1.5" opacity="0.20"/>
-      <circle cx="310" cy="310" r="170" stroke="#d22b2b" stroke-width="0.5" stroke-dasharray="4 6" opacity="0.15"/>
-      <!-- tick marks on outer ring -->
-      <g stroke="#d22b2b" stroke-width="1" opacity="0.40">
-        <line x1="310" y1="15" x2="310" y2="30"/>
-        <line x1="310" y1="590" x2="310" y2="605"/>
-        <line x1="15" y1="310" x2="30" y2="310"/>
-        <line x1="590" y1="310" x2="605" y2="310"/>
-        <line x1="102" y1="102" x2="113" y2="113"/>
-        <line x1="518" y1="102" x2="507" y2="113"/>
-        <line x1="102" y1="518" x2="113" y2="507"/>
-        <line x1="518" y1="518" x2="507" y2="507"/>
+    <svg id="hero-ring-tl" class="absolute -top-[70%] -left-60 md:-top-[55%] md:-left-70 w-[620px] h-[620px] z-10 pointer-events-none" viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g class="ring-spin"><circle cx="310" cy="310" r="295" stroke="#d22b2b" stroke-width="0.5" opacity="0.15"/>
+        <line x1="310" y1="15" x2="310" y2="30" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="310" y1="590" x2="310" y2="605" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="15" y1="310" x2="30" y2="310" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="590" y1="310" x2="605" y2="310" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="102" y1="102" x2="113" y2="113" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="518" y1="102" x2="507" y2="113" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="102" y1="518" x2="113" y2="507" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="518" y1="518" x2="507" y2="507" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
       </g>
+      <g class="ring-spin"><circle cx="310" cy="310" r="275" stroke="#d22b2b" stroke-width="1" stroke-dasharray="6 4" opacity="0.25"/></g>
+      <g class="ring-spin"><circle cx="310" cy="310" r="250" stroke="#d22b2b" stroke-width="2" opacity="0.35"/></g>
+      <g class="ring-spin"><circle cx="310" cy="310" r="225" stroke="#d22b2b" stroke-width="0.75" stroke-dasharray="2 8" opacity="0.30"/></g>
+      <g class="ring-spin"><circle cx="310" cy="310" r="200" stroke="#d22b2b" stroke-width="1.5" opacity="0.20"/></g>
+      <g class="ring-spin"><circle cx="310" cy="310" r="170" stroke="#d22b2b" stroke-width="0.5" stroke-dasharray="4 6" opacity="0.15"/></g>
     </svg>
-    <svg class="absolute -bottom-[75%] -right-20 md:-bottom-40 md:-right-40 w-[580px] h-[580px] z-10 pointer-events-none" viewBox="0 0 580 580" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="290" cy="290" r="270" stroke="#d22b2b" stroke-width="0.5" opacity="0.15"/>
-      <circle cx="290" cy="290" r="250" stroke="#d22b2b" stroke-width="1" stroke-dasharray="6 4" opacity="0.25"/>
-      <circle cx="290" cy="290" r="228" stroke="#d22b2b" stroke-width="2" opacity="0.35"/>
-      <circle cx="290" cy="290" r="205" stroke="#d22b2b" stroke-width="0.75" stroke-dasharray="2 8" opacity="0.30"/>
-      <circle cx="290" cy="290" r="180" stroke="#d22b2b" stroke-width="1.5" opacity="0.20"/>
-      <circle cx="290" cy="290" r="150" stroke="#d22b2b" stroke-width="0.5" stroke-dasharray="4 6" opacity="0.15"/>
-      <!-- tick marks on outer ring -->
-      <g stroke="#d22b2b" stroke-width="1" opacity="0.40">
-        <line x1="290" y1="20" x2="290" y2="35"/>
-        <line x1="290" y1="545" x2="290" y2="560"/>
-        <line x1="20" y1="290" x2="35" y2="290"/>
-        <line x1="545" y1="290" x2="560" y2="290"/>
-        <line x1="96" y1="96" x2="107" y2="107"/>
-        <line x1="484" y1="96" x2="473" y2="107"/>
-        <line x1="96" y1="484" x2="107" y2="473"/>
-        <line x1="484" y1="484" x2="473" y2="473"/>
+    <svg id="hero-ring-br" class="absolute -bottom-[75%] -right-20 md:-bottom-40 md:-right-40 w-[580px] h-[580px] z-10 pointer-events-none" viewBox="0 0 580 580" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <g class="ring-spin"><circle cx="290" cy="290" r="270" stroke="#d22b2b" stroke-width="0.5" opacity="0.15"/>
+        <line x1="290" y1="20" x2="290" y2="35" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="290" y1="545" x2="290" y2="560" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="20" y1="290" x2="35" y2="290" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="545" y1="290" x2="560" y2="290" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="96" y1="96" x2="107" y2="107" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="484" y1="96" x2="473" y2="107" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="96" y1="484" x2="107" y2="473" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
+        <line x1="484" y1="484" x2="473" y2="473" stroke="#d22b2b" stroke-width="1" opacity="0.40"/>
       </g>
+      <g class="ring-spin"><circle cx="290" cy="290" r="250" stroke="#d22b2b" stroke-width="1" stroke-dasharray="6 4" opacity="0.25"/></g>
+      <g class="ring-spin"><circle cx="290" cy="290" r="228" stroke="#d22b2b" stroke-width="2" opacity="0.35"/></g>
+      <g class="ring-spin"><circle cx="290" cy="290" r="205" stroke="#d22b2b" stroke-width="0.75" stroke-dasharray="2 8" opacity="0.30"/></g>
+      <g class="ring-spin"><circle cx="290" cy="290" r="180" stroke="#d22b2b" stroke-width="1.5" opacity="0.20"/></g>
+      <g class="ring-spin"><circle cx="290" cy="290" r="150" stroke="#d22b2b" stroke-width="0.5" stroke-dasharray="4 6" opacity="0.15"/></g>
     </svg>
     <div class="relative z-20 w-full flex items-stretch min-h-[90vh]" style="--hero-spread: 120px">
       <!-- Left: text content -->
@@ -96,16 +115,16 @@
         </div>
       </div>
       <!-- Right: triangular photo panel -->
-      <div class="hidden lg:flex md:flex-1 relative" style="padding-right: var(--hero-spread); margin-top: 5%;">
+      <div id="hero-panel" class="hidden lg:flex md:flex-1 relative" style="padding-right: var(--hero-spread); margin-top: 5%;">
         <div class="hero-photo-clip absolute inset-0 overflow-hidden">
-          <img alt="Cornell Hyperloop team at competition" class="w-full h-full object-cover" src="res/2025 Spring Hyperloop.avif" fetchpriority="high" decoding="async"/>
+          <img id="hero-panel-img" alt="Cornell Hyperloop team at competition" class="w-full h-full object-cover" src="res/2025 Spring Hyperloop.avif" fetchpriority="high" decoding="async"/>
           <div class="absolute inset-0 bg-gradient-to-r from-background/60 via-transparent to-transparent"></div>
           <div class="absolute inset-0 bg-primary-container/10"></div>
         </div>
         <svg class="absolute inset-0 w-full h-full z-10 pointer-events-none" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <polygon points="24,5 90,5 90,85 0,85" fill="none" stroke="#d22b2b" stroke-width="0.4"/>
+          <polygon id="hero-border-poly" points="24,5 90,5 90,85 0,85" fill="none" stroke="#d22b2b" stroke-width="0.4"/>
         </svg>
-        <span class="absolute bottom-6 right-6 font-label-caps text-label-caps text-on-surface-variant/50 z-10">TEAM · 2024</span>
+        <span id="hero-panel-label" class="absolute bottom-6 right-6 font-label-caps text-label-caps text-on-surface-variant/50 z-10">TEAM · 2024</span>
       </div>
     </div>
   </section>
@@ -273,5 +292,92 @@
 
 <div id="footer-placeholder"></div>
 <script src="shared.js"></script>
+<script>
+(function(){
+  // --- Hero parallax ---
+  var panel = document.getElementById('hero-panel');
+  var img   = document.getElementById('hero-panel-img');
+  var heroH = panel ? panel.closest('section').offsetHeight : 0;
+
+  // --- Ring scroll-spin ---
+  // dirs: TL rings alternate CW/CCW starting CW; BR starts CCW
+  var tlRings = Array.from(document.querySelectorAll('#hero-ring-tl g.ring-spin'));
+  var brRings = Array.from(document.querySelectorAll('#hero-ring-br g.ring-spin'));
+  // per-ring state: angle (deg), angular velocity (deg/frame)
+  var tlState = tlRings.map(function(_, i){ return { a: 0, v: 0, dir: i % 2 === 0 ? 1 : -1 }; });
+  var brState = brRings.map(function(_, i){ return { a: 0, v: 0, dir: i % 2 === 0 ? -1 : 1 }; });
+  // speed multipliers per ring (outer = faster)
+  var mults = [1.0, 0.75, 0.55, 0.40, 0.28, 0.18];
+
+  var lastScrollY = window.scrollY;
+  var scrollVel = 0; // px/frame smoothed
+  var rafId = null;
+
+  // --- Page-load spin-up then spin-down ---
+  var loadTime = 0;
+  var loadDuration = 120; // frames (~2s at 60fps)
+  var loadPeak = 60;      // frame at which velocity peaks
+  var loadActive = true;
+
+  function applyRotations() {
+    tlRings.forEach(function(el, i) {
+      el.style.transform = 'rotate(' + tlState[i].a + 'deg)';
+    });
+    brRings.forEach(function(el, i) {
+      el.style.transform = 'rotate(' + brState[i].a + 'deg)';
+    });
+  }
+
+  function tick() {
+    rafId = null;
+    // page-load impulse: ramp up then ramp down like a bell curve
+    if (loadActive) {
+      var t = loadTime / loadPeak;
+      var loadDrive = loadTime < loadPeak
+        ? t * t * 2.2                          // ease-in up to peak
+        : Math.max(0, 1 - (loadTime - loadPeak) / (loadDuration - loadPeak)) * 2.2; // ease-out
+      tlState.forEach(function(s, i) { s.v += s.dir * loadDrive * mults[i]; });
+      brState.forEach(function(s, i) { s.v += s.dir * loadDrive * mults[i]; });
+      loadTime++;
+      if (loadTime > loadDuration) loadActive = false;
+    }
+    // drive velocity from scroll speed; scale factor controls visual impact
+    var drive = scrollVel * 0.045;
+    tlState.forEach(function(s, i) {
+      s.v += s.dir * drive * mults[i];
+      s.v *= 0.88; // friction / spin-down
+      s.a += s.v;
+    });
+    brState.forEach(function(s, i) {
+      s.v += s.dir * drive * mults[i];
+      s.v *= 0.88;
+      s.a += s.v;
+    });
+    scrollVel *= 0.80; // scroll velocity decay
+    applyRotations();
+    // keep ticking while rings are still moving or load anim is active
+    var anyMoving = loadActive ||
+                    tlState.some(function(s){ return Math.abs(s.v) > 0.001; }) ||
+                    brState.some(function(s){ return Math.abs(s.v) > 0.001; });
+    if (anyMoving) rafId = requestAnimationFrame(tick);
+  }
+
+  // kick off load animation immediately
+  rafId = requestAnimationFrame(tick);
+
+  window.addEventListener('scroll', function(){
+    var s = window.scrollY;
+    scrollVel += (s - lastScrollY);
+    lastScrollY = s;
+
+    if (s <= heroH) {
+      if (panel) panel.style.transform = 'translateY(' + (s * 0.10) + 'px)';
+      if (img)   img.style.transform   = 'scale(1.08) translateY(' + (s * -0.05) + 'px)';
+    }
+
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }, {passive: true});
+})();
+</script>
 </body>
 </html>
