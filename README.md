@@ -12,7 +12,7 @@ Static multi-page website for the Cornell Hyperloop student project team. No bui
 - **Service Worker (`sw.js`)** — Cache-first strategy. On activation it prefetches all pages and `members.json` so the site works offline after first visit.
 - **`res/members.json`** — Single source of truth for all team member data (faculty, leads, subteam leads, members). `members.html` fetches this at runtime and renders cards via JS. Updating the roster only requires editing this file.
 - **Lazy loading + IntersectionObserver** — `members.html` renders skeleton placeholders and swaps in real member cards only when they scroll into view, keeping initial paint fast with a large photo roster.
-- **`.avif` / `.webp` assets** — Compressed versions of photos live in `res/avifs/` and `res/compressed_teamPhotos/`. Original JPGs are kept alongside for fallback/editing.
+- **`.avif` / `.webp` assets** — Optimized site imagery lives in `res/`, `res/avifs/`, and `res/compressed_teamPhotos/`. Original JPG/PNG sources and retired drafts live in `res/unused/`.
 
 ## File Structure
 
@@ -34,12 +34,13 @@ hyperloop_website/
 │   ├── subteam-power.html      # Electrical · Power detail page
 │   ├── subteam-ecc.html        # Electrical · ECC detail page
 │   └── subteam-business.html   # Business detail page
-└── res/
+├── res/
     ├── members.json            # Roster data: faculty, teamLeads, subteamLeads, members
     ├── compressed_teamPhotos/  # Web-optimized team headshots (used by members.html)
-    ├── avifs/                  # AVIF versions of subteam/section images
+    ├── avifs/                  # Shared AVIF versions of subteam/section images
     ├── sponsors/               # Sponsor logo PNGs
-    └── *.jpg / *.png / *.webp  # General site imagery and CAD renders
+    ├── unused/                 # Original/source images and retired experiments
+    └── *.avif / *.webp / *.png / *.jpg # Optimized site imagery kept at the top level when needed
 ```
 
 ## Adding / Editing Content
