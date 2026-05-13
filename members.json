@@ -1,31 +1,51 @@
 {
+  "faculty": [
+    { "name": "Rick Geddes", "role": "Faculty Co-Advisor", "photo": "GeddesRick.avif" },
+    { "name": "Zhiting Tian", "role": "Faculty Co-Advisor", "photo": "TianZhiting.avif" }
+  ],
   "teamLeads": [
-    { "name": "Raphael Popescu",  "role": "Team Captain",   "photo": "Raphael Popescu.JPG",  "linkedin": "https://www.linkedin.com/in/raphael-popescu/" },
-    { "name": "Weston Clark",     "role": "Chief Engineer", "photo": "Weston Clark.JPG",     "linkedin": "https://www.linkedin.com/in/weston-clark/" }
+    { "name": "Riya Guttigoli", "role": "Mechanical Team Lead", "photo": "Riya Guttigoli.jpg" },
+    { "name": "Sal Ciminello", "role": "Mechanical Team Lead", "photo": "Sal Ciminello.jpg" },
+    { "name": "Aislinn Ennis", "role": "Electrical Team Lead", "photo": "Aislinn Ennis.jpg" }
   ],
   "subteamLeads": [
-    { "name": "Sal Ciminello",     "role": "Magnetic Lead",   "subteam": "Magnetic",    "photo": "Sal Ciminello.JPG",     "linkedin": "https://www.linkedin.com/in/sal-ciminello/" },
-    { "name": "Parth Mittal",      "role": "Structures Lead", "subteam": "Structures",  "photo": "Parth Mittal.JPG",      "linkedin": "https://www.linkedin.com/in/parth-mittal/" },
-    { "name": "Farah Abdullah",    "role": "Power Lead",      "subteam": "Power",       "photo": "Farah Abdullah.JPG",    "linkedin": "https://www.linkedin.com/in/farah-abdullah/" },
-    { "name": "Pragya Babbar",     "role": "Braking Lead",    "subteam": "Braking",     "photo": "Pragya Babbar.JPG",     "linkedin": "https://www.linkedin.com/in/pragya-babbar/" },
-    { "name": "Tribeca Kao",       "role": "ECC Lead",        "subteam": "ECC",         "photo": "Tribeca Kao.JPG",       "linkedin": "https://www.linkedin.com/in/tribeca-kao/" },
-    { "name": "Johnathan Distler", "role": "Business Lead",   "subteam": "Business",    "photo": "Johnathan Distler.JPG", "linkedin": "https://www.linkedin.com/in/johnathan-distler/" }
+    { "name": "Anubhav Nigam", "role": "Magnetics Lead", "subteam": "Magnetics", "photo": "Anubhav.jpg" },
+    { "name": "Tokunbo Oshinowo", "role": "Structures Lead", "subteam": "Structures", "photo": "Tokunbo Oshinowo.jpg" },
+    { "name": "Shreya Anand", "role": "Braking Lead", "subteam": "Braking", "photo": "Shreya Anand.jpg" },
+    { "name": "Carter McClintock-Comeaux", "role": "Braking Lead", "subteam": "Braking", "photo": "Carter McClintock-Comeaux.jpg" },
+    { "name": "Lalo Esparza", "role": "Power Systems Lead", "subteam": "Power", "photo": "Lalo Esparza.jpg" },
+    { "name": "Weston Clark", "role": "ECC Lead", "subteam": "ECC", "photo": "Weston Clark.jpg" },
+    { "name": "Hayden Bergschneider", "role": "Business Lead", "subteam": "Business", "photo": "Hayden Bergschneider.jpg" },
+    { "name": "Daniel Akinwale", "role": "Composites Lead", "subteam": "Mechanical", "photo": "Daniel.jpg" }
   ],
   "members": [
-    { "name": "Aislinn Ennis",             "subteam": "Magnetic",    "photo": "Aislinn Ennis.JPG" },
-    { "name": "Connor Hyde",               "subteam": "Magnetic",    "photo": "Connor Hyde.JPG" },
-    { "name": "Toby Young",                "subteam": "Magnetic",    "photo": "Toby Young.JPG" },
-    { "name": "Alice Park",                "subteam": "Structures",  "photo": "Alice Park.JPG" },
-    { "name": "Hayden Bergschneider",      "subteam": "Structures",  "photo": "Hayden Bergschneider.JPG" },
-    { "name": "Lalo Esparza",              "subteam": "Structures",  "photo": "Lalo Esparza.JPG" },
-    { "name": "Eliza Phua",                "subteam": "Power",       "photo": "Eliza Phua.JPG" },
-    { "name": "Ethan Moger",               "subteam": "Power",       "photo": "Ethan Moger.JPG" },
-    { "name": "Tokunbo Oshinowo",          "subteam": "Power",       "photo": "Tokunbo Oshinowo.JPG" },
-    { "name": "Benjamin Meltzer",          "subteam": "Braking",     "photo": "Benjamin Meltzer.JPG" },
-    { "name": "Carter McClintock-Comeaux", "subteam": "Braking",     "photo": "Carter McClintock-Comeaux.JPG" },
-    { "name": "Peri Goldberg",             "subteam": "ECC",         "photo": "Peri Goldberg.JPG" },
-    { "name": "Riya Guttigoli",            "subteam": "ECC",         "photo": "Riya Guttigoli.JPG" },
-    { "name": "Claire Choi",               "subteam": "Business",    "photo": "Claire Choi.JPG" },
-    { "name": "Shreya Anand",              "subteam": "Business",    "photo": "Shreya Anand.JPG" }
+    { "name": "Eliza Phua", "subteam": "Magnetics", "photo": "Eliza Phua.jpg" },
+    { "name": "Alice Park", "subteam": "Magnetics", "photo": "Alice Park.jpg" },
+    { "name": "Ethan Moger", "subteam": "Magnetics", "photo": "Ethan Moger.jpg" },
+    { "name": "Sankalp Gupta", "subteam": "Structures", "photo": "Sankalp.jpg" },
+    { "name": "Jonathan Distler", "subteam": "Structures", "photo": "Johnathan Distler.jpg" },
+    { "name": "Qing Yi Chen", "subteam": "Structures", "photo": "Qing_Yi_Chen.jpg" },
+    { "name": "Noah Osman", "subteam": "Braking", "photo": "Noah.jpg" },
+    { "name": "Toby Young", "subteam": "Mechanical", "photo": "Toby Young.jpg" },
+    { "name": "Jake Dieterich", "subteam": "Mechanical", "photo": "Jake.jpg" },
+    { "name": "AJ Cavanaugh", "subteam": "Mechanical", "photo": "AJ.jpg" },
+    { "name": "Benjamin Meltzer", "subteam": "Mechanical", "photo": "Benjamin Meltzer.jpg" },
+    { "name": "Audrey Horn", "subteam": "Mechanical", "photo": "Audrey.jpg" },
+    { "name": "Tribeca Kao", "subteam": "Power", "photo": "Tribeca Kao.jpg" },
+    { "name": "Farah Abdullah", "subteam": "ECC", "photo": "Farah Abdullah.jpg" },
+    { "name": "Raymond Sheng", "subteam": "Electrical", "photo": "Raymond.jpg" },
+    { "name": "Zeybek Tezduyar", "subteam": "Electrical", "photo": "Zeybek.jpg" },
+    { "name": "Parth Mittal", "subteam": "ECC", "photo": "Parth Mittal.jpg" },
+    { "name": "Koi Nguyen", "subteam": "Electrical", "photo": "Koi.jpg" },
+    { "name": "Santiago Nadel Valle", "subteam": "Electrical", "photo": "Santiago.jpg" },
+    { "name": "Pragya Babbar", "subteam": "ECC", "photo": "Pragya Babbar.jpg" },
+    { "name": "Raphael Popescu", "subteam": "ECC", "photo": "Raphael Popescu.jpg" },
+    { "name": "Tarik Mohamed", "subteam": "Electrical", "photo": "Tarik.jpg" },
+    { "name": "Peri Goldberg", "subteam": "ECC", "photo": "Peri Goldberg.jpg" },
+    { "name": "Medha Elluru", "subteam": "Electrical", "photo": "Medha.jpg" },
+    { "name": "Jonny Nguyen", "subteam": "Electrical", "photo": "Jonny_Nguyen.jpg" },
+    { "name": "Caden Ng", "subteam": "Business", "photo": "Caden.jpg" },
+    { "name": "Stanley Wu", "subteam": "Business", "photo": "Stanely Wu.jpg" },
+    { "name": "Sahil Polepalle", "subteam": "Business", "photo": "Sahil.jpg" }
   ]
 }
