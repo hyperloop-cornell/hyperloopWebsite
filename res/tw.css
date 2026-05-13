@@ -2494,6 +2494,10 @@ input:where([type='file']):focus {
     display: block;
   }
 
+  .lg\:flex {
+    display: flex;
+  }
+
   .lg\:h-\[60\%\] {
     height: 60%;
   }
