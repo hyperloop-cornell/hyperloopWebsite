@@ -36,7 +36,7 @@
     </div>
     <div class="grid-overlay absolute inset-0 z-10 opacity-30"></div>
     <!-- Decorative rings -->
-    <svg class="absolute -top-40 -left-40 w-[620px] h-[620px] z-10 pointer-events-none" viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg class="absolute -top-[70%] -left-60 md:-top-[55%] md:-left-70 w-[620px] h-[620px] z-10 pointer-events-none" viewBox="0 0 620 620" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="310" cy="310" r="295" stroke="#d22b2b" stroke-width="0.5" opacity="0.15"/>
       <circle cx="310" cy="310" r="275" stroke="#d22b2b" stroke-width="1" stroke-dasharray="6 4" opacity="0.25"/>
       <circle cx="310" cy="310" r="250" stroke="#d22b2b" stroke-width="2" opacity="0.35"/>
@@ -55,7 +55,7 @@
         <line x1="518" y1="518" x2="507" y2="507"/>
       </g>
     </svg>
-    <svg class="absolute -bottom-40 -right-40 w-[580px] h-[580px] z-10 pointer-events-none" viewBox="0 0 580 580" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <svg class="absolute -bottom-[75%] -right-20 md:-bottom-40 md:-right-40 w-[580px] h-[580px] z-10 pointer-events-none" viewBox="0 0 580 580" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <circle cx="290" cy="290" r="270" stroke="#d22b2b" stroke-width="0.5" opacity="0.15"/>
       <circle cx="290" cy="290" r="250" stroke="#d22b2b" stroke-width="1" stroke-dasharray="6 4" opacity="0.25"/>
       <circle cx="290" cy="290" r="228" stroke="#d22b2b" stroke-width="2" opacity="0.35"/>
@@ -76,20 +76,20 @@
     </svg>
     <div class="relative z-20 w-full flex items-stretch min-h-[90vh]" style="--hero-spread: 120px">
       <!-- Left: text content -->
-      <div class="flex flex-col justify-center items-start gap-6 py-20 md:py-24" style="padding-left: calc(var(--hero-spread)); padding-right: calc(var(--hero-spread));">
+      <div class="flex flex-col justify-center items-start gap-6 py-20 md:py-24 px-6 md:px-[var(--hero-spread)]">
         <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2">
           <span class="w-8 h-[1px] bg-primary block"></span>
           Cornell Hyperloop
         </span>
-        <h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight uppercase relative inline-block whitespace-nowrap text-[clamp(1.5rem,4vw,var(--font-size-headline-xl,3rem))]">
+        <h1 class="font-headline-xl text-headline-xl text-on-surface leading-tight uppercase relative inline-block text-[clamp(1.75rem,6vw,var(--font-size-headline-xl,3rem))]">
           Revolutionizing <br/> <span class="text-primary-container">Transportation</span>
         </h1>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-md">
           Cornell's student lead project team designing and innovating hyperloop pods at the frontier of transport technology.
         </p>
         <div class="flex flex-wrap gap-4 mt-4">
-          <a class="bg-primary-container text-on-primary-container px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200 border border-primary-container hover:border-primary" href="#">Our Mission</a>
-          <a class="bg-transparent text-primary px-8 py-4 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2" href="#">
+          <a class="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200 border border-primary-container hover:border-primary" href="#">Our Mission</a>
+          <a class="bg-transparent text-primary px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2" href="#">
             Tech Specs
             <span class="material-symbols-outlined">arrow_forward</span>
           </a>
@@ -114,9 +114,9 @@
   <section class="py-24 relative overflow-hidden bg-surface border-b border-outline-variant">
     <div class="grid-overlay absolute inset-0 z-0 opacity-10"></div>
     <!-- CAD silhouette backgrounds -->
-    <img src="res/outputA.png" aria-hidden="true" class="absolute left-[-8%] top-[-15%] h-[60%] w-auto object-contain opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
-    <img src="res/outputB.png" aria-hidden="true" class="absolute left-[75%] -translate-x-1/2 top-[40%] -translate-y-1/2 h-[65%] w-auto object-contain opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
-    <img src="res/outputC.png" aria-hidden="true" class="absolute left-[35%] bottom-[-15%] h-[65%] rotate-[-15deg] w-auto object-contain opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
+    <img src="res/outputA.png" aria-hidden="true" class="invisible md:visible absolute left-[-8%] top-[-15%] h-[45%] 2xl:h-[60%] w-auto object-contain opacity-[0.15] md:-opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
+    <img src="res/outputB.png" aria-hidden="true" class="invisible md:visible absolute left-[75%] -translate-x-1/2 top-[30%] md:top-[40%] -translate-y-1/2 h-[65%] w-auto object-contain opacity-[0.15] md:opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
+    <img src="res/outputC.png" aria-hidden="true" class="invisible md:visible absolute left-[35%] bottom-[-15%] h-[65%] rotate-[-15deg] w-auto object-contain opacity-[0.15] md:opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
       <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
         <span class="w-8 h-[1px] bg-primary block"></span>
@@ -225,7 +225,7 @@
             </div>
           </div>
         </div>
-        <div class="lg:col-span-7 relative flex items-center justify-center min-h-[500px]">
+        <div class="lg:col-span-7 relative flex items-center justify-center min-h-[300px] lg:min-h-[500px]">
           <div class="absolute inset-4 border border-outline-variant bg-surface-container-highest/50 z-0 hidden lg:block">
             <span class="absolute top-2 right-2 font-label-caps text-label-caps text-outline-variant/50">SYS-ID: CH-V4.2</span>
           </div>

@@ -787,6 +787,10 @@ input:where([type='file']):focus {
   pointer-events: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
 .absolute {
   position: absolute;
 }
@@ -839,12 +843,12 @@ input:where([type='file']):focus {
   bottom: 1.5rem;
 }
 
-.left-0 {
-  left: 0px;
+.bottom-\[-15\%\] {
+  bottom: -15%;
 }
 
-.left-1\/2 {
-  left: 50%;
+.left-0 {
+  left: 0px;
 }
 
 .left-1\/3 {
@@ -857,6 +861,14 @@ input:where([type='file']):focus {
 
 .left-\[-8\%\] {
   left: -8%;
+}
+
+.left-\[35\%\] {
+  left: 35%;
+}
+
+.left-\[75\%\] {
+  left: 75%;
 }
 
 .right-0 {
@@ -879,16 +891,8 @@ input:where([type='file']):focus {
   right: 1.5rem;
 }
 
-.right-\[-6\%\] {
-  right: -6%;
-}
-
 .top-0 {
   top: 0px;
-}
-
-.top-1\/2 {
-  top: 50%;
 }
 
 .top-1\/3 {
@@ -911,60 +915,84 @@ input:where([type='file']):focus {
   top: 1rem;
 }
 
-.top-\[-10\%\] {
-  top: -10%;
-}
-
-.left-\[60\%\] {
-  left: 60%;
-}
-
-.left-\[75\%\] {
-  left: 75%;
-}
-
-.top-\[60\%\] {
-  top: 60%;
-}
-
-.top-\[55\%\] {
-  top: 55%;
-}
-
-.top-\[50\%\] {
-  top: 50%;
-}
-
-.left-\[-6\%\] {
-  left: -6%;
-}
-
-.bottom-\[-8\%\] {
-  bottom: -8%;
-}
-
-.left-\[8\%\] {
-  left: 8%;
-}
-
-.left-\[35\%\] {
-  left: 35%;
-}
-
-.bottom-\[-20\%\] {
-  bottom: -20%;
-}
-
-.bottom-\[-15\%\] {
-  bottom: -15%;
-}
-
 .top-\[-15\%\] {
   top: -15%;
 }
 
 .top-\[40\%\] {
   top: 40%;
+}
+
+.-bottom-20 {
+  bottom: -5rem;
+}
+
+.-left-20 {
+  left: -5rem;
+}
+
+.-right-20 {
+  right: -5rem;
+}
+
+.-top-20 {
+  top: -5rem;
+}
+
+.-top-0 {
+  top: -0px;
+}
+
+.-top-80 {
+  top: -20rem;
+}
+
+.-left-60 {
+  left: -15rem;
+}
+
+.-top-60 {
+  top: -15rem;
+}
+
+.-top-\[80\%\] {
+  top: -80%;
+}
+
+.-top-\[70\%\] {
+  top: -70%;
+}
+
+.-bottom-\[0\%\] {
+  bottom: -0%;
+}
+
+.-bottom-\[50\%\] {
+  bottom: -50%;
+}
+
+.-bottom-\[60\%\] {
+  bottom: -60%;
+}
+
+.-bottom-\[65\%\] {
+  bottom: -65%;
+}
+
+.-bottom-\[75\%\] {
+  bottom: -75%;
+}
+
+.top-\[-25\%\] {
+  top: -25%;
+}
+
+.top-\[30\%\] {
+  top: 30%;
+}
+
+.left-\[60\%\] {
+  left: 60%;
 }
 
 .z-0 {
@@ -1120,20 +1148,16 @@ input:where([type='file']):focus {
   height: 580px;
 }
 
+.h-\[60\%\] {
+  height: 60%;
+}
+
 .h-\[620px\] {
   height: 620px;
 }
 
 .h-\[65\%\] {
   height: 65%;
-}
-
-.h-\[70\%\] {
-  height: 70%;
-}
-
-.h-\[85\%\] {
-  height: 85%;
 }
 
 .h-auto {
@@ -1148,8 +1172,24 @@ input:where([type='file']):focus {
   height: 1px;
 }
 
-.h-\[60\%\] {
-  height: 60%;
+.h-\[90\%\] {
+  height: 90%;
+}
+
+.h-\[50\%\] {
+  height: 50%;
+}
+
+.h-\[40\%\] {
+  height: 40%;
+}
+
+.h-\[20\%\] {
+  height: 20%;
+}
+
+.h-\[45\%\] {
+  height: 45%;
 }
 
 .max-h-\[220px\] {
@@ -1170,6 +1210,10 @@ input:where([type='file']):focus {
 
 .min-h-\[90vh\] {
   min-height: 90vh;
+}
+
+.min-h-\[300px\] {
+  min-height: 300px;
 }
 
 .w-0 {
@@ -1287,11 +1331,6 @@ input:where([type='file']):focus {
 
 .-translate-y-1\/2 {
   --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.rotate-\[-5deg\] {
-  --tw-rotate: -5deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1953,6 +1992,10 @@ input:where([type='file']):focus {
   line-height: 1rem;
 }
 
+.text-\[clamp\(1\.75rem\2c 6vw\2c var\(--font-size-headline-xl\2c 3rem\)\)\] {
+  font-size: clamp(1.75rem, 6vw, var(--font-size-headline-xl,3rem));
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -2085,24 +2128,12 @@ input:where([type='file']):focus {
   opacity: 0.85;
 }
 
-.opacity-\[0\.04\] {
-  opacity: 0.04;
-}
-
-.opacity-\[0\.06\] {
-  opacity: 0.06;
-}
-
-.opacity-\[0\.14\] {
-  opacity: 0.14;
-}
-
-.opacity-\[0\.08\] {
-  opacity: 0.08;
-}
-
 .opacity-\[0\.09\] {
   opacity: 0.09;
+}
+
+.opacity-\[0\.15\] {
+  opacity: 0.15;
 }
 
 .ring {
@@ -2319,6 +2350,62 @@ input:where([type='file']):focus {
 }
 
 @media (min-width: 768px) {
+  .md\:visible {
+    visibility: visible;
+  }
+
+  .md\:-bottom-40 {
+    bottom: -10rem;
+  }
+
+  .md\:-left-40 {
+    left: -10rem;
+  }
+
+  .md\:-right-40 {
+    right: -10rem;
+  }
+
+  .md\:-top-40 {
+    top: -10rem;
+  }
+
+  .md\:-left-5 {
+    left: -1.25rem;
+  }
+
+  .md\:-top-5 {
+    top: -1.25rem;
+  }
+
+  .md\:-top-20 {
+    top: -5rem;
+  }
+
+  .md\:-left-60 {
+    left: -15rem;
+  }
+
+  .md\:-top-60 {
+    top: -15rem;
+  }
+
+  .md\:-top-\[60\%\] {
+    top: -60%;
+  }
+
+  .md\:-top-\[55\%\] {
+    top: -55%;
+  }
+
+  .md\:left-\[75\%\] {
+    left: 75%;
+  }
+
+  .md\:top-\[40\%\] {
+    top: 40%;
+  }
+
   .md\:block {
     display: block;
   }
@@ -2373,6 +2460,25 @@ input:where([type='file']):focus {
     padding-top: 8rem;
     padding-bottom: 8rem;
   }
+
+  .md\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .md\:px-\[var\(--hero-spread\)\] {
+    padding-left: var(--hero-spread);
+    padding-right: var(--hero-spread);
+  }
+
+  .md\:py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .md\:opacity-\[0\.09\] {
+    opacity: 0.09;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -2388,6 +2494,14 @@ input:where([type='file']):focus {
     display: block;
   }
 
+  .lg\:h-\[60\%\] {
+    height: 60%;
+  }
+
+  .lg\:min-h-\[500px\] {
+    min-height: 500px;
+  }
+
   .lg\:grid-cols-12 {
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }
@@ -2398,5 +2512,17 @@ input:where([type='file']):focus {
 
   .lg\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .xl\:h-\[60\%\] {
+    height: 60%;
+  }
+}
+
+@media (min-width: 1536px) {
+  .\32xl\:h-\[60\%\] {
+    height: 60%;
   }
 }
