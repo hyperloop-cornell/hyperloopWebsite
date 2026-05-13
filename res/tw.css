@@ -2510,6 +2510,10 @@ input:where([type='file']):focus {
     display: block;
   }
 
+  .lg\:inline {
+    display: inline;
+  }
+
   .lg\:flex {
     display: flex;
   }

@@ -38,7 +38,10 @@ function renderNav() {
   return `
 <header class="bg-surface text-primary top-0 z-50 border-b border-outline-variant sticky">
   <div class="flex justify-between items-center w-full px-margin py-4 max-w-container-max mx-auto">
-    <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase min-w-0" href="${ROOT}index.html"><img src="${ROOT}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto flex-shrink-0"/><span class="hidden sm:inline">CORNELL HYPERLOOP</span><span class="sm:hidden">HYPERLOOP</span></a>
+    <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase min-w-0" href="${ROOT}index.html">
+      <img src="${ROOT}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto flex-shrink-0"/>
+      <span class="hidden lg:inline">CORNELL HYPERLOOP</span><span class="sm:hidden">HYPERLOOP</span>
+    </a>
     <nav class="hidden md:flex gap-gutter items-center">${links}</nav>
     <a href="${ROOT}apply.html" class="hidden md:block bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
     <button id="mobile-menu-btn" class="md:hidden text-primary p-2 flex-shrink-0" aria-label="Toggle menu" aria-expanded="false"><span class="material-symbols-outlined text-[28px]">menu</span></button>
