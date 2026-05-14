@@ -2046,6 +2046,30 @@ input:where([type='file']):focus {
   font-size: 7px;
 }
 
+.text-\[clamp\(1\.75rem\2c 6vw\2c var\(--font-size-headline-lg\2c 3rem\)\)\] {
+  font-size: clamp(1.75rem, 6vw, var(--font-size-headline-lg,3rem));
+}
+
+.text-\[clamp\(1\.75rem\2c 6vw\2c var\(--font-size-headline-lg\2c 1rem\)\)\] {
+  font-size: clamp(1.75rem, 6vw, var(--font-size-headline-lg,1rem));
+}
+
+.text-\[clamp\(1\.75rem\2c 6vw\2c var\(--font-size-headline-lg\2c 1\.75rem\)\)\] {
+  font-size: clamp(1.75rem, 6vw, var(--font-size-headline-lg,1.75rem));
+}
+
+.text-\[clamp\(1\.75rem\2c 6vw\2c var\(--font-size-headline-sm\2c 1\.75rem\)\)\] {
+  font-size: clamp(1.75rem, 6vw, var(--font-size-headline-sm,1.75rem));
+}
+
+.text-\[clamp\(\.75rem\2c 3vw\2c var\(--font-size-headline-sm\2c 1\.75rem\)\)\] {
+  font-size: clamp(.75rem, 3vw, var(--font-size-headline-sm,1.75rem));
+}
+
+.text-\[clamp\(1\.25rem\2c 6vw\2c 2\.5rem\)\] {
+  font-size: clamp(1.25rem, 6vw, 2.5rem);
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -2509,6 +2533,21 @@ input:where([type='file']):focus {
   .md\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
+  }
+
+  .md\:font-headline-xl {
+    font-family: Space Grotesk;
+  }
+
+  .md\:text-headline-xl {
+    font-size: 64px;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    font-weight: 700;
+  }
+
+  .md\:text-\[clamp\(1\.75rem\2c 6vw\2c var\(--font-size-headline-2xl\2c 6rem\)\)\] {
+    font-size: clamp(1.75rem, 6vw, var(--font-size-headline-2xl,6rem));
   }
 
   .md\:opacity-\[0\.09\] {
