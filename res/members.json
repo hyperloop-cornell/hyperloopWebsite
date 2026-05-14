@@ -16,13 +16,13 @@
     { "name": "Shreya Anand", "role": "Braking Lead", "subteam": "Braking", "photo": "Shreya Anand.jpg" },
     { "name": "Carter McClintock-Comeaux", "role": "Braking Lead", "subteam": "Braking", "photo": "Carter McClintock-Comeaux.jpg" },
     { "name": "Daniel Akinwale", "role": "Composites Lead", "subteam": "Mechanical", "photo": "Daniel.jpg" },
-    { "name": "Hayden Bergschneider", "role": "Business Lead", "subteam": "Business", "photo": "Hayden Bergschneider.jpg" },
-    { "name": "Connor Hyde", "role": "Machining Lead", "subteam": "Mechanical", "photo": "Connor Hyde.jpg" }
+    { "name": "Hayden Bergschneider", "role": "Business Lead", "subteam": "Business", "photo": "Hayden Bergschneider.jpg" }
   ],
   "members": [
     { "name": "Eliza Phua", "subteam": "Magnetics", "photo": "Eliza Phua.jpg" },
     { "name": "Alice Park", "subteam": "Magnetics", "photo": "Alice Park.jpg" },
     { "name": "Ethan Moger", "subteam": "Magnetics", "photo": "Ethan Moger.jpg" },
+    { "name": "Connor Hyde", "subteam": "Magnetics", "photo": "Connor Hyde.jpg" },
     { "name": "Sankalp Gupta", "subteam": "Structures", "photo": "Sankalp.jpg" },
     { "name": "Jonathan Distler", "subteam": "Structures", "photo": "Johnathan Distler.jpg" },
     { "name": "Qing Yi Chen", "subteam": "Structures", "photo": "Qing_Yi_Chen.jpg" },
