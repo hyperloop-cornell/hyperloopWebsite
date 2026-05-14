@@ -923,6 +923,90 @@ input:where([type='file']):focus {
   top: 30%;
 }
 
+.left-\[-28\%\] {
+  left: -28%;
+}
+
+.left-\[70\%\] {
+  left: 70%;
+}
+
+.top-\[35\%\] {
+  top: 35%;
+}
+
+.top-\[5\%\] {
+  top: 5%;
+}
+
+.left-\[-15\%\] {
+  left: -15%;
+}
+
+.top-\[-10\%\] {
+  top: -10%;
+}
+
+.top-\[20\%\] {
+  top: 20%;
+}
+
+.left-\[-10\%\] {
+  left: -10%;
+}
+
+.top-\[15\%\] {
+  top: 15%;
+}
+
+.left-\[85\%\] {
+  left: 85%;
+}
+
+.left-\[80\%\] {
+  left: 80%;
+}
+
+.left-\[82\%\] {
+  left: 82%;
+}
+
+.top-\[18\%\] {
+  top: 18%;
+}
+
+.left-\[-12\%\] {
+  left: -12%;
+}
+
+.top-\[25\%\] {
+  top: 25%;
+}
+
+.top-\[10\%\] {
+  top: 10%;
+}
+
+.top-\[12\%\] {
+  top: 12%;
+}
+
+.bottom-\[-25\%\] {
+  bottom: -25%;
+}
+
+.left-\[45\%\] {
+  left: 45%;
+}
+
+.bottom-\[-23\%\] {
+  bottom: -23%;
+}
+
+.left-\[40\%\] {
+  left: 40%;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1100,6 +1184,14 @@ input:where([type='file']):focus {
   height: 1px;
 }
 
+.h-\[35\%\] {
+  height: 35%;
+}
+
+.h-\[55\%\] {
+  height: 55%;
+}
+
 .max-h-\[220px\] {
   max-height: 220px;
 }
@@ -1255,6 +1347,10 @@ input:where([type='file']):focus {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+
+.resize {
+  resize: both;
 }
 
 .grid-cols-1 {
@@ -1896,6 +1992,10 @@ input:where([type='file']):focus {
   line-height: 1rem;
 }
 
+.text-\[clamp\(1\.75rem\2c 6vw\2c var\(--font-size-headline-xl\2c 3rem\)\)\] {
+  font-size: clamp(1.75rem, 6vw, var(--font-size-headline-xl,3rem));
+}
+
 .font-black {
   font-weight: 900;
 }
@@ -2030,6 +2130,14 @@ input:where([type='file']):focus {
 
 .opacity-\[0\.15\] {
   opacity: 0.15;
+}
+
+.opacity-5 {
+  opacity: 0.05;
+}
+
+.opacity-\[0\.04\] {
+  opacity: 0.04;
 }
 
 .ring {
@@ -2262,6 +2370,14 @@ input:where([type='file']):focus {
     top: 40%;
   }
 
+  .md\:top-\[-5\%\] {
+    top: -5%;
+  }
+
+  .md\:top-\[0\] {
+    top: 0;
+  }
+
   .md\:block {
     display: block;
   }
@@ -2335,6 +2451,10 @@ input:where([type='file']):focus {
   .md\:opacity-\[0\.09\] {
     opacity: 0.09;
   }
+
+  .md\:opacity-\[0\.03\] {
+    opacity: 0.03;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -2392,5 +2512,9 @@ input:where([type='file']):focus {
 
   .\32xl\:h-\[60\%\] {
     height: 60%;
+  }
+
+  .\32xl\:h-\[50\%\] {
+    height: 50%;
   }
 }

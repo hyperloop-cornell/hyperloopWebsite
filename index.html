@@ -46,6 +46,20 @@
     animation: fade-in 0.5s ease 1.6s forwards;
   }
   @keyframes fade-in { to { opacity: 1; } }
+  .cad-parallax-layer {
+    --base-x: 0px;
+    --base-y: 0px;
+    --base-scale: 1;
+    --base-rotate: 0deg;
+    --parallax-x: 0px;
+    --parallax-y: 0px;
+    --parallax-scale: 0;
+    --parallax-rotate: 0deg;
+    transform: translate3d(calc(var(--base-x) + var(--parallax-x)), calc(var(--base-y) + var(--parallax-y)), 0) scale(calc(var(--base-scale) + var(--parallax-scale))) rotate(calc(var(--base-rotate) + var(--parallax-rotate)));
+    transform-origin: center;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
 </style>
 </head>
 <body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
@@ -131,12 +145,12 @@
   </section>
 
   <!-- Project Mission -->
-  <section class="py-24 relative overflow-hidden bg-surface border-b border-outline-variant">
+  <section id="project-mission" class="py-24 relative overflow-hidden bg-surface border-b border-outline-variant">
     <div class="grid-overlay absolute inset-0 z-0 opacity-10"></div>
     <!-- CAD silhouette backgrounds -->
-    <img src="res/outputA.avif" aria-hidden="true" class="invisible md:visible absolute left-[-8%] top-[-15%] h-[45%] 2xl:h-[60%] w-auto object-contain opacity-[0.15] md:-opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
-    <img src="res/outputB.avif" aria-hidden="true" class="invisible md:visible absolute left-[75%] -translate-x-1/2 top-[30%] md:top-[40%] -translate-y-1/2 h-[65%] w-auto object-contain opacity-[0.15] md:opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
-    <img src="res/outputC.avif" aria-hidden="true" class="invisible md:visible absolute left-[35%] bottom-[-15%] h-[65%] rotate-[-15deg] w-auto object-contain opacity-[0.15] md:opacity-[0.09] grayscale pointer-events-none select-none z-0" style="filter: grayscale(1) brightness(1.4);" loading="lazy" decoding="async"/>
+    <img src="res/outputA.avif" aria-hidden="true" class="cad-parallax-layer invisible md:visible absolute left-[-12%] top-[18%] h-[45%] 2xl:h-[60%] w-auto object-contain opacity-[0.15] md:opacity-[0.09] grayscale pointer-events-none select-none z-0" style="--base-x: 0px; --base-y: 0px; --base-scale: 1; --base-rotate: 0deg; filter: grayscale(1) brightness(1.4);" data-parallax-x="-22" data-parallax-y="-42" data-parallax-scale="0.016" data-parallax-rotate="0.8" loading="lazy" decoding="async"/>
+    <img src="res/outputB.avif" aria-hidden="true" class="cad-parallax-layer invisible md:visible absolute left-[82%] top-[18%] h-[45%] w-auto object-contain opacity-[0.15] grayscale pointer-events-none select-none z-0" style="--base-x: -50%; --base-y: -50%; --base-scale: 1; --base-rotate: 0deg; filter: grayscale(1) brightness(1.4);" data-parallax-x="18" data-parallax-y="-32" data-parallax-scale="0.013" data-parallax-rotate="-0.6" loading="lazy" decoding="async"/>
+    <img src="res/outputC.avif" aria-hidden="true" class="cad-parallax-layer invisible md:visible absolute left-[40%] bottom-[-23%] h-[65%] w-auto object-contain opacity-[0.15] md:opacity-[0.09] grayscale pointer-events-none select-none z-0" style="--base-x: 0px; --base-y: 0px; --base-scale: 1; --base-rotate: -15deg; filter: grayscale(1) brightness(1.4);" data-parallax-x="-14" data-parallax-y="-52" data-parallax-scale="0.015" data-parallax-rotate="0.9" loading="lazy" decoding="async"/>
     <div class="relative z-10 max-w-container-max mx-auto px-margin">
       <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-6">
         <span class="w-8 h-[1px] bg-primary block"></span>
@@ -351,6 +365,70 @@
     }
   };
 
+  var missionSection = document.getElementById('project-mission');
+  var cadLayers = Array.from(document.querySelectorAll('.cad-parallax-layer'));
+  var cadMotionReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cadLayerState = cadLayers.map(function(el) {
+    return {
+      el: el,
+      depthX: parseFloat(el.getAttribute('data-parallax-x') || '0'),
+      depthY: parseFloat(el.getAttribute('data-parallax-y') || '0'),
+      scaleBoost: parseFloat(el.getAttribute('data-parallax-scale') || '0'),
+      rotateBoost: parseFloat(el.getAttribute('data-parallax-rotate') || '0'),
+      currentX: 0,
+      currentY: 0,
+      currentScale: 0,
+      currentRotate: 0,
+      targetX: 0,
+      targetY: 0,
+      targetScale: 0,
+      targetRotate: 0
+    };
+  });
+
+  function clamp(value, min, max) {
+    return Math.max(min, Math.min(max, value));
+  }
+
+  function updateCadParallax() {
+    if (cadMotionReduced || !missionSection || !cadLayerState.length) {
+      return false;
+    }
+
+    var rect = missionSection.getBoundingClientRect();
+    var nearViewport = rect.bottom > -160 && rect.top < window.innerHeight + 160;
+    var viewportMiddle = window.innerHeight * 0.5;
+    var sectionMiddle = rect.top + rect.height * 0.5;
+    var motion = nearViewport ? clamp((viewportMiddle - sectionMiddle) / Math.max(window.innerHeight, rect.height), -1, 1) : 0;
+    var moving = false;
+
+    cadLayerState.forEach(function(layer) {
+      layer.targetX = motion * layer.depthX;
+      layer.targetY = motion * layer.depthY;
+      layer.targetScale = Math.abs(motion) * layer.scaleBoost;
+      layer.targetRotate = motion * layer.rotateBoost;
+
+      layer.currentX += (layer.targetX - layer.currentX) * 0.12;
+      layer.currentY += (layer.targetY - layer.currentY) * 0.12;
+      layer.currentScale += (layer.targetScale - layer.currentScale) * 0.1;
+      layer.currentRotate += (layer.targetRotate - layer.currentRotate) * 0.12;
+
+      layer.el.style.setProperty('--parallax-x', layer.currentX.toFixed(2) + 'px');
+      layer.el.style.setProperty('--parallax-y', layer.currentY.toFixed(2) + 'px');
+      layer.el.style.setProperty('--parallax-scale', layer.currentScale.toFixed(4));
+      layer.el.style.setProperty('--parallax-rotate', layer.currentRotate.toFixed(3) + 'deg');
+
+      if (Math.abs(layer.targetX - layer.currentX) > 0.05 ||
+          Math.abs(layer.targetY - layer.currentY) > 0.05 ||
+          Math.abs(layer.targetScale - layer.currentScale) > 0.0005 ||
+          Math.abs(layer.targetRotate - layer.currentRotate) > 0.03) {
+        moving = true;
+      }
+    });
+
+    return moving;
+  }
+
   // Cubic bezier easing function approximations
   function cubicBezier(p0, p1, p2, p3, t) {
     var mt = 1 - t;
@@ -509,6 +587,7 @@
       scrollImpulseTime++;
       if (scrollImpulseTime > scrollImpulseDuration) scrollImpulseTime = -1;
     }
+    var cadMoving = updateCadParallax();
     var drive = 0;
     tlState.forEach(function(s, i) {
       s.v += s.dir * drive * mults[i];
@@ -521,11 +600,15 @@
       s.a += s.v;
     });
     applyRotations();
-    var anyMoving = loadActive || scrollImpulseTime >= 0 ||
+    var anyMoving = loadActive || scrollImpulseTime >= 0 || cadMoving ||
                     tlState.some(function(s){ return Math.abs(s.v) > 0.001; }) ||
                     brState.some(function(s){ return Math.abs(s.v) > 0.001; });
     if (anyMoving) rafId = requestAnimationFrame(tick);
   }
+
+  window.addEventListener('resize', function(){
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }, {passive: true});
 
   // kick off load animation immediately
   rafId = requestAnimationFrame(tick);
