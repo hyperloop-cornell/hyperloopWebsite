@@ -1,4 +1,4 @@
-const CACHE = "hyperloop-v5";
+const CACHE = "hyperloop-v6";
 
 const PAGES = [
   "./", "./index.html", "./subteams.html", "./members.html",
@@ -13,7 +13,7 @@ const PAGES = [
 ];
 
 self.addEventListener("install", e => {
-  self.skipWaiting();
+  e.waitUntil(self.skipWaiting());
 });
 
 self.addEventListener("activate", e => {
@@ -26,26 +26,60 @@ self.addEventListener("activate", e => {
 
 self.addEventListener("fetch", e => {
   if (e.request.method !== "GET") return;
+  let url;
+  try {
+    url = new URL(e.request.url);
+  } catch {
+    return;
+  }
+
+  if (url.protocol !== "http:" && url.protocol !== "https:") return;
+
   e.respondWith(
-    caches.open(CACHE).then(cache =>
-      cache.match(e.request).then(cached => {
-        const fresh = fetch(e.request).then(res => {
-          if (res.ok) cache.put(e.request, res.clone());
-          return res;
-        }).catch(() => cached);
-        return cached || fresh;
-      })
-    )
+    caches.open(CACHE).then(async cache => {
+      if (e.request.mode === "navigate") {
+        try {
+          const fresh = await fetch(e.request);
+          if (fresh.ok) await cache.put(e.request, fresh.clone());
+          return fresh;
+        } catch (err) {
+          const cached = await cache.match(e.request);
+          if (cached) return cached;
+          throw err;
+        }
+      }
+
+      const cached = await cache.match(e.request);
+      if (cached) {
+        fetch(e.request).then(res => {
+          if (res.ok) {
+            cache.put(e.request, res.clone()).catch(() => {});
+          }
+        }).catch(() => {});
+        return cached;
+      }
+
+      const fresh = await fetch(e.request);
+      if (fresh.ok) await cache.put(e.request, fresh.clone());
+      return fresh;
+    })
   );
 });
 
 self.addEventListener("message", e => {
   if (e.data !== "prefetch") return;
-  caches.open(CACHE).then(cache => {
-    PAGES.forEach(url => {
-      cache.match(url).then(hit => {
-        if (!hit) fetch(url).then(res => { if (res.ok) cache.put(url, res); }).catch(() => {});
-      });
-    });
-  });
+  e.waitUntil((async () => {
+    const cache = await caches.open(CACHE);
+    await Promise.all(PAGES.map(async url => {
+      const hit = await cache.match(url);
+      if (hit) return;
+
+      try {
+        const res = await fetch(url);
+        if (res.ok) await cache.put(url, res);
+      } catch {
+        // Ignore prefetch failures; the normal fetch path can retry.
+      }
+    }));
+  })());
 });
