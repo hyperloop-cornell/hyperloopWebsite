@@ -10,7 +10,8 @@ const NAV_LINKS = [
 const ROOT = (() => {
   const src = document.currentScript?.src ||
     [...document.querySelectorAll('script[src]')].find(s => s.src.includes('shared.js'))?.src;
-  return src ? src.replace(/shared\.js$/, '') : '/';
+  if (!src) return '/';
+  return src.split(/[?#]/)[0].replace(/shared\.js$/, '');
 })();
 
 function currentPage() {
@@ -36,7 +37,7 @@ function renderNav() {
   }).join("");
 
   return `
-<header class="bg-surface text-primary top-0 z-50 border-b border-outline-variant sticky">
+<header id="site-header" class="sticky top-0 z-50 border-b border-transparent bg-transparent text-primary backdrop-blur-none transition-[background-color,border-color,backdrop-filter] duration-300 ease-out">
   <div class="flex justify-between items-center w-full px-margin py-4 max-w-container-max mx-auto">
     <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase min-w-0" href="${ROOT}index.html">
       <img src="${ROOT}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto flex-shrink-0"/>
@@ -46,7 +47,7 @@ function renderNav() {
     <a href="${ROOT}apply.html" class="hidden md:block bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
     <button id="mobile-menu-btn" class="md:hidden text-primary p-2 flex-shrink-0" aria-label="Toggle menu" aria-expanded="false"><span class="material-symbols-outlined text-[28px]">menu</span></button>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-surface">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-transparent bg-surface">
     <nav class="flex flex-col py-2">${mobileLinks}</nav>
     <div class="px-4 py-3 border-t border-outline-variant">
       <a href="${ROOT}apply.html" class="block w-full text-center bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
@@ -78,8 +79,59 @@ function renderFooter() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("nav-placeholder").innerHTML = renderNav();
-  document.getElementById("footer-placeholder").innerHTML = renderFooter();
+  document.documentElement.style.overflowX = "clip";
+  document.body.style.overflowX = "clip";
+
+  const navPlaceholder = document.getElementById("nav-placeholder");
+  if (navPlaceholder) {
+    navPlaceholder.innerHTML = renderNav();
+    navPlaceholder.style.display = "block";
+    navPlaceholder.style.right = "0";
+    navPlaceholder.style.top = "0";
+    navPlaceholder.style.position = "fixed";
+    const footerPlaceholder = document.getElementById("footer-placeholder");
+    navPlaceholder.style.left = "0";
+    if (footerPlaceholder) {
+      footerPlaceholder.innerHTML = renderFooter();
+    }
+    navPlaceholder.style.zIndex = "50";
+  }
+
+  const header = document.getElementById("site-header");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const navScrollThreshold = 12;
+  const screenWidth = window.innerWidth || document.documentElement.clientWidth;
+  const mdScreen = 768;
+  let navChromeState = null;
+
+  function updateNavChrome() {
+    if (!header) return;
+    if (screenWidth <= mdScreen) {
+      header.classList.toggle("bg-transparent", false);
+      header.classList.toggle("bg-surface/95", true);
+      header.classList.toggle("border-transparent", false);
+      header.classList.toggle("border-outline-variant", true);
+      header.classList.toggle("backdrop-blur-none", false);
+      header.classList.toggle("backdrop-blur-md", true);
+      return;
+    }
+
+    const scrolled = window.scrollY > navScrollThreshold;
+    if (navChromeState === scrolled) return;
+    navChromeState = scrolled;
+
+    header.classList.toggle("bg-transparent", !scrolled);
+    header.classList.toggle("bg-surface/95", scrolled);
+    header.classList.toggle("border-transparent", !scrolled);
+    header.classList.toggle("border-outline-variant", scrolled);
+    header.classList.toggle("backdrop-blur-none", !scrolled);
+    header.classList.toggle("backdrop-blur-md", scrolled);
+
+    if (mobileMenu) {
+      mobileMenu.classList.toggle("border-transparent", !scrolled);
+      mobileMenu.classList.toggle("border-outline-variant", scrolled);
+    }
+  }
 
   const btn = document.getElementById("mobile-menu-btn");
   const menu = document.getElementById("mobile-menu");
@@ -92,8 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  window.addEventListener("scroll", updateNavChrome, { passive: true });
+  window.addEventListener("resize", updateNavChrome, { passive: true });
+  window.addEventListener("pageshow", updateNavChrome);
+  updateNavChrome();
+
   const prefetched = new Set();
-  document.getElementById("nav-placeholder").addEventListener("mouseover", e => {
+  if (!navPlaceholder) return;
+
+  navPlaceholder.addEventListener("mouseover", e => {
     const a = e.target.closest("a[href]");
     if (!a) return;
     const href = a.getAttribute("href");

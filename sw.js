@@ -1,4 +1,4 @@
-const CACHE = "hyperloop-v6";
+const CACHE = "hyperloop-v8";
 
 const PAGES = [
   "./", "./index.html", "./subteams.html", "./members.html",
@@ -35,9 +35,11 @@ self.addEventListener("fetch", e => {
 
   if (url.protocol !== "http:" && url.protocol !== "https:") return;
 
+  const networkFirstAsset = url.pathname.endsWith("/shared.js") || url.pathname.endsWith("/res/tw.css");
+
   e.respondWith(
     caches.open(CACHE).then(async cache => {
-      if (e.request.mode === "navigate") {
+      if (e.request.mode === "navigate" || networkFirstAsset) {
         try {
           const fresh = await fetch(e.request);
           if (fresh.ok) await cache.put(e.request, fresh.clone());
