@@ -66,13 +66,12 @@ function renderFooter() {
     </div>
     <div class="flex flex-col md:flex-row gap-4 md:justify-center">
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Upson Hall, Ithaca, NY</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Contact</a>
-      <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Privacy Policy</a>
+      <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="mailto:cornellhyperloop@gmail.com">Contact</a>
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener noreferrer">Equal Opportunity</a>
     </div>
     <div class="flex justify-end gap-4 text-on-surface-variant">
       <a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">language</span></a>
-      <a class="hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+      <a class="hover:text-primary transition-colors" href="mailto:cornellhyperloop@gmail.com" aria-label="Email us"><span class="material-symbols-outlined">mail</span></a>
     </div>
   </div>
 </footer>`;

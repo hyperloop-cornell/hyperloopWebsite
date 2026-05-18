@@ -1156,6 +1156,10 @@ input:where([type='file']):focus {
   width: 100%;
 }
 
+.w-3 {
+  width: 0.75rem;
+}
+
 .min-w-0 {
   min-width: 0px;
 }
@@ -2227,6 +2231,10 @@ input:where([type='file']):focus {
 @media (min-width: 640px) {
   .sm\:hidden {
     display: none;
+  }
+
+  .sm\:w-5 {
+    width: 1.25rem;
   }
 
   .sm\:grid-cols-3 {

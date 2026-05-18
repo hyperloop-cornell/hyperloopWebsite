@@ -124,7 +124,7 @@ const LINKEDIN_ICON = `
 const LEAD_CARD_HEIGHT = 368;
 const SUBTEAM_LEAD_CARD_HEIGHT = 284;
 const FACULTY_CARD_HEIGHT = 298;
-const MEMBER_CARD_HEIGHT = 224;
+const MEMBER_CARD_HEIGHT = 248;
 
 function cardWrapper(person, inner, extraStyle = "") {
   const style = extraStyle ? ` style="${extraStyle}"` : "";
@@ -149,7 +149,7 @@ function footerPanel(person, meta, accentLineClass, metaClass, nameTag, nameClas
       <div class="flex items-start gap-3" style="height:${panelHeight}px;padding:${padding};background:rgba(12,19,36,0.94);border-top:1px solid rgba(120,130,160,0.18);backdrop-filter:blur(12px);box-shadow:0 -12px 24px rgba(0,0,0,0.22);box-sizing:border-box;">
         <div class="min-w-0 flex-1">
           <div class="flex items-center gap-2">
-            <span class="w-5 h-[2px] ${accentLineClass} block"></span>
+            <span class="w-3 sm:w-5 h-[2px] ${accentLineClass} block flex-shrink-0"></span>
             <span class="font-label-caps text-[10px] ${metaClass} uppercase tracking-widest">${meta}</span>
           </div>
           <${nameTag} class="${nameClass}"${styleAttr}>${person.name}</${nameTag}>
@@ -191,7 +191,7 @@ function memberCard(person) {
            class="member-photo w-full h-full object-cover object-top"/>
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-10% via-surface/35 to-transparent"></div>
-    ${footerPanel(person, person.subteam, "bg-primary-container", "text-primary", "h4", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-tight", "font-size:13px", "0.55rem 0.85rem", 50)}
+    ${footerPanel(person, person.subteam, "bg-primary-container", "text-primary", "h4", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-tight", "font-size:13px", "0.55rem 0.85rem", 60)}
   </div>`;
 }
 
