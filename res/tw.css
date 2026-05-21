@@ -1108,6 +1108,10 @@ input:where([type='file']):focus {
   min-height: 90vh;
 }
 
+.min-h-\[70vh\] {
+  min-height: 70vh;
+}
+
 .w-0 {
   width: 0px;
 }
@@ -1116,12 +1120,12 @@ input:where([type='file']):focus {
   width: 4rem;
 }
 
-.w-40 {
-  width: 10rem;
+.w-3 {
+  width: 0.75rem;
 }
 
-.w-5 {
-  width: 1.25rem;
+.w-40 {
+  width: 10rem;
 }
 
 .w-6 {
@@ -1154,10 +1158,6 @@ input:where([type='file']):focus {
 
 .w-full {
   width: 100%;
-}
-
-.w-3 {
-  width: 0.75rem;
 }
 
 .min-w-0 {

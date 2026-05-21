@@ -1,8 +1,8 @@
-const CACHE = "hyperloop-v8";
+const CACHE = "hyperloop-v9";
 
 const PAGES = [
   "./", "./index.html", "./subteams.html", "./members.html",
-  "./apply.html", "./sponsors.html", "./updates.html",
+  "./apply.html", "./sponsors.html",
   "./subteam-views/subteam-structures.html",
   "./subteam-views/subteam-braking.html",
   "./subteam-views/subteam-ecc.html",
