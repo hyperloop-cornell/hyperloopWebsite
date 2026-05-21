@@ -4,6 +4,22 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Cornell Hyperloop — ECC</title>
+<meta name="description" content="ECC builds the private telemetry and control platform, from Pi hubs and cloud API to the GUI and motherboard hardware."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://www.cornellhyperloop.com/subteam-views/subteam-ecc.html"/>
+<meta property="og:title" content="Cornell Hyperloop — ECC"/>
+<meta property="og:description" content="ECC builds the private telemetry and control platform, from Pi hubs and cloud API to the GUI and motherboard hardware."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.cornellhyperloop.com/subteam-views/subteam-ecc.html"/>
+<meta property="og:image" content="https://www.cornellhyperloop.com/res/2025springhyperloop.avif"/>
+<meta property="og:image:alt" content="Cornell Hyperloop team at competition"/>
+<meta property="og:site_name" content="Cornell Hyperloop"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Cornell Hyperloop — ECC"/>
+<meta name="twitter:description" content="ECC builds the private telemetry and control platform, from Pi hubs and cloud API to the GUI and motherboard hardware."/>
+<meta name="twitter:image" content="https://www.cornellhyperloop.com/res/2025springhyperloop.avif"/>
+<link rel="icon" href="https://www.cornellhyperloop.com/favicon.png" type="image/png"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; img-src 'self' data: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube.com; worker-src 'self'; object-src 'none'"/>
 <link rel="stylesheet" href="../res/tw.css?v=8"/>
 <style>
   @font-face{font-family:'Material Symbols Outlined';src:url('../res/fonts/material-symbols-outlined.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
@@ -34,7 +50,7 @@
   <!-- Hero -->
   <section class="relative min-h-[50vh] md:min-h-[70vh] flex items-end overflow-hidden border-b border-outline-variant">
     <div class="absolute inset-0 z-0">
-      <img src="../res/PCBschematic.png" alt="PCB schematic" class="w-full h-full object-cover opacity-30"/>
+      <img src="../res/pcbschematic.avif" alt="PCB schematic" class="w-full h-full object-cover opacity-30"/>
       <div class="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
     </div>
@@ -55,7 +71,7 @@
       </div>
       <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase leading-none mb-6 fade-up-2" style="font-size:clamp(1.75rem,10vw,4rem)">ECC</h1>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl fade-up-3">
-        Electronics, Controls & Communications — the brain of the pod. Embedded systems, state machines, sensor fusion, and real-time telemetry.
+        We run the pod's brain and telemetry - Pi hubs, an AWS API, WebSockets, and a secure GUI with OTA flashing.
       </p>
     </div>
   </section>
@@ -65,23 +81,23 @@
     <div class="max-w-container-max mx-auto px-margin py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Platform</span>
-        <span class="font-headline-md text-headline-md text-on-surface">Arduino / RPi</span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Architecture</span>
+        <span class="font-headline-md text-headline-md text-on-surface">Pi Hubs + AWS</span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Loop Rate</span>
-        <span class="font-mono-stats text-[36px] text-on-surface leading-none">1<span class="text-headline-md text-primary-container">kHz</span></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Telemetry</span>
+        <span class="font-headline-md text-headline-md text-on-surface">Opaque Payloads</span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Comms</span>
-        <span class="font-headline-md text-headline-md text-on-surface">CAN + WiFi</span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Operations</span>
+        <span class="font-headline-md text-headline-md text-on-surface">OTA + Health</span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Custom PCBs</span>
-        <span class="font-mono-stats text-[36px] text-on-surface leading-none">6<span class="text-headline-md text-primary-container">+</span></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Motherboard</span>
+        <span class="font-headline-md text-headline-md text-on-surface">Nano R4 I/O</span>
       </div>
     </div>
   </section>
@@ -99,10 +115,10 @@
             </span>
             <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-6">The Pod's<br/>Nervous System</h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
-              ECC is responsible for everything that thinks, senses, and communicates on the pod. We design custom PCBs, write embedded firmware, and build the state machine that governs every phase of a competition run — from pre-launch checks to emergency stop.
+              ECC builds a private, decoupled telemetry and control platform that bridges edge hardware and cloud analytics. Raspberry Pi hubs and an AWS-hosted API make real-time monitoring and control possible during every run.
             </p>
             <p class="font-body-md text-body-md text-on-surface-variant">
-              Our communications stack links the pod to the ground control station in real time, streaming sensor data and receiving commands over a redundant wireless link. We also design the ground control dashboard for live visualization during runs.
+              Telemetry travels from Arduino to Pi Hub, through a cellular gateway, into the cloud, and back to the browser via WebSockets. Opaque payloads keep firmware and UI flexible, and the GUI uses SSO + Duo, OTA flashing, and live health badges for 12 hardware sessions.
             </p>
           </div>
 
@@ -114,29 +130,29 @@
               <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Embedded Firmware</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Real-time C/C++ firmware on STM32 microcontrollers for sensor reading and actuator control.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Telemetry & Command Pipeline</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Pi hubs, gateway uplink, AWS API, and WebSockets with opaque payloads.</span>
                 </div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">State Machine</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Hierarchical state machine governing all pod operational modes and fault responses.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Command & Control GUI</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Secure GUI with SSO + Duo, OTA flashing, and session health diagnostics.</span>
                 </div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">PCB Design</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Custom sensor boards, motor driver boards, and communication modules.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Motherboard & I/O Expansion</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Nano R4, MCP23017 and 74HC595 expanders, RS232 bridge, and I2C muxing.</span>
                 </div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Ground Control UI</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Real-time telemetry dashboard for live monitoring during competition runs.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Levitation Control & Power</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">PWM magnet drive, PID stability, fault detection, and clean multi-rail power.</span>
                 </div>
               </div>
             </div>
@@ -146,25 +162,25 @@
         <div class="lg:col-span-5 space-y-6">
           <div class="relative border border-outline-variant overflow-hidden group">
             <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-10">IMG-E1-01</span>
-            <img src="../res/rpiHub.jpg" alt="PCB schematic" class="w-full max-h-[400px] object-cover transition-all duration-500"/>
+            <img src="../res/rpihub.avif" alt="PCB schematic" class="w-full max-h-[400px] object-cover transition-all duration-500"/>
             <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
           </div>
           <div class="relative border border-outline-variant overflow-hidden group">
             <span class="absolute top-3 right-3 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors z-10">IMG-E1-02</span>
-            <img src="../res/pcbFootprint.avif" alt="PCB footprint" class="w-full max-h-[400px] object-cover transition-all duration-500"/>
+            <img src="../res/pcbfootprint.avif" alt="PCB footprint" class="w-full max-h-[400px] object-cover transition-all duration-500"/>
             <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
           </div>
           <div class="bg-surface-container border border-outline-variant p-6">
             <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
-              <span class="w-6 h-[1px] bg-primary block"></span>Tools & Software
+              <span class="w-6 h-[1px] bg-primary block"></span>Current Projects
             </span>
             <div class="flex flex-wrap gap-2">
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">KiCad</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">STM32CubeIDE</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">C / C++</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Python</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">CAN Bus</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">ROS2</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Telemetry WebSockets</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">OTA Flashing</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Pi Hub Gateway</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Motherboard I/O Expansion</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">PID Levitation Control</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Power Rails + EMI</span>
             </div>
           </div>
         </div>

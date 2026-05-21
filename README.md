@@ -23,7 +23,6 @@ hyperloop_website/
 ├── members.html                # Full roster, data-driven from members.json
 ├── apply.html                  # Recruitment / application page
 ├── sponsors.html               # Sponsor logos and tiers
-├── updates.html                # News / updates feed
 ├── shared.js                   # Nav + footer renderer, service worker registration
 ├── sw.js                       # Service worker (cache-first, prefetch on load)
 ├── members.json                # Symlink/copy of res/members.json (used by sw.js cache path)
@@ -46,6 +45,7 @@ hyperloop_website/
 ## Adding / Editing Content
 
 - **Roster** — Edit `res/members.json`. Each person needs `name`, `role`, `subteam`, `photo` (filename in `compressed_teamPhotos/`), and optionally `linkedin`.
+- **Image optimization** — Run `tools/convert_images.py` to convert any new JPG/PNG assets to AVIF before referencing them in HTML or `res/members.json`.
 - **New subteam page** — Copy an existing file from `subteam-views/`, update content, add a card to `subteams.html`, and add the path to the `PAGES` array in `sw.js`.
 - **Nav links** — Edit the `NAV_LINKS` array at the top of `shared.js`.
 - **Color / typography** — The Tailwind config block is duplicated in each HTML file's `<head>`. Update all files if changing the design system (or consolidate into a shared config file if a build step is introduced).

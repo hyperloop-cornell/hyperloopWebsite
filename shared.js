@@ -40,7 +40,7 @@ function renderNav() {
 <header id="site-header" class="sticky top-0 z-50 border-b border-transparent bg-transparent text-primary backdrop-blur-none transition-[background-color,border-color,backdrop-filter] duration-300 ease-out">
   <div class="flex justify-between items-center w-full px-margin py-4 max-w-container-max mx-auto">
     <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase min-w-0" href="${ROOT}index.html">
-      <img src="${ROOT}res/logoNoBG.avif" alt="Hyperloop logo" class="h-8 w-auto flex-shrink-0"/>
+      <img src="${ROOT}res/logonobg.avif" alt="Hyperloop logo" class="h-8 w-auto flex-shrink-0"/>
       <span class="hidden lg:inline">CORNELL HYPERLOOP</span><span class="sm:hidden">HYPERLOOP</span>
     </a>
     <nav class="hidden md:flex gap-gutter items-center">${links}</nav>
