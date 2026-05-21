@@ -4,6 +4,22 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Cornell Hyperloop — Power Systems</title>
+<meta name="description" content="Power Systems handles low and high voltage power supply and safety, including the battery pack, BMS, and EPO circuits."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://www.cornellhyperloop.com/subteam-views/subteam-power.html"/>
+<meta property="og:title" content="Cornell Hyperloop — Power Systems"/>
+<meta property="og:description" content="Power Systems handles low and high voltage power supply and safety, including the battery pack, BMS, and EPO circuits."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.cornellhyperloop.com/subteam-views/subteam-power.html"/>
+<meta property="og:image" content="https://www.cornellhyperloop.com/res/2025springhyperloop.avif"/>
+<meta property="og:image:alt" content="Cornell Hyperloop team at competition"/>
+<meta property="og:site_name" content="Cornell Hyperloop"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Cornell Hyperloop — Power Systems"/>
+<meta name="twitter:description" content="Power Systems handles low and high voltage power supply and safety, including the battery pack, BMS, and EPO circuits."/>
+<meta name="twitter:image" content="https://www.cornellhyperloop.com/res/2025springhyperloop.avif"/>
+<link rel="icon" href="https://www.cornellhyperloop.com/favicon.png" type="image/png"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; img-src 'self' data: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube.com; worker-src 'self'; object-src 'none'"/>
 <link rel="stylesheet" href="../res/tw.css?v=8"/>
 <style>
   @font-face{font-family:'Material Symbols Outlined';src:url('../res/fonts/material-symbols-outlined.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
@@ -34,7 +50,7 @@
   <!-- Hero -->
   <section class="relative min-h-[50vh] md:min-h-[70vh] flex items-end overflow-hidden border-b border-outline-variant">
     <div class="absolute inset-0 z-0">
-      <img src="../res/3dPCBCOmpass.avif" alt="Power systems PCB" class="w-full h-full object-cover opacity-30"/>
+      <img src="../res/3dpcbcompass.avif" alt="Power systems PCB" class="w-full h-full object-cover opacity-30"/>
       <div class="absolute inset-0 bg-gradient-to-r from-background via-background/70 to-background/20"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
     </div>
@@ -55,7 +71,7 @@
       </div>
       <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase leading-none mb-6 fade-up-2" style="font-size:clamp(1.75rem,10vw,4rem)">Power Systems</h1>
       <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl fade-up-3">
-        Architecting high-voltage battery packs and power distribution networks that safely deliver energy to every critical subsystem on the pod.
+        We deliver 325V at 25A for a 10 hp VFD while keeping every low-voltage sensor safe - the energy backbone and safety net of the pod.
       </p>
     </div>
   </section>
@@ -65,23 +81,23 @@
     <div class="max-w-container-max mx-auto px-margin py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Battery</span>
-        <span class="font-headline-md text-headline-md text-on-surface">Li-Ion Pack</span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Battery Pack</span>
+        <span class="font-headline-md text-headline-md text-on-surface">325V LiFePO4</span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Bus Voltage</span>
-        <span class="font-mono-stats text-[36px] text-on-surface leading-none">48<span class="text-headline-md text-primary-container">V</span></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Current</span>
+        <span class="font-headline-md text-headline-md text-on-surface">25A</span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Peak Power</span>
-        <span class="font-mono-stats text-[36px] text-on-surface leading-none">5<span class="text-headline-md text-primary-container">kW</span></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Drive</span>
+        <span class="font-headline-md text-headline-md text-on-surface">10 hp VFD</span>
       </div>
       <div class="flex flex-col gap-1 relative pl-4">
         <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Protection</span>
-        <span class="font-headline-md text-headline-md text-on-surface">BMS + Fusing</span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Safety</span>
+        <span class="font-headline-md text-headline-md text-on-surface">EPO + BMS</span>
       </div>
     </div>
   </section>
@@ -99,10 +115,10 @@
             </span>
             <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-6">High Voltage.<br/>Zero Compromise.</h2>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-4">
-              Power Systems designs and builds the energy backbone of the pod. From custom lithium-ion battery packs to the power distribution boards that route energy to motors, sensors, and control systems — we ensure every watt is delivered safely and efficiently.
+              Power Systems runs low and high voltage power for the pod. We supply every sensor and microcontroller, and we build the high-voltage battery pack and BMS that feed a 10 hp VFD.
             </p>
             <p class="font-body-md text-body-md text-on-surface-variant">
-              Safety is paramount. Our battery management system (BMS) monitors cell voltages, temperatures, and currents in real time, triggering automatic shutdowns if any parameter exceeds safe limits. All high-voltage wiring follows strict isolation and fusing standards.
+              Safety is central to our work. We design emergency power off (EPO) circuits and integrate them with the BMS so high-voltage systems stay protected. If you like hands-on hardware and safety-critical design, you will fit right in.
             </p>
           </div>
 
@@ -114,29 +130,29 @@
               <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Battery Pack Design</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Custom Li-Ion cell selection, series/parallel configuration, and thermal management.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Low-Voltage Power</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Powering sensors and microcontrollers across the pod.</span>
                 </div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">BMS Development</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Battery management system for cell balancing, protection, and state-of-charge estimation.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">High-Voltage Battery Pack</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Implementing a 325V, 25A LiFePO4 pack for high power propulsion.</span>
                 </div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Power Distribution</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Custom PDU boards routing power to all subsystems with appropriate fusing and isolation.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">High-Voltage BMS</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Cell voltage monitoring and overcurrent protection for safe operation.</span>
                 </div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-surface-container border border-outline-variant hover:border-primary-container transition-colors">
                 <span class="material-symbols-outlined text-primary-container mt-0.5 flex-shrink-0">check_circle</span>
                 <div>
-                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Thermal Management</span>
-                  <span class="font-body-md text-body-md text-on-surface-variant">Passive and active cooling strategies to prevent thermal runaway during peak loads.</span>
+                  <span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Emergency Power Off</span>
+                  <span class="font-body-md text-body-md text-on-surface-variant">Custom EPO circuits integrated with the high voltage safety system.</span>
                 </div>
               </div>
             </div>
@@ -156,14 +172,14 @@
           </div>
           <div class="bg-surface-container border border-outline-variant p-6">
             <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
-              <span class="w-6 h-[1px] bg-primary block"></span>Tools & Software
+              <span class="w-6 h-[1px] bg-primary block"></span>Current Projects
             </span>
             <div class="flex flex-wrap gap-2">
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">KiCad</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">LTspice</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">MATLAB</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Thermal Sim</span>
-              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">Oscilloscope</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">325V LiFePO4 Pack</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">25A High Power</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">10 hp VFD Integration</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">EPO PCB Design</span>
+              <span class="font-label-caps text-label-caps text-on-surface-variant border border-outline-variant px-3 py-1 text-xs">High-Voltage BMS</span>
             </div>
           </div>
         </div>
