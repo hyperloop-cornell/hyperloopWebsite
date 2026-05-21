@@ -923,6 +923,138 @@ input:where([type='file']):focus {
   top: 18%;
 }
 
+.-bottom-\[55\%\] {
+  bottom: -55%;
+}
+
+.-top-\[65\%\] {
+  top: -65%;
+}
+
+.-right-10 {
+  right: -2.5rem;
+}
+
+.-right-\[50\%\] {
+  right: -50%;
+}
+
+.-bottom-40 {
+  bottom: -10rem;
+}
+
+.-top-\[60\%\] {
+  top: -60%;
+}
+
+.-bottom-\[65\%\] {
+  bottom: -65%;
+}
+
+.-bottom-\[70\%\] {
+  bottom: -70%;
+}
+
+.-right-\[55\%\] {
+  right: -55%;
+}
+
+.bottom-\[-18\%\] {
+  bottom: -18%;
+}
+
+.left-\[-32\%\] {
+  left: -32%;
+}
+
+.left-\[6\%\] {
+  left: 6%;
+}
+
+.right-\[-28\%\] {
+  right: -28%;
+}
+
+.top-\[10\%\] {
+  top: 10%;
+}
+
+.top-\[6\%\] {
+  top: 6%;
+}
+
+.left-\[-28\%\] {
+  left: -28%;
+}
+
+.left-\[8\%\] {
+  left: 8%;
+}
+
+.left-\[-2\%\] {
+  left: -2%;
+}
+
+.left-\[10\%\] {
+  left: 10%;
+}
+
+.top-\[16\%\] {
+  top: 16%;
+}
+
+.top-\[0\%\] {
+  top: 0%;
+}
+
+.top-\[30\%\] {
+  top: 30%;
+}
+
+.left-\[20\%\] {
+  left: 20%;
+}
+
+.top-\[60\%\] {
+  top: 60%;
+}
+
+.left-\[30\%\] {
+  left: 30%;
+}
+
+.top-\[50\%\] {
+  top: 50%;
+}
+
+.left-\[50\%\] {
+  left: 50%;
+}
+
+.top-\[45\%\] {
+  top: 45%;
+}
+
+.top-\[48\%\] {
+  top: 48%;
+}
+
+.top-\[49\%\] {
+  top: 49%;
+}
+
+.top-\[51\%\] {
+  top: 51%;
+}
+
+.left-\[55\%\] {
+  left: 55%;
+}
+
+.top-\[53\%\] {
+  top: 53%;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -1082,6 +1214,18 @@ input:where([type='file']):focus {
 
 .h-px {
   height: 1px;
+}
+
+.h-\[28\%\] {
+  height: 28%;
+}
+
+.h-\[30\%\] {
+  height: 30%;
+}
+
+.h-\[42\%\] {
+  height: 42%;
 }
 
 .max-h-\[220px\] {
@@ -2005,6 +2149,10 @@ input:where([type='file']):focus {
   opacity: 0.15;
 }
 
+.opacity-\[0\.08\] {
+  opacity: 0.08;
+}
+
 .ring {
   --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
   --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(3px + var(--tw-ring-offset-width)) var(--tw-ring-color);
@@ -2259,6 +2407,30 @@ input:where([type='file']):focus {
     top: -55%;
   }
 
+  .md\:bottom-\[-23\%\] {
+    bottom: -23%;
+  }
+
+  .md\:left-\[-12\%\] {
+    left: -12%;
+  }
+
+  .md\:left-\[40\%\] {
+    left: 40%;
+  }
+
+  .md\:left-\[82\%\] {
+    left: 82%;
+  }
+
+  .md\:right-auto {
+    right: auto;
+  }
+
+  .md\:top-\[18\%\] {
+    top: 18%;
+  }
+
   .md\:block {
     display: block;
   }
@@ -2273,6 +2445,14 @@ input:where([type='file']):focus {
 
   .md\:h-\[269px\] {
     height: 269px;
+  }
+
+  .md\:h-\[45\%\] {
+    height: 45%;
+  }
+
+  .md\:h-\[65\%\] {
+    height: 65%;
   }
 
   .md\:min-h-\[70vh\] {
@@ -2340,6 +2520,10 @@ input:where([type='file']):focus {
 
   .md\:opacity-\[0\.09\] {
     opacity: 0.09;
+  }
+
+  .md\:opacity-\[0\.15\] {
+    opacity: 0.15;
   }
 }
 
