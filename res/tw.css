@@ -1350,6 +1350,10 @@ input:where([type='file']):focus {
   white-space: nowrap;
 }
 
+.break-words {
+  overflow-wrap: break-word;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }

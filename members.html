@@ -36,6 +36,7 @@
   html,body{background:#0c1324;color:#dce1fb;overflow-x:hidden}
   .member-photo { transition: transform 0.4s ease; }
   .group:hover .member-photo { transform: scale(1.04); }
+  .member-card-touch-active .member-photo { transform: scale(1.04); }
   .img-skeleton { background: linear-gradient(90deg, #151b2d 25%, #23293c 50%, #151b2d 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; }
   .linkedin-action {
     width: 2.25rem;
@@ -50,8 +51,24 @@
     transform: translateX(0);
     opacity: 1;
   }
+  .member-card-touch-active .linkedin-action {
+    transform: translateX(0);
+    opacity: 1;
+  }
   .group:hover .linkedin-action.disabled {
     opacity: 0.6;
+  }
+  .member-card-touch-active .linkedin-action.disabled {
+    opacity: 0.6;
+  }
+  .member-card-touch-active {
+    border-color: var(--member-card-hover-border) !important;
+  }
+  .member-card-touch-active .member-card-hover-outline {
+    border-color: var(--member-card-hover-border) !important;
+  }
+  .member-card-touch-active .member-card-hover-title {
+    color: var(--member-card-hover-title) !important;
   }
   @keyframes shimmer { 0% { background-position: 200% 0 } 100% { background-position: -200% 0 } }
 </style>
@@ -147,6 +164,10 @@ function cardWrapper(person, inner, extraStyle = "") {
   return `<div${style} class="group relative bg-surface-container-low border border-surface-variant flex flex-col overflow-hidden hover:border-primary/50 transition-colors duration-300">${inner}</div>`;
 }
 
+function cardStyles(accent, title) {
+  return `--member-card-hover-border:${accent};--member-card-hover-title:${title};`;
+}
+
 function linkedinAction(person) {
   const hasLinkedIn = Boolean(person.linkedin);
   const tag = hasLinkedIn ? "a" : "span";
@@ -182,9 +203,9 @@ function leadCard(person) {
            class="member-photo w-full h-full object-cover object-top"/>
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/35 to-transparent"></div>
-    <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none"></div>
-    ${footerPanel(person, person.role, "bg-primary-container", "text-primary", "h3", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-snug", "font-size:20px", "0.6rem 0.35rem")}
-  `, `height:${LEAD_CARD_HEIGHT}px;width:100%;max-width:280px;margin-inline:auto;`);
+    <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none member-card-hover-outline"></div>
+    ${footerPanel(person, person.role, "bg-primary-container", "text-primary", "h3", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-snug member-card-hover-title", "font-size:20px", "0.6rem 0.35rem")}
+  `, `height:${LEAD_CARD_HEIGHT}px;width:100%;max-width:280px;margin-inline:auto;${cardStyles("rgba(255, 180, 172, 0.5)", "#ffb4ac")}`);
 }
 
 function subteamLeadCard(person) {
@@ -194,20 +215,20 @@ function subteamLeadCard(person) {
            class="member-photo w-full h-full object-cover object-top"/>
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/35 to-transparent"></div>
-    <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none"></div>
-    ${footerPanel(person, `${person.role}`, "bg-primary-container", "text-primary", "h3", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-tight", "font-size:18px", "0.6rem 0.35rem")}
-  `, `height:${SUBTEAM_LEAD_CARD_HEIGHT}px;width:100%;max-width:250px;margin-inline:auto;`);
+    <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none member-card-hover-outline"></div>
+    ${footerPanel(person, `${person.role}`, "bg-primary-container", "text-primary", "h3", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-tight member-card-hover-title", "font-size:18px", "0.6rem 0.35rem")}
+  `, `height:${SUBTEAM_LEAD_CARD_HEIGHT}px;width:100%;max-width:250px;margin-inline:auto;${cardStyles("rgba(255, 180, 172, 0.5)", "#ffb4ac")}`);
 }
 
 function memberCard(person) {
   return `
-  <div class="group relative bg-surface-container-low border border-surface-variant flex flex-col overflow-hidden hover:border-primary/50 transition-all duration-300" style="height:${MEMBER_CARD_HEIGHT}px">
+  <div class="group relative bg-surface-container-low border border-surface-variant flex flex-col overflow-hidden hover:border-primary/50 transition-all duration-300" style="height:${MEMBER_CARD_HEIGHT}px;${cardStyles("rgba(255, 180, 172, 0.5)", "#ffb4ac")}">
     <div class="absolute inset-0 overflow-hidden">
       <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
            class="member-photo w-full h-full object-cover object-top"/>
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-10% via-surface/35 to-transparent"></div>
-    ${footerPanel(person, person.subteam, "bg-primary-container", "text-primary", "h4", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-tight", "font-size:13px", "0.55rem 0.85rem", 60)}
+    ${footerPanel(person, person.subteam, "bg-primary-container", "text-primary", "h4", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-tight member-card-hover-title", "font-size:13px", "0.55rem 0.85rem", 60)}
   </div>`;
 }
 
@@ -219,9 +240,9 @@ function facultyCard(person) {
            class="member-photo w-full h-full object-cover object-center"/>
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/45 to-transparent"></div>
-    <div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/50 transition-colors pointer-events-none"></div>
-    ${footerPanel(person, facultyMeta, "bg-secondary", "text-secondary", "h3", "font-headline-md text-on-surface uppercase group-hover:text-secondary transition-colors leading-snug", "font-size:18px", "0.6rem 0.35rem")}
-  `, `height:${FACULTY_CARD_HEIGHT}px;width:100%;max-width:260px;margin-inline:auto;`);
+    <div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/50 transition-colors pointer-events-none member-card-hover-outline"></div>
+    ${footerPanel(person, facultyMeta, "bg-secondary", "text-secondary", "h3", "font-headline-md text-on-surface uppercase group-hover:text-secondary transition-colors leading-snug member-card-hover-title", "font-size:18px", "0.6rem 0.35rem")}
+  `, `height:${FACULTY_CARD_HEIGHT}px;width:100%;max-width:260px;margin-inline:auto;${cardStyles("rgba(183, 200, 225, 0.5)", "#b7c8e1")}`);
 }
 
 fetch("res/members.json")
@@ -274,6 +295,33 @@ fetch("res/members.json")
       observer.observe(section);
       container.appendChild(section);
     });
+
+    const touchMedia = window.matchMedia("(hover: none) and (pointer: coarse)");
+    const activeClass = "member-card-touch-active";
+
+    function clearTouchActiveCard() {
+      document.querySelectorAll(`.${activeClass}`).forEach(card => card.classList.remove(activeClass));
+    }
+
+    document.addEventListener("pointerdown", event => {
+      if (!touchMedia.matches || event.pointerType !== "touch") return;
+      const card = event.target.closest(".group");
+      if (!card || !card.closest("main")) {
+        clearTouchActiveCard();
+        return;
+      }
+
+      if (card.classList.contains(activeClass)) {
+        card.classList.remove(activeClass);
+        return;
+      }
+
+      clearTouchActiveCard();
+      card.classList.add(activeClass);
+    }, { passive: true });
+
+    window.addEventListener("scroll", clearTouchActiveCard, { passive: true });
+    window.addEventListener("resize", clearTouchActiveCard, { passive: true });
   });
 </script>
 </body>

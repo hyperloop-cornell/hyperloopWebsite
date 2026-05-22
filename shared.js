@@ -62,7 +62,7 @@ function renderFooter() {
   <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin py-12 max-w-container-max mx-auto items-center">
     <div class="flex flex-col gap-2">
       <span class="text-on-surface font-bold uppercase tracking-widest text-lg">CORNELL HYPERLOOP</span>
-      <span class="text-on-surface-variant text-sm">© 2025 Cornell Hyperloop Electrical</span>
+      <span class="text-on-surface-variant text-sm">© 2025 Cornell Hyperloop ECC</span>
     </div>
     <div class="flex flex-col md:flex-row gap-4 md:justify-center">
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Upson Hall, Ithaca, NY</a>
