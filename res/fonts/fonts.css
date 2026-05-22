@@ -24,21 +24,21 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('Inter/Inter-VariableFont_opsz,wght.subset.woff2') format('woff2');
+  src: url('inter/inter-variablefont_opsz,wght.subset.woff2') format('woff2');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Inter';
-  src: url('Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  src: url('inter/inter-italic-variablefont_opsz,wght.ttf') format('truetype');
   font-weight: 100 900;
   font-style: italic;
   font-display: swap;
 }
 @font-face {
   font-family: 'Space Grotesk';
-  src: url('Space_Grotesk/SpaceGrotesk-VariableFont_wght.subset.woff2') format('woff2');
+  src: url('space_grotesk/spacegrotesk-variablefont_wght.subset.woff2') format('woff2');
   font-weight: 300 700;
   font-style: normal;
   font-display: swap;

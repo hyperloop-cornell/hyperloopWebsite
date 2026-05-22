@@ -787,10 +787,6 @@ input:where([type='file']):focus {
   pointer-events: none;
 }
 
-.invisible {
-  visibility: hidden;
-}
-
 .fixed {
   position: fixed;
 }
@@ -819,16 +815,16 @@ input:where([type='file']):focus {
   inset: 1rem;
 }
 
-.-bottom-\[75\%\] {
-  bottom: -75%;
+.-bottom-\[70\%\] {
+  bottom: -70%;
 }
 
 .-left-60 {
   left: -15rem;
 }
 
-.-right-20 {
-  right: -5rem;
+.-right-\[55\%\] {
+  right: -55%;
 }
 
 .-top-\[70\%\] {
@@ -847,8 +843,8 @@ input:where([type='file']):focus {
   bottom: 1.5rem;
 }
 
-.bottom-\[-23\%\] {
-  bottom: -23%;
+.bottom-\[-18\%\] {
+  bottom: -18%;
 }
 
 .left-0 {
@@ -863,16 +859,16 @@ input:where([type='file']):focus {
   left: 0.75rem;
 }
 
-.left-\[-12\%\] {
-  left: -12%;
+.left-\[-2\%\] {
+  left: -2%;
 }
 
-.left-\[40\%\] {
-  left: 40%;
+.left-\[55\%\] {
+  left: 55%;
 }
 
-.left-\[82\%\] {
-  left: 82%;
+.left-\[6\%\] {
+  left: 6%;
 }
 
 .right-0 {
@@ -919,136 +915,8 @@ input:where([type='file']):focus {
   top: 1rem;
 }
 
-.top-\[18\%\] {
-  top: 18%;
-}
-
-.-bottom-\[55\%\] {
-  bottom: -55%;
-}
-
-.-top-\[65\%\] {
-  top: -65%;
-}
-
-.-right-10 {
-  right: -2.5rem;
-}
-
-.-right-\[50\%\] {
-  right: -50%;
-}
-
-.-bottom-40 {
-  bottom: -10rem;
-}
-
-.-top-\[60\%\] {
-  top: -60%;
-}
-
-.-bottom-\[65\%\] {
-  bottom: -65%;
-}
-
-.-bottom-\[70\%\] {
-  bottom: -70%;
-}
-
-.-right-\[55\%\] {
-  right: -55%;
-}
-
-.bottom-\[-18\%\] {
-  bottom: -18%;
-}
-
-.left-\[-32\%\] {
-  left: -32%;
-}
-
-.left-\[6\%\] {
-  left: 6%;
-}
-
-.right-\[-28\%\] {
-  right: -28%;
-}
-
-.top-\[10\%\] {
-  top: 10%;
-}
-
-.top-\[6\%\] {
-  top: 6%;
-}
-
-.left-\[-28\%\] {
-  left: -28%;
-}
-
-.left-\[8\%\] {
-  left: 8%;
-}
-
-.left-\[-2\%\] {
-  left: -2%;
-}
-
-.left-\[10\%\] {
-  left: 10%;
-}
-
-.top-\[16\%\] {
-  top: 16%;
-}
-
 .top-\[0\%\] {
   top: 0%;
-}
-
-.top-\[30\%\] {
-  top: 30%;
-}
-
-.left-\[20\%\] {
-  left: 20%;
-}
-
-.top-\[60\%\] {
-  top: 60%;
-}
-
-.left-\[30\%\] {
-  left: 30%;
-}
-
-.top-\[50\%\] {
-  top: 50%;
-}
-
-.left-\[50\%\] {
-  left: 50%;
-}
-
-.top-\[45\%\] {
-  top: 45%;
-}
-
-.top-\[48\%\] {
-  top: 48%;
-}
-
-.top-\[49\%\] {
-  top: 49%;
-}
-
-.top-\[51\%\] {
-  top: 51%;
-}
-
-.left-\[55\%\] {
-  left: 55%;
 }
 
 .top-\[53\%\] {
@@ -1184,12 +1052,20 @@ input:where([type='file']):focus {
   height: 275px;
 }
 
+.h-\[28\%\] {
+  height: 28%;
+}
+
 .h-\[2px\] {
   height: 2px;
 }
 
-.h-\[45\%\] {
-  height: 45%;
+.h-\[30\%\] {
+  height: 30%;
+}
+
+.h-\[42\%\] {
+  height: 42%;
 }
 
 .h-\[580px\] {
@@ -1198,10 +1074,6 @@ input:where([type='file']):focus {
 
 .h-\[620px\] {
   height: 620px;
-}
-
-.h-\[65\%\] {
-  height: 65%;
 }
 
 .h-auto {
@@ -1214,18 +1086,6 @@ input:where([type='file']):focus {
 
 .h-px {
   height: 1px;
-}
-
-.h-\[28\%\] {
-  height: 28%;
-}
-
-.h-\[30\%\] {
-  height: 30%;
-}
-
-.h-\[42\%\] {
-  height: 42%;
 }
 
 .max-h-\[220px\] {
@@ -1248,12 +1108,12 @@ input:where([type='file']):focus {
   min-height: 50vh;
 }
 
-.min-h-\[90vh\] {
-  min-height: 90vh;
-}
-
 .min-h-\[70vh\] {
   min-height: 70vh;
+}
+
+.min-h-\[90vh\] {
+  min-height: 90vh;
 }
 
 .w-0 {
@@ -1931,10 +1791,6 @@ input:where([type='file']):focus {
   font-size: 32px;
 }
 
-.text-\[36px\] {
-  font-size: 36px;
-}
-
 .text-\[48px\] {
   font-size: 48px;
 }
@@ -2143,10 +1999,6 @@ input:where([type='file']):focus {
 
 .opacity-85 {
   opacity: 0.85;
-}
-
-.opacity-\[0\.15\] {
-  opacity: 0.15;
 }
 
 .opacity-\[0\.08\] {
@@ -2391,10 +2243,6 @@ input:where([type='file']):focus {
 }
 
 @media (min-width: 768px) {
-  .md\:visible {
-    visibility: visible;
-  }
-
   .md\:-bottom-40 {
     bottom: -10rem;
   }
