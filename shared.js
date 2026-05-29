@@ -70,7 +70,11 @@ function renderFooter() {
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="https://hr.cornell.edu/about/workplace-rights/equal-education-and-employment" target="_blank" rel="noopener noreferrer">Equal Education & Employment</a>
     </div>
     <div class="flex justify-end gap-4 text-on-surface-variant">
-      <a class="hover:text-primary transition-colors" href="https://github.com/WesP10/hyperloopWebsite" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined">language</span></a>
+      <a class="hover:text-primary transition-colors" href="https://github.com/WesP10/hyperloopWebsite" target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="h-6 w-6 fill-current" focusable="false">
+          <path d="M12 .297C5.385.297 0 5.683 0 12.297c0 5.288 3.438 9.772 8.205 11.354.6.111.82-.261.82-.577v-2.234c-3.338.726-4.033-1.415-4.033-1.415-.546-1.387-1.333-1.756-1.333-1.756-1.09-.746.083-.73.083-.73 1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.809 1.305 3.495.998.107-.775.42-1.305.764-1.605-2.665-.303-5.466-1.334-5.466-5.93 0-1.311.469-2.383 1.236-3.222-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.47 11.47 0 0 1 6.003 0c2.293-1.552 3.3-1.23 3.3-1.23.654 1.653.242 2.873.118 3.176.768.839 1.235 1.911 1.235 3.222 0 4.608-2.804 5.624-5.475 5.92.43.37.814 1.102.814 2.222v3.293c0 .319.218.694.825.576C20.565 22.066 24 17.583 24 12.297 24 5.683 18.615.297 12 .297z"/>
+        </svg>
+      </a>
       <a class="hover:text-primary transition-colors" href="mailto:cornellhyperloop@gmail.com" aria-label="Email us"><span class="material-symbols-outlined">mail</span></a>
     </div>
   </div>

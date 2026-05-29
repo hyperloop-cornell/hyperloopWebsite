@@ -3,12 +3,14 @@
     {
       "name": "Rick Geddes",
       "role": "Faculty Co-Advisor",
-      "photo": "geddesrick.avif"
+      "photo": "geddesrick.avif",
+      "linkedin": "https://www.linkedin.com/in/rick-geddes-5134475/"
     },
     {
       "name": "Zhiting Tian",
       "role": "Faculty Co-Advisor",
-      "photo": "tianzhiting.avif"
+      "photo": "tianzhiting.avif",
+      "linkedin": "https://www.linkedin.com/in/zhiting-tian-3103179/"
     }
   ],
   "teamLeads": [

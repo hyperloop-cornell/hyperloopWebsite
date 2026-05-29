@@ -1036,6 +1036,10 @@ input:where([type='file']):focus {
   height: 5rem;
 }
 
+.h-6 {
+  height: 1.5rem;
+}
+
 .h-8 {
   height: 2rem;
 }
@@ -1578,6 +1582,10 @@ input:where([type='file']):focus {
 
 .to-transparent {
   --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
+.fill-current {
+  fill: currentColor;
 }
 
 .fill-on-primary {
