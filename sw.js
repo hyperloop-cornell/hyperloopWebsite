@@ -1,4 +1,4 @@
-const CACHE = "hyperloop-v9";
+const CACHE = "hyperloop-v10";
 
 const PAGES = [
   "./", "./index.html", "./subteams.html", "./members.html",
@@ -35,7 +35,13 @@ self.addEventListener("fetch", e => {
 
   if (url.protocol !== "http:" && url.protocol !== "https:") return;
 
+  const isVideoAsset = url.pathname.endsWith(".mp4") || url.pathname.endsWith(".webm") || url.pathname.endsWith(".mov");
   const networkFirstAsset = url.pathname.endsWith("/shared.js") || url.pathname.endsWith("/res/tw.css");
+
+  if (isVideoAsset || e.request.headers.has("range")) {
+    e.respondWith(fetch(e.request));
+    return;
+  }
 
   e.respondWith(
     caches.open(CACHE).then(async cache => {
