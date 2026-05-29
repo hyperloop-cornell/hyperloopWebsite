@@ -3,29 +3,34 @@
     {
       "name": "Rick Geddes",
       "role": "Faculty Co-Advisor",
-      "photo": "geddesrick.avif"
+      "photo": "geddesrick.avif",
+      "linkedin": "https://www.linkedin.com/in/rick-geddes-5134475/"
     },
     {
       "name": "Zhiting Tian",
       "role": "Faculty Co-Advisor",
-      "photo": "tianzhiting.avif"
+      "photo": "tianzhiting.avif",
+      "linkedin": "https://www.linkedin.com/in/zhiting-tian-3103179/"
     }
   ],
   "teamLeads": [
     {
       "name": "Riya Guttigoli",
       "role": "Mechanical Team Lead",
-      "photo": "riyaguttigoli.avif"
+      "photo": "riyaguttigoli.avif",
+      "linkedin": "https://www.linkedin.com/in/riya-guttigoli-39a979196/"
     },
     {
       "name": "Sal Ciminello",
       "role": "Mechanical Team Lead",
-      "photo": "salciminello.avif"
+      "photo": "salciminello.avif",
+      "linkedin": "https://www.linkedin.com/in/sal-ciminello/"
     },
     {
       "name": "Aislinn Ennis",
       "role": "Electrical Team Lead",
-      "photo": "aislinnennis.avif"
+      "photo": "aislinnennis.avif",
+      "linkedin": "https://www.linkedin.com/in/aislinn-ennis/"
     }
   ],
   "subteamLeads": [
@@ -33,101 +38,119 @@
       "name": "Anubhav Nigam",
       "role": "Magnetics Lead",
       "subteam": "Magnetics",
-      "photo": "anubhav.avif"
+      "photo": "anubhav.avif",
+      "linkedin": "https://www.linkedin.com/in/anubhav-nigam/"
     },
     {
       "name": "Tokunbo Oshinowo",
       "role": "Structures Lead",
       "subteam": "Structures",
-      "photo": "tokunbooshinowo.avif"
+      "photo": "tokunbooshinowo.avif",
+      "linkedin": "https://www.linkedin.com/in/tokunbo-oshinowo/"
     },
     {
       "name": "Weston Clark",
       "role": "ECC Lead",
       "subteam": "ECC",
-      "photo": "westonclark.avif"
+      "photo": "westonclark.avif",
+      "linkedin": "https://www.linkedin.com/in/weston-clark1/"
     },
     {
       "name": "Lalo Esparza",
       "role": "Power Systems Lead",
       "subteam": "Power",
-      "photo": "laloesparza.avif"
+      "photo": "laloesparza.avif",
+      "linkedin": "https://www.linkedin.com/in/hilario-esparza/"
     },
     {
       "name": "Shreya Anand",
       "role": "Braking Lead",
       "subteam": "Braking",
-      "photo": "shreyaanand.avif"
+      "photo": "shreyaanand.avif",
+      "linkedin": "https://www.linkedin.com/in/shreya-anand-all-about-her/"
     },
     {
       "name": "Carter McClintock-Comeaux",
       "role": "Braking Lead",
       "subteam": "Braking",
-      "photo": "cartermcclintockcomeaux.avif"
+      "photo": "cartermcclintockcomeaux.avif",
+      "linkedin": "https://www.linkedin.com/in/carter-mcclintock-comeaux/"
     },
     {
       "name": "Daniel Akinwale",
       "role": "Composites Lead",
       "subteam": "Mechanical",
-      "photo": "daniel.avif"
+      "photo": "daniel.avif",
+      "linkedin": "https://www.linkedin.com/in/daniel-akinwale-894297202/"
     },
     {
       "name": "Hayden Bergschneider",
       "role": "Business Lead",
       "subteam": "Business",
-      "photo": "haydenbergschneider.avif"
+      "photo": "haydenbergschneider.avif",
+      "linkedin": "https://www.linkedin.com/in/haydenberg/"
     }
   ],
   "members": [
     {
       "name": "Eliza Phua",
       "subteam": "Magnetics",
-      "photo": "elizaphua.avif"
+      "photo": "elizaphua.avif",
+      "linkedin": "https://www.linkedin.com/in/eliza-phua-44a1b7301/"
     },
     {
       "name": "Alice Park",
       "subteam": "Magnetics",
-      "photo": "alicepark.avif"
+      "photo": "alicepark.avif",
+      "linkedin": "https://www.linkedin.com/in/alice-sunghyun-park/"
     },
     {
       "name": "Ethan Moger",
       "subteam": "Magnetics",
-      "photo": "ethanmoger.avif"
+      "photo": "ethanmoger.avif",
+      "linkedin": "https://www.linkedin.com/in/ethan-moger/"
     },
     {
       "name": "Connor Hyde",
       "subteam": "Magnetics",
-      "photo": "connorhyde.avif"
+      "photo": "connorhyde.avif",
+      "linkedin": "https://www.linkedin.com/in/connorphyde/"
     },
     {
       "name": "Sankalp Gupta",
       "subteam": "Structures",
-      "photo": "sankalp.avif"
+      "photo": "sankalp.avif",
+      "linkedin": "https://www.linkedin.com/in/sankalp-gupta-185103225/"
     },
     {
       "name": "Jonathan Distler",
       "subteam": "Structures",
-      "photo": "johnathandistler.avif"
+      "photo": "johnathandistler.avif",
+      "linkedin": "https://www.linkedin.com/in/jonathan-distler/"
     },
     {
       "name": "Qing Yi Chen",
       "subteam": "Structures",
-      "photo": "qingyichen.avif"
+      "photo": "qingyichen.avif",
+      "linkedin": "https://www.linkedin.com/in/qing-yi-chen/"
     },
     {
       "name": "Noah Osman",
       "subteam": "Braking",
-      "photo": "noah.avif"
+      "photo": "noah.avif",
+      "linkedin": "https://www.linkedin.com/in/noahposman/"
     },
     {
       "name": "Toby Young",
       "subteam": "Braking",
-      "photo": "tobyyoung.avif"
+      "photo": "tobyyoung.avif",
+      "linkedin": "https://www.linkedin.com/in/tobyyoungprofile/"
     },
     {
       "name": "Jake Dieterich",
       "subteam": "Structures",
-      "photo": "jake.avif"
+      "photo": "jake.avif",
+      "linkedin": "https://www.linkedin.com/in/jake-dieterich-601a5636b/"
     },
     {
       "name": "AJ Cavanaugh",
@@ -137,42 +160,50 @@
     {
       "name": "Benjamin Meltzer",
       "subteam": "Structures",
-      "photo": "benjaminmeltzer.avif"
+      "photo": "benjaminmeltzer.avif",
+      "linkedin": "https://www.linkedin.com/in/benjamin-meltzer-84b489260/"
     },
     {
       "name": "Audrey Horn",
       "subteam": "Magnetics",
-      "photo": "audrey.avif"
+      "photo": "audrey.avif",
+      "linkedin": "https://www.linkedin.com/in/audrey-horn-79396b258/"
     },
     {
       "name": "Tribeca Kao",
       "subteam": "Power",
-      "photo": "tribecakao.avif"
+      "photo": "tribecakao.avif",
+      "linkedin": "https://www.linkedin.com/in/chunningkao/"
     },
     {
       "name": "Farah Abdullah",
       "subteam": "ECC",
-      "photo": "farahabdullah.avif"
+      "photo": "farahabdullah.avif",
+      "linkedin": "https://www.linkedin.com/in/farah-fawcett-abdullah/"
     },
     {
       "name": "Raymond Sheng",
       "subteam": "Power",
-      "photo": "raymond.avif"
+      "photo": "raymond.avif",
+      "linkedin": "https://www.linkedin.com/in/raymond-sheng-a78232285/"
     },
     {
       "name": "Zeybek Tezduyar",
       "subteam": "ECC",
-      "photo": "zeybek.avif"
+      "photo": "zeybek.avif",
+      "linkedin": "https://www.linkedin.com/in/zeybek-tezduyar-73635231a/"
     },
     {
       "name": "Parth Mittal",
       "subteam": "ECC",
-      "photo": "parthmittal.avif"
+      "photo": "parthmittal.avif",
+      "linkedin": "https://www.linkedin.com/in/parth-mittal-o6/"
     },
     {
       "name": "Koi Nguyen",
       "subteam": "ECC",
-      "photo": "koi.avif"
+      "photo": "koi.avif",
+      "linkedin": "https://www.linkedin.com/in/koi-nguyen7/"
     },
     {
       "name": "Santiago Nadel Valle",
@@ -182,27 +213,32 @@
     {
       "name": "Pragya Babbar",
       "subteam": "ECC",
-      "photo": "pragyababbar.avif"
+      "photo": "pragyababbar.avif",
+      "linkedin": "https://www.linkedin.com/in/pragya-babbar/"
     },
     {
       "name": "Raphael Popescu",
       "subteam": "ECC",
-      "photo": "raphaelpopescu.avif"
+      "photo": "raphaelpopescu.avif",
+      "linkedin": "https://www.linkedin.com/in/raphael-popescu/"
     },
     {
       "name": "Tarik Mohamed",
       "subteam": "ECC",
-      "photo": "tarik.avif"
+      "photo": "tarik.avif",
+      "linkedin": "https://www.linkedin.com/in/tarik-m-0b37aa375/"
     },
     {
       "name": "Peri Goldberg",
       "subteam": "ECC",
-      "photo": "perigoldberg.avif"
+      "photo": "perigoldberg.avif",
+      "linkedin": "https://www.linkedin.com/in/peri-goldberg215/"
     },
     {
       "name": "Medha Elluru",
       "subteam": "ECC",
-      "photo": "medha.avif"
+      "photo": "medha.avif",
+      "linkedin": "https://www.linkedin.com/in/elluru-medha-krishna-843509284/"
     },
     {
       "name": "Jonny Nguyen",
@@ -212,22 +248,26 @@
     {
       "name": "Caden Ng",
       "subteam": "Business",
-      "photo": "caden.avif"
+      "photo": "caden.avif",
+      "linkedin": "https://www.linkedin.com/in/caden-ng/"
     },
     {
       "name": "Stanley Wu",
       "subteam": "Business",
-      "photo": "stanelywu.avif"
+      "photo": "stanelywu.avif",
+      "linkedin": "https://www.linkedin.com/in/stanley-wu-988a19269/"
     },
     {
       "name": "Sahil Polepalle",
       "subteam": "Business",
-      "photo": "sahil.avif"
+      "photo": "sahil.avif",
+      "linkedin": "https://www.linkedin.com/in/sahilpolepalle/"
     },
     {
       "name": "Claire Choi",
       "subteam": "Business",
-      "photo": "clairechoi.avif"
+      "photo": "clairechoi.avif",
+      "linkedin": "https://www.linkedin.com/in/claire-choi2/"
     }
   ]
 }
