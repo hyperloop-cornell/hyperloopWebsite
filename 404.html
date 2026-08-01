@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>
+  (function(){
+    var redirects = { '/archived-news-letters': '/news.html', '/archived-news-letters/': '/news.html' };
+    var path = window.location.pathname.replace(/\/+$/, '') || '/';
+    var target = redirects[path];
+    if (target) window.location.replace(target);
+  })();
+</script>
 <title>Cornell Hyperloop — Page Not Found</title>
 <meta name="description" content="The page you requested was not found. Return home or explore Cornell Hyperloop subteams and members."/>
 <meta name="robots" content="noindex,follow"/>
