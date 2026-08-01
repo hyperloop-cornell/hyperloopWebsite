@@ -2,6 +2,7 @@ const NAV_LINKS = [
   { href: "index.html", label: "Home" },
   { href: "subteams.html", label: "Subteams" },
   { href: "members.html", label: "Members" },
+  { href: "news.html", label: "News" },
   { href: "apply.html", label: "Apply" },
   { href: "sponsors.html", label: "Sponsors" },
 ];
@@ -63,6 +64,7 @@ function renderFooter() {
     <div class="flex flex-col gap-2">
       <span class="text-on-surface font-bold uppercase tracking-widest text-lg">CORNELL HYPERLOOP</span>
       <span class="text-on-surface-variant text-sm">© 2025 Cornell Hyperloop ECC</span>
+      <span class="text-on-surface-variant text-xs mt-1 max-w-xs leading-relaxed" style="opacity:0.65">This organization is a registered student organization of Cornell University.</span>
     </div>
     <div class="flex flex-col md:flex-row gap-4 md:justify-center">
       <a class="text-on-surface-variant hover:text-primary transition-colors uppercase font-label-caps text-xs tracking-wider" href="#">Upson Hall, Ithaca, NY</a>

@@ -2,7 +2,7 @@ const CACHE = "hyperloop-v10";
 
 const PAGES = [
   "./", "./index.html", "./subteams.html", "./members.html",
-  "./apply.html", "./sponsors.html",
+  "./apply.html", "./sponsors.html", "./news.html",
   "./subteam-views/subteam-structures.html",
   "./subteam-views/subteam-braking.html",
   "./subteam-views/subteam-ecc.html",
