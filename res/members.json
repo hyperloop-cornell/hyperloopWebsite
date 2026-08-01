@@ -15,32 +15,25 @@
   ],
   "teamLeads": [
     {
-      "name": "Riya Guttigoli",
-      "role": "Mechanical Team Lead",
-      "photo": "riyaguttigoli.avif",
-      "linkedin": "https://www.linkedin.com/in/riya-guttigoli-39a979196/"
-    },
-    {
-      "name": "Sal Ciminello",
-      "role": "Mechanical Team Lead",
-      "photo": "salciminello.avif",
-      "linkedin": "https://www.linkedin.com/in/sal-ciminello/"
-    },
-    {
-      "name": "Aislinn Ennis",
-      "role": "Electrical Team Lead",
-      "photo": "aislinnennis.avif",
-      "linkedin": "https://www.linkedin.com/in/aislinn-ennis/"
-    }
-  ],
-  "subteamLeads": [
-    {
       "name": "Anubhav Nigam",
-      "role": "Magnetics Lead",
-      "subteam": "Magnetics",
+      "role": "Mechanical Team Lead & Magnetics Lead",
       "photo": "anubhav.avif",
       "linkedin": "https://www.linkedin.com/in/anubhav-nigam/"
     },
+    {
+      "name": "Carter McClintock-Comeaux",
+      "role": "Mechanical Team Lead",
+      "photo": "cartermcclintockcomeaux.avif",
+      "linkedin": "https://www.linkedin.com/in/carter-mcclintock-comeaux/"
+    },
+    {
+      "name": "Weston Clark",
+      "role": "Electrical Team Lead",
+      "photo": "westonclark.avif",
+      "linkedin": "https://www.linkedin.com/in/weston-clark1/"
+    }
+  ],
+  "subteamLeads": [
     {
       "name": "Tokunbo Oshinowo",
       "role": "Structures Lead",
@@ -49,18 +42,11 @@
       "linkedin": "https://www.linkedin.com/in/tokunbo-oshinowo/"
     },
     {
-      "name": "Weston Clark",
-      "role": "ECC Lead",
-      "subteam": "ECC",
-      "photo": "westonclark.avif",
-      "linkedin": "https://www.linkedin.com/in/weston-clark1/"
-    },
-    {
-      "name": "Lalo Esparza",
-      "role": "Power Systems Lead",
+      "name": "Tribeca Kao",
+      "role": "Power Lead",
       "subteam": "Power",
-      "photo": "laloesparza.avif",
-      "linkedin": "https://www.linkedin.com/in/hilario-esparza/"
+      "photo": "tribecakao.avif",
+      "linkedin": "https://www.linkedin.com/in/tribeca-kao-0b3a9a1b6/"
     },
     {
       "name": "Shreya Anand",
@@ -70,11 +56,11 @@
       "linkedin": "https://www.linkedin.com/in/shreya-anand-all-about-her/"
     },
     {
-      "name": "Carter McClintock-Comeaux",
-      "role": "Braking Lead",
-      "subteam": "Braking",
-      "photo": "cartermcclintockcomeaux.avif",
-      "linkedin": "https://www.linkedin.com/in/carter-mcclintock-comeaux/"
+      "name": "Tarik Mohamed",
+      "role": "ECC Lead",
+      "subteam": "ECC",
+      "photo": "tarik.avif",
+      "linkedin": "https://www.linkedin.com/in/tarik-m-0b37aa375/"
     },
     {
       "name": "Daniel Akinwale",
@@ -82,6 +68,20 @@
       "subteam": "Mechanical",
       "photo": "daniel.avif",
       "linkedin": "https://www.linkedin.com/in/daniel-akinwale-894297202/"
+    },
+    {
+      "name": "Peri Goldberg",
+      "role": "Safety Lead",
+      "subteam": "ECC",
+      "photo": "perigoldberg.avif",
+      "linkedin": "https://www.linkedin.com/in/peri-goldberg215/"
+    },
+    {
+      "name": "Connor Hyde",
+      "role": "Machining Lead",
+      "subteam": "Magnetics",
+      "photo": "connorhyde.avif",
+      "linkedin": "https://www.linkedin.com/in/connorphyde/"
     },
     {
       "name": "Hayden Bergschneider",
@@ -109,12 +109,6 @@
       "subteam": "Magnetics",
       "photo": "ethanmoger.avif",
       "linkedin": "https://www.linkedin.com/in/ethan-moger/"
-    },
-    {
-      "name": "Connor Hyde",
-      "subteam": "Magnetics",
-      "photo": "connorhyde.avif",
-      "linkedin": "https://www.linkedin.com/in/connorphyde/"
     },
     {
       "name": "Sankalp Gupta",
@@ -218,21 +212,27 @@
     },
     {
       "name": "Raphael Popescu",
-      "subteam": "ECC",
+      "subteam": "Power",
       "photo": "raphaelpopescu.avif",
       "linkedin": "https://www.linkedin.com/in/raphael-popescu/"
     },
     {
-      "name": "Tarik Mohamed",
-      "subteam": "ECC",
-      "photo": "tarik.avif",
-      "linkedin": "https://www.linkedin.com/in/tarik-m-0b37aa375/"
+      "name": "Fatima Lira",
+      "subteam": "Power",
+      "photo": "Fatima.png",
+      "linkedin": "https://www.linkedin.com/in/fatima-lira-2b0a4b1b9/"
     },
     {
-      "name": "Peri Goldberg",
+      "name": "Vincent Liu",
+      "subteam": "Power",
+      "photo": "Vincent.png",
+      "linkedin": "https://www.linkedin.com/in/vincent-liu-158066285/"
+    },
+    {
+      "name": "Sanjit Madireddi",
       "subteam": "ECC",
-      "photo": "perigoldberg.avif",
-      "linkedin": "https://www.linkedin.com/in/peri-goldberg215/"
+      "photo": "Sanjit.png",
+      "linkedin": "https://www.linkedin.com/in/sanjit-madireddi-7b3a4b1b5/"
     },
     {
       "name": "Medha Elluru",
