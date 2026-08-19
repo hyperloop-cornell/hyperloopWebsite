@@ -16,7 +16,7 @@
   "teamLeads": [
     {
       "name": "Anubhav Nigam",
-      "role": "Mechanical Team Lead & Magnetics Lead",
+      "role": "Senior Advisor",
       "photo": "anubhav.avif",
       "linkedin": "https://www.linkedin.com/in/anubhav-nigam/"
     },
@@ -35,11 +35,11 @@
   ],
   "subteamLeads": [
     {
-      "name": "Tokunbo Oshinowo",
+      "name": "Qing Yi Chen",
       "role": "Structures Lead",
       "subteam": "Structures",
-      "photo": "tokunbooshinowo.avif",
-      "linkedin": "https://www.linkedin.com/in/tokunbo-oshinowo/"
+      "photo": "qingyichen.avif",
+      "linkedin": "https://www.linkedin.com/in/qing-yi-chen/"
     },
     {
       "name": "Tribeca Kao",
@@ -47,6 +47,13 @@
       "subteam": "Power",
       "photo": "tribecakao.avif",
       "linkedin": "https://www.linkedin.com/in/tribeca-kao-0b3a9a1b6/"
+    },
+    {
+      "name": "Ethan Moger",
+      "role": "Magnetics Lead",
+      "subteam": "Magnetics",
+      "photo": "ethanmoger.avif",
+      "linkedin": "https://www.linkedin.com/in/ethan-moger/"
     },
     {
       "name": "Shreya Anand",
@@ -61,13 +68,6 @@
       "subteam": "ECC",
       "photo": "tarik.avif",
       "linkedin": "https://www.linkedin.com/in/tarik-m-0b37aa375/"
-    },
-    {
-      "name": "Daniel Akinwale",
-      "role": "Composites Lead",
-      "subteam": "Mechanical",
-      "photo": "daniel.avif",
-      "linkedin": "https://www.linkedin.com/in/daniel-akinwale-894297202/"
     },
     {
       "name": "Peri Goldberg",
@@ -105,12 +105,6 @@
       "linkedin": "https://www.linkedin.com/in/alice-sunghyun-park/"
     },
     {
-      "name": "Ethan Moger",
-      "subteam": "Magnetics",
-      "photo": "ethanmoger.avif",
-      "linkedin": "https://www.linkedin.com/in/ethan-moger/"
-    },
-    {
       "name": "Sankalp Gupta",
       "subteam": "Structures",
       "photo": "sankalp.avif",
@@ -123,10 +117,10 @@
       "linkedin": "https://www.linkedin.com/in/jonathan-distler/"
     },
     {
-      "name": "Qing Yi Chen",
+      "name": "Tokunbo Oshinowo",
       "subteam": "Structures",
-      "photo": "qingyichen.avif",
-      "linkedin": "https://www.linkedin.com/in/qing-yi-chen/"
+      "photo": "tokunbooshinowo.avif",
+      "linkedin": "https://www.linkedin.com/in/tokunbo-oshinowo/"
     },
     {
       "name": "Noah Osman",
@@ -162,12 +156,6 @@
       "subteam": "Magnetics",
       "photo": "audrey.avif",
       "linkedin": "https://www.linkedin.com/in/audrey-horn-79396b258/"
-    },
-    {
-      "name": "Tribeca Kao",
-      "subteam": "Power",
-      "photo": "tribecakao.avif",
-      "linkedin": "https://www.linkedin.com/in/chunningkao/"
     },
     {
       "name": "Farah Abdullah",
@@ -246,6 +234,12 @@
       "photo": "jonnynguyen.avif"
     },
     {
+      "name": "Joaquin Perez",
+      "subteam": "Business",
+      "photo": "joaquin.avif",
+      "linkedin": "https://www.linkedin.com/in/joaquineperez/"
+    },
+    {
       "name": "Caden Ng",
       "subteam": "Business",
       "photo": "caden.avif",
@@ -262,12 +256,6 @@
       "subteam": "Business",
       "photo": "sahil.avif",
       "linkedin": "https://www.linkedin.com/in/sahilpolepalle/"
-    },
-    {
-      "name": "Claire Choi",
-      "subteam": "Business",
-      "photo": "clairechoi.avif",
-      "linkedin": "https://www.linkedin.com/in/claire-choi2/"
     }
   ]
 }
