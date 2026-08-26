@@ -146,10 +146,9 @@
       "photo": "aj.avif"
     },
     {
-      "name": "Benjamin Meltzer",
+      "name": "Kiran Foster",
       "subteam": "Structures",
-      "photo": "benjaminmeltzer.avif",
-      "linkedin": "https://www.linkedin.com/in/benjamin-meltzer-84b489260/"
+      "photo": ""
     },
     {
       "name": "Audrey Horn",
@@ -201,7 +200,7 @@
     },
     {
       "name": "Vincent Liu",
-      "subteam": "Power",
+      "subteam": "ECC",
       "photo": "Vincent.png",
       "linkedin": "https://www.linkedin.com/in/vincent-liu-158066285/"
     },
@@ -216,6 +215,11 @@
       "subteam": "ECC",
       "photo": "medha.avif",
       "linkedin": "https://www.linkedin.com/in/elluru-medha-krishna-843509284/"
+    },
+    {
+      "name": "Parth Mittal",
+      "subteam": "ECC",
+      "photo": "parthmittal.avif"
     },
     {
       "name": "Jonny Nguyen",
