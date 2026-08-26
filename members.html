@@ -159,6 +159,39 @@ const SUBTEAM_LEAD_CARD_HEIGHT = 284;
 const FACULTY_CARD_HEIGHT = 298;
 const MEMBER_CARD_HEIGHT = 248;
 
+function getInitials(name) {
+  const words = (name || "CH").split(/\s+/).filter(Boolean);
+  const initials = words.slice(0, 2).map(word => word[0]).join("").toUpperCase();
+  return initials || "CH";
+}
+
+function fallbackMemberImage(person) {
+  const initials = getInitials(person.name);
+  const palette = ["#1d4ed8", "#7c3aed", "#0f766e", "#f97316", "#0ea5e9"]; 
+  const accent = palette[initials.charCodeAt(0) % palette.length];
+  const svg = `
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'>
+      <text x='50%' y='58%' text-anchor='middle' fill='white' font-size='150' font-family='Arial, Helvetica, sans-serif' font-weight='700'>${initials}</text>
+    </svg>
+  `;
+  return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+}
+
+function getMemberPhotoSrc(person) {
+  const photoName = (person.photo || "").trim();
+  return photoName ? `${PHOTO_BASE}${photoName}` : fallbackMemberImage(person);
+}
+
+function memberImageMarkup(person, objectPosition = "object-top") {
+  const fallback = fallbackMemberImage(person);
+  const src = getMemberPhotoSrc(person);
+  return `
+    <img src="${src}" alt="${person.name}" loading="lazy" decoding="async"
+         class="member-photo w-full h-full object-cover ${objectPosition}"
+         onerror="this.onerror=null;this.src='${fallback}';"/>
+  `;
+}
+
 function cardWrapper(person, inner, extraStyle = "") {
   const style = extraStyle ? ` style="${extraStyle}"` : "";
   return `<div${style} class="group relative bg-surface-container-low border border-surface-variant flex flex-col overflow-hidden hover:border-primary/50 transition-colors duration-300">${inner}</div>`;
@@ -199,8 +232,7 @@ function footerPanel(person, meta, accentLineClass, metaClass, nameTag, nameClas
 function leadCard(person) {
   return cardWrapper(person, `
     <div class="absolute inset-0 overflow-hidden">
-      <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
-           class="member-photo w-full h-full object-cover object-top"/>
+      ${memberImageMarkup(person, "object-top")}
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/35 to-transparent"></div>
     <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none member-card-hover-outline"></div>
@@ -211,8 +243,7 @@ function leadCard(person) {
 function subteamLeadCard(person) {
   return cardWrapper(person, `
     <div class="absolute inset-0 overflow-hidden">
-      <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
-           class="member-photo w-full h-full object-cover object-top"/>
+      ${memberImageMarkup(person, "object-top")}
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/35 to-transparent"></div>
     <div class="absolute inset-0 border-2 border-transparent group-hover:border-primary/50 transition-colors pointer-events-none member-card-hover-outline"></div>
@@ -224,8 +255,7 @@ function memberCard(person) {
   return `
   <div class="group relative bg-surface-container-low border border-surface-variant flex flex-col overflow-hidden hover:border-primary/50 transition-all duration-300" style="height:${MEMBER_CARD_HEIGHT}px;${cardStyles("rgba(255, 180, 172, 0.5)", "#ffb4ac")}">
     <div class="absolute inset-0 overflow-hidden">
-      <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
-           class="member-photo w-full h-full object-cover object-top"/>
+      ${memberImageMarkup(person, "object-top")}
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-10% via-surface/35 to-transparent"></div>
     ${footerPanel(person, person.subteam, "bg-primary-container", "text-primary", "h4", "font-headline-md text-on-surface uppercase group-hover:text-primary transition-colors leading-tight member-card-hover-title", "font-size:13px", "0.55rem 0.85rem", 60)}
@@ -236,8 +266,7 @@ function facultyCard(person) {
   const facultyMeta = person.department ? `${person.role} · ${person.department}` : person.role;
   return cardWrapper(person, `
     <div class="absolute inset-0 overflow-hidden">
-      <img src="${PHOTO_BASE}${person.photo}" alt="${person.name}" loading="lazy" decoding="async"
-           class="member-photo w-full h-full object-cover object-center"/>
+      ${memberImageMarkup(person, "object-center")}
     </div>
     <div class="absolute inset-0 bg-gradient-to-t from-surface from-20% via-surface/45 to-transparent"></div>
     <div class="absolute inset-0 border-2 border-transparent group-hover:border-secondary/50 transition-colors pointer-events-none member-card-hover-outline"></div>
