@@ -19,6 +19,29 @@ function currentPage() {
   return location.pathname.split("/").pop() || "index.html";
 }
 
+const ANNOUNCEMENT_DISMISS_KEY = "hyperloop-announcement-dismissed";
+
+function renderAnnouncementBar() {
+  return `
+<div id="announcement-bar" class="w-full bg-surface-container-lowest/90 backdrop-blur-md border-b border-outline-variant/60 relative">
+  <div class="max-w-container-max mx-auto px-margin py-3 flex flex-col sm:flex-row items-center justify-center gap-1.5 sm:gap-3 text-center">
+    <span class="font-label-caps text-label-caps uppercase tracking-[0.2em] text-[10px] text-primary-container/90 flex items-center gap-1.5 flex-shrink-0">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary-container flex-shrink-0"></span>
+      Applications Open
+    </span>
+    <span class="hidden sm:block w-px h-3 bg-outline-variant/60 flex-shrink-0"></span>
+    <span class="font-body-md text-body-md text-on-surface-variant/90 text-xs sm:text-sm">First-year &amp; transfer applications are open now.</span>
+    <a href="${ROOT}apply.html" class="font-label-caps text-label-caps uppercase tracking-[0.15em] text-[10px] text-primary-container hover:text-primary transition-colors duration-200 flex items-center gap-1 flex-shrink-0">
+      Apply Now
+      <span class="material-symbols-outlined text-[13px] leading-none">arrow_forward</span>
+    </a>
+  </div>
+  <button id="announcement-bar-close" type="button" aria-label="Dismiss announcement" class="absolute right-2.5 sm:right-3.5 top-2 h-6 w-6 rounded-full flex items-center justify-center leading-none text-on-surface-variant/60 border border-transparent hover:text-primary-container hover:border-outline-variant hover:bg-surface-container-high/60 focus-visible:outline-none focus-visible:border-primary-container focus-visible:text-primary-container transition-colors duration-200">
+    <span class="font-body-md text-[14px] font-semibold leading-none">&times;</span>
+  </button>
+</div>`;
+}
+
 function renderNav() {
   const links = NAV_LINKS.map(({ href, label }) => {
     const active = currentPage() === href;
@@ -88,8 +111,19 @@ document.addEventListener("DOMContentLoaded", () => {
   document.body.style.overflowX = "clip";
 
   const navPlaceholder = document.getElementById("nav-placeholder");
+  let announcementDismissed = false;
+  try {
+    announcementDismissed = localStorage.getItem(ANNOUNCEMENT_DISMISS_KEY) === "1";
+  } catch (e) {}
+
+  function updateHeaderOffset() {
+    const main = document.querySelector("main");
+    if (!navPlaceholder || !main) return;
+    main.style.paddingTop = navPlaceholder.offsetHeight + "px";
+  }
+
   if (navPlaceholder) {
-    navPlaceholder.innerHTML = renderNav();
+    navPlaceholder.innerHTML = renderNav() + (announcementDismissed ? "" : renderAnnouncementBar());
     navPlaceholder.style.display = "block";
     navPlaceholder.style.right = "0";
     navPlaceholder.style.top = "0";
@@ -100,6 +134,21 @@ document.addEventListener("DOMContentLoaded", () => {
       footerPlaceholder.innerHTML = renderFooter();
     }
     navPlaceholder.style.zIndex = "50";
+
+    updateHeaderOffset();
+    window.addEventListener("resize", updateHeaderOffset, { passive: true });
+
+    const announcementBar = document.getElementById("announcement-bar");
+    const announcementCloseBtn = document.getElementById("announcement-bar-close");
+    if (announcementBar && announcementCloseBtn) {
+      announcementCloseBtn.addEventListener("click", () => {
+        announcementBar.remove();
+        try {
+          localStorage.setItem(ANNOUNCEMENT_DISMISS_KEY, "1");
+        } catch (e) {}
+        updateHeaderOffset();
+      });
+    }
   }
 
   const header = document.getElementById("site-header");
