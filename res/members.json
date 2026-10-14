@@ -57,8 +57,8 @@
     },
     {
       "name": "Shreya Anand",
-      "role": "Braking Lead",
-      "subteam": "Braking",
+      "role": "Integration Lead",
+      "subteam": "Integration",
       "photo": "shreyaanand.avif",
       "linkedin": "https://www.linkedin.com/in/shreya-anand-all-about-her/"
     },
@@ -78,8 +78,8 @@
     },
     {
       "name": "Connor Hyde",
-      "role": "Machining Lead",
-      "subteam": "Magnetics",
+      "role": "Track Lead",
+      "subteam": "Track",
       "photo": "connorhyde.avif",
       "linkedin": "https://www.linkedin.com/in/connorphyde/"
     },
@@ -93,46 +93,10 @@
   ],
   "members": [
     {
-      "name": "Eliza Phua",
-      "subteam": "Magnetics",
-      "photo": "elizaphua.avif",
-      "linkedin": "https://www.linkedin.com/in/eliza-phua-44a1b7301/"
-    },
-    {
-      "name": "Alice Park",
-      "subteam": "Magnetics",
-      "photo": "alicepark.avif",
-      "linkedin": "https://www.linkedin.com/in/alice-sunghyun-park/"
-    },
-    {
-      "name": "Sankalp Gupta",
-      "subteam": "Structures",
-      "photo": "sankalp.avif",
-      "linkedin": "https://www.linkedin.com/in/sankalp-gupta-185103225/"
-    },
-    {
       "name": "Jonathan Distler",
       "subteam": "Structures",
       "photo": "johnathandistler.avif",
       "linkedin": "https://www.linkedin.com/in/jonathan-distler/"
-    },
-    {
-      "name": "Tokunbo Oshinowo",
-      "subteam": "Structures",
-      "photo": "tokunbooshinowo.avif",
-      "linkedin": "https://www.linkedin.com/in/tokunbo-oshinowo/"
-    },
-    {
-      "name": "Noah Osman",
-      "subteam": "Braking",
-      "photo": "noah.avif",
-      "linkedin": "https://www.linkedin.com/in/noahposman/"
-    },
-    {
-      "name": "Toby Young",
-      "subteam": "Braking",
-      "photo": "tobyyoung.avif",
-      "linkedin": "https://www.linkedin.com/in/tobyyoungprofile/"
     },
     {
       "name": "Jake Dieterich",
@@ -141,9 +105,10 @@
       "linkedin": "https://www.linkedin.com/in/jake-dieterich-601a5636b/"
     },
     {
-      "name": "AJ Cavanaugh",
-      "subteam": "Braking",
-      "photo": "aj.avif"
+      "name": "Sankalp Gupta",
+      "subteam": "Structures",
+      "photo": "sankalp.avif",
+      "linkedin": "https://www.linkedin.com/in/sankalp-gupta-185103225/"
     },
     {
       "name": "Kiran Foster",
@@ -151,10 +116,63 @@
       "photo": ""
     },
     {
+      "name": "Addite Rajvaidya",
+      "photo": "",
+      "subteam": "Structures"
+    },
+    {
+      "name": "Noah Osman",
+      "subteam": "Magnetics",
+      "photo": "noah.avif",
+      "linkedin": "https://www.linkedin.com/in/noahposman/"
+    },
+    {
+      "name": "Toby Young",
+      "subteam": "Magnetics",
+      "photo": "tobyyoung.avif",
+      "linkedin": "https://www.linkedin.com/in/tobyyoungprofile/"
+    },
+    {
+      "name": "Joaquin Perez",
+      "subteam": "Magnetics",
+      "photo": "joaquin.avif",
+      "linkedin": "https://www.linkedin.com/in/joaquineperez/"
+    },
+    {
+      "name": "AJ Cavanaugh",
+      "subteam": "Magnetics",
+      "photo": "aj.avif"
+    },
+    {
       "name": "Audrey Horn",
       "subteam": "Magnetics",
       "photo": "audrey.avif",
       "linkedin": "https://www.linkedin.com/in/audrey-horn-79396b258/"
+    },
+    {
+      "name": "Luisa Frackiewicz",
+      "photo": "",
+      "subteam": "Magnetics"
+    },
+    {
+      "name": "Madhav Venkatachalam",
+      "photo": "",
+      "subteam": "Magnetics"
+    },
+    {
+      "name": "Ashley Bertagnoli",
+      "subteam": "Power",
+      "photo": ""
+    },
+    {
+      "name": "Jimmy Chen",
+      "subteam": "Power",
+      "photo": ""
+    },
+    {
+      "name": "Cody Zhu",
+      "subteam": "ECC",
+      "photo": ""
     },
     {
       "name": "Farah Abdullah",
@@ -179,12 +197,6 @@
       "subteam": "ECC",
       "photo": "koi.avif",
       "linkedin": "https://www.linkedin.com/in/koi-nguyen7/"
-    },
-    {
-      "name": "Pragya Babbar",
-      "subteam": "ECC",
-      "photo": "pragyababbar.avif",
-      "linkedin": "https://www.linkedin.com/in/pragya-babbar/"
     },
     {
       "name": "Raphael Popescu",
@@ -225,12 +237,6 @@
       "name": "Jonny Nguyen",
       "subteam": "Power",
       "photo": "jonnynguyen.avif"
-    },
-    {
-      "name": "Joaquin Perez",
-      "subteam": "Business",
-      "photo": "joaquin.avif",
-      "linkedin": "https://www.linkedin.com/in/joaquineperez/"
     },
     {
       "name": "Caden Ng",

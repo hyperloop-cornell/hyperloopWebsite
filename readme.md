@@ -2,6 +2,16 @@
 
 Static multi-page website for the Cornell Hyperloop student project team. No build step — open any `.html` file directly in a browser or serve from a local HTTP server.
 
+## Running Locally
+
+From the repo root:
+
+```
+python -m http.server 8000
+```
+
+Then open <http://localhost:8000>. (Use a server rather than opening files directly — `members.html` fetches `res/members.json` at runtime and the service worker needs HTTP.)
+
 ## Stack & Design Decisions
 
 - **Tailwind CSS (CDN)** — No build toolchain. The full Tailwind config (colors, spacing, typography) is inlined in a `<script>` tag on every page. This keeps the project zero-dependency while allowing a fully custom design system.
