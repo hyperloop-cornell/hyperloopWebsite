@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cornell Hyperloop — Research</title>
+<meta name="description" content="Research papers from Cornell Hyperloop's 2025–26 design cycle: pod engineering design, dynamics-aware maglev control, and the socio-economics of an Amsterdam–Berlin hyperloop."/>
+<meta name="robots" content="index,follow"/>
+<link rel="canonical" href="https://www.cornellhyperloop.com/research.html"/>
+<meta property="og:title" content="Cornell Hyperloop — Research"/>
+<meta property="og:description" content="Research papers from Cornell Hyperloop's 2025–26 design cycle: pod engineering design, dynamics-aware maglev control, and the socio-economics of an Amsterdam–Berlin hyperloop."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.cornellhyperloop.com/research.html"/>
+<meta property="og:image" content="https://www.cornellhyperloop.com/res/research/pod-cad-2026.avif"/>
+<meta property="og:image:alt" content="CAD assembly of the 2025–26 Cornell Hyperloop pod on its I-beam track"/>
+<meta property="og:site_name" content="Cornell Hyperloop"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Cornell Hyperloop — Research"/>
+<meta name="twitter:description" content="Research papers from Cornell Hyperloop's 2025–26 design cycle."/>
+<meta name="twitter:image" content="https://www.cornellhyperloop.com/res/research/pod-cad-2026.avif"/>
+<link rel="icon" href="/favicon.png?v=6" type="image/png"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; img-src 'self' data: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube.com; worker-src 'self'; object-src 'none'"/>
+<link rel="stylesheet" href="res/tw.css?v=9"/>
+<script>document.documentElement.classList.add('js');</script>
+<style>
+  @font-face{font-family:'Material Symbols Outlined';src:url('res/fonts/material-symbols-outlined.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+  @font-face{font-family:'Inter';src:url('res/fonts/inter/inter-variablefont_opsz,wght.subset.woff2') format('woff2');font-weight:100 900;font-style:normal;font-display:swap}
+  @font-face{font-family:'Inter';src:url('res/fonts/inter/inter-italic-variablefont_opsz,wght.ttf') format('truetype');font-weight:100 900;font-style:italic;font-display:swap}
+  @font-face{font-family:'Space Grotesk';src:url('res/fonts/space_grotesk/spacegrotesk-variablefont_wght.subset.woff2') format('woff2');font-weight:300 700;font-style:normal;font-display:swap}
+  .material-symbols-outlined{font-family:'Material Symbols Outlined';font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
+  .material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+  .grid-overlay{background-image:linear-gradient(to right,rgba(255,255,255,0.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,0.05) 1px,transparent 1px);background-size:40px 40px}
+  .scan-line{background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(210,43,43,0.03) 2px,rgba(210,43,43,0.03) 4px)}
+  html{scroll-behavior:smooth}
+  html,body{background:#0c1324;color:#dce1fb;overflow-x:hidden}
+  .paper{scroll-margin-top:96px}
+  .math{font-family:'Cambria Math',Cambria,'Times New Roman',serif;font-style:italic}
+
+  /* ── Scroll reveal (only hides content when JS is running) ── */
+  .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .js .reveal.is-in{opacity:1;transform:none}
+  .js .reveal-d1{transition-delay:.08s}.js .reveal-d2{transition-delay:.16s}.js .reveal-d3{transition-delay:.24s}
+  @media print{.js .reveal,.js .fan-card{opacity:1;transform:none;animation:none}}
+
+  /* ── Hero: fanned paper covers ── */
+  .hero-glow{mix-blend-mode:screen;-webkit-mask-image:radial-gradient(ellipse 70% 70% at 60% 50%,#000 30%,transparent 75%);mask-image:radial-gradient(ellipse 70% 70% at 60% 50%,#000 30%,transparent 75%)}
+  .fan{position:relative;width:420px;height:440px}
+  .fan-card{position:absolute;top:0;width:236px;aspect-ratio:714/924;display:block;
+    transform:translate(var(--x),var(--y)) rotate(var(--r));transform-origin:50% 100%;
+    transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s,border-color .3s;
+    border:1px solid rgba(255,255,255,0.12);box-shadow:0 30px 60px -12px rgba(0,0,0,0.65),0 0 0 1px rgba(0,0,0,0.3)}
+  .fan-card img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.9) saturate(.9);transition:filter .4s}
+  .fan-card .fan-tag{position:absolute;left:0;right:0;bottom:0;padding:.6rem .75rem;background:linear-gradient(to top,rgba(7,13,31,.95),rgba(7,13,31,.75));
+    font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#dce1fb;display:flex;justify-content:space-between;gap:.5rem}
+  .fan-card .fan-tag b{color:#d22b2b;font-weight:600}
+  .fan-card:hover,.fan-card:focus-visible{transform:translate(var(--x),calc(var(--y) - 14px)) rotate(0deg);z-index:5;border-color:rgba(210,43,43,.7);box-shadow:0 40px 80px -12px rgba(0,0,0,.75),0 0 0 1px rgba(210,43,43,.3);outline:none}
+  .fan-card:hover img,.fan-card:focus-visible img{filter:none}
+  .js .fan-card{opacity:0;animation:fan-in .9s cubic-bezier(.16,1,.3,1) forwards}
+  .fan-card:nth-child(1){--x:0px;--y:70px;--r:-9deg;animation-delay:.25s}
+  .fan-card:nth-child(2){--x:92px;--y:22px;--r:-1.5deg;z-index:2;animation-delay:.4s}
+  .fan-card:nth-child(3){--x:184px;--y:78px;--r:8deg;z-index:1;animation-delay:.55s}
+  @keyframes fan-in{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
+
+  /* ── Index rows ── */
+  .toc-row{position:relative;transition:background-color .25s}
+  .toc-row::after{content:'';position:absolute;left:0;bottom:-1px;height:1px;width:0;background:#d22b2b;transition:width .5s cubic-bezier(.16,1,.3,1)}
+  .toc-row:hover,.toc-row:focus-visible{background:rgba(25,31,49,.7);outline:none}
+  .toc-row:hover::after,.toc-row:focus-visible::after{width:100%}
+  .toc-row .toc-arrow{transition:transform .3s,color .3s}
+  .toc-row:hover .toc-arrow,.toc-row:focus-visible .toc-arrow{transform:translateY(3px);color:#d22b2b}
+
+  /* ── Paper header numeral ── */
+  .paper-num{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(210,43,43,.55);font-size:clamp(72px,13vw,176px);user-select:none}
+
+  /* ── Document card ── */
+  .doc-preview{position:relative;display:block;aspect-ratio:714/924;margin:0 14px 14px 0}
+  .doc-preview::before,.doc-preview::after{content:'';position:absolute;inset:0;border:1px solid rgba(255,255,255,.08);background:#151b2d;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+  .doc-preview::before{transform:translate(14px,14px)}
+  .doc-preview::after{transform:translate(7px,7px);background:#1b2236}
+  .doc-preview .page{position:relative;z-index:1;width:100%;height:100%;overflow:hidden;border:1px solid rgba(255,255,255,.14);box-shadow:0 24px 48px -16px rgba(0,0,0,.6);transition:transform .5s cubic-bezier(.16,1,.3,1),border-color .3s}
+  .doc-preview .page img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.88);transition:filter .4s}
+  .doc-preview .page-cta{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding:1.25rem;background:linear-gradient(to top,rgba(7,13,31,.92) 0%,rgba(7,13,31,.2) 45%,transparent 70%);opacity:0;transition:opacity .35s}
+  .doc-preview:hover .page,.doc-preview:focus-visible .page{transform:translate(-4px,-4px);border-color:rgba(210,43,43,.7)}
+  .doc-preview:hover::before{transform:translate(18px,18px)}
+  .doc-preview:hover .page img,.doc-preview:focus-visible .page img{filter:none}
+  .doc-preview:hover .page-cta,.doc-preview:focus-visible .page-cta{opacity:1}
+  .doc-preview:focus-visible{outline:none}
+
+  /* ── Buttons with inline icons ── */
+  .btn-icon svg{width:16px;height:16px;flex-shrink:0}
+  .cite-btn[data-copied="true"] .cite-default{display:none}
+  .cite-btn:not([data-copied="true"]) .cite-done{display:none}
+
+  /* ── Metric tiles ── */
+  .metric{position:relative;padding-left:1rem}
+  .metric::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:#d22b2b}
+
+  /* ── Subsystem cells ── */
+  .sub-cell{position:relative;transition:background-color .25s,border-color .25s}
+  .sub-cell:hover,.sub-cell:focus-visible{background:#1b2236;border-color:rgba(210,43,43,.6);outline:none;z-index:1}
+  .sub-cell .sub-bar{position:absolute;left:0;bottom:0;height:2px;width:0;background:#d22b2b;transition:width .5s cubic-bezier(.16,1,.3,1)}
+  .sub-cell:hover .sub-bar,.sub-cell:focus-visible .sub-bar{width:100%}
+  .sub-cell .sub-arrow{transition:transform .3s,color .3s}
+  .sub-cell:hover .sub-arrow,.sub-cell:focus-visible .sub-arrow{transform:translate(3px,-3px);color:#d22b2b}
+
+  /* ── Levitation diagram ── */
+  .gw-scroll{animation:gw-scroll 2.2s linear infinite}
+  @keyframes gw-scroll{to{transform:translateX(-160px)}}
+  .pod-heave{transform-box:view-box;transform-origin:410px 160px;animation:pod-heave 4.4s ease-in-out infinite}
+  @keyframes pod-heave{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-3px) rotate(-.7deg)}65%{transform:translateY(2px) rotate(.5deg)}}
+  .flux line{animation:flux 1.6s ease-in-out infinite}
+  .flux line:nth-child(2){animation-delay:.25s}.flux line:nth-child(3){animation-delay:.5s}
+  @keyframes flux{0%,100%{opacity:.15}50%{opacity:.75}}
+
+  .lev .lev-math tspan{font-size:.65em}
+  .lev .lev-inline{font-size:13px}
+  @media (max-width:640px){
+    .lev .lev-label{font-size:19px;letter-spacing:1px}
+    .lev .lev-label .lev-inline{font-size:24px}
+    .lev .lev-math{font-size:32px}
+    .lev .lev-hide-sm{display:none}
+  }
+
+  /* ── Route line ── */
+  .route-pod{position:absolute;top:50%;left:0;width:34px;height:8px;margin-top:-4px;border-radius:4px;background:#d22b2b;box-shadow:0 0 18px 2px rgba(210,43,43,.55);animation:route 5.5s cubic-bezier(.65,0,.35,1) infinite}
+  @keyframes route{0%{left:0;opacity:0}8%{opacity:1}92%{opacity:1}100%{left:calc(100% - 34px);opacity:0}}
+
+  /* ── Range charts ── */
+  .rc-row{position:relative;display:grid;grid-template-columns:10.5rem minmax(0,1fr);align-items:center;gap:1rem;padding:.55rem 0;border-radius:2px;transition:opacity .25s}
+  .rc-chart:hover .rc-row:not(:hover),.rc-chart:focus-within .rc-row:not(:focus-visible){opacity:.42}
+  .rc-row:focus-visible{outline:1px solid rgba(210,43,43,.6);outline-offset:4px}
+  .rc-track{position:relative;height:28px}
+  .rc-track .rc-grid{position:absolute;top:-9px;bottom:-9px;width:1px;background:rgba(171,137,133,.14)}
+  .rc-bar{position:absolute;top:50%;height:10px;margin-top:-5px;border-radius:4px;background:#6b7591;min-width:10px}
+  .rc-row.is-hl .rc-bar{background:#d22b2b}
+  .rc-val{position:absolute;top:50%;transform:translateY(-50%);padding-left:.6rem;white-space:nowrap;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;color:#dce1fb}
+  .rc-axis{position:relative;height:18px;margin-left:calc(10.5rem + 1rem)}
+  .rc-axis span{position:absolute;transform:translateX(-50%);white-space:nowrap;font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:.08em;color:rgba(228,190,185,.55);font-variant-numeric:tabular-nums}
+  .rc-tip{position:absolute;z-index:10;pointer-events:none;max-width:240px;padding:.6rem .75rem;background:#070d1f;border:1px solid rgba(210,43,43,.35);box-shadow:0 12px 32px rgba(0,0,0,.5);opacity:0;transform:translateY(4px);transition:opacity .15s,transform .15s}
+  .rc-tip.show{opacity:1;transform:none}
+  @media (max-width:640px){
+    .rc-row{grid-template-columns:minmax(0,1fr);gap:.35rem}
+    .rc-axis{margin-left:0}
+    .fan{transform:scale(.78);transform-origin:top center;height:350px}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .js .reveal{opacity:1;transform:none;transition:none}
+    .js .fan-card{opacity:1;animation:none}
+    .gw-scroll,.pod-heave,.flux line,.route-pod{animation:none}
+    .route-pod{left:calc(50% - 17px)}
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Cornell Hyperloop Research",
+  "url": "https://www.cornellhyperloop.com/research.html",
+  "hasPart": [
+    {
+      "@type": "TechArticle",
+      "headline": "Engineering Design Document",
+      "author": { "@type": "Organization", "name": "Cornell Hyperloop" },
+      "datePublished": "2026-05-31",
+      "encoding": { "@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": "https://www.cornellhyperloop.com/res/research_papers/engineering-design-document.pdf" }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "Dynamics-Aware Control of Electromagnetic Levitation for Hyperloop Pods Under Motion, Track Irregularity, and Transient Loading",
+      "author": { "@type": "Person", "name": "Anubhav Nigam", "affiliation": { "@type": "Organization", "name": "Cornell University" } },
+      "datePublished": "2026-06-15",
+      "keywords": "Hyperloop, magnetic levitation, electromagnetic suspension, nonlinear control, track irregularity, vehicle dynamics, eddy-current damping",
+      "encoding": { "@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": "https://www.cornellhyperloop.com/res/research_papers/technical-aspects.pdf" }
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "headline": "Socio-Economic Aspects",
+      "about": "Hyperloop as an alternative to rail and aviation on the Amsterdam–Berlin corridor",
+      "author": { "@type": "Organization", "name": "Cornell Hyperloop" },
+      "datePublished": "2026",
+      "encoding": { "@type": "MediaObject", "encodingFormat": "application/pdf", "contentUrl": "https://www.cornellhyperloop.com/res/research_papers/socio-economic-aspects.pdf" }
+    }
+  ]
+}
+</script>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+<div id="nav-placeholder"></div>
+
+<main>
+
+  <!-- ── Hero ── -->
+  <section class="relative overflow-hidden border-b border-outline-variant bg-surface-container-lowest">
+    <img src="res/research/chassis-render.avif" alt="" aria-hidden="true" class="hero-glow absolute right-[-30%] lg:right-[-8%] top-1/2 -translate-y-1/2 w-[160%] lg:w-[78%] max-w-none opacity-30 pointer-events-none select-none" decoding="async"/>
+    <div class="grid-overlay absolute inset-0 opacity-30"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-surface-container-lowest via-surface-container-lowest/80 to-transparent"></div>
+    <div class="absolute left-0 right-0 bottom-0 h-40 bg-gradient-to-t from-surface-container-lowest to-transparent"></div>
+
+    <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin pt-20 pb-16 md:pt-28 md:pb-24 grid grid-cols-1 lg:grid-cols-12 gap-14 items-center">
+      <div class="lg:col-span-7">
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.3em] uppercase flex items-center gap-2 mb-6">
+          <span class="w-8 h-[1px] bg-primary block"></span>Research · 2025–26
+        </span>
+        <h1 class="font-headline-xl text-headline-xl text-on-surface uppercase leading-none mb-6" style="font-size:clamp(2.25rem,8vw,4.5rem)">
+          Published<br/><span class="text-primary-container">Research</span>
+        </h1>
+        <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10">
+          Three papers from our 2025–26 cycle: the engineering behind this year's pod, the control theory of keeping it levitated at speed, and the case for hyperloop on a real European corridor.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#papers" class="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-200 border border-primary-container hover:border-primary">Browse Papers</a>
+          <a href="subteams.html" class="bg-transparent text-primary px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2">
+            Subteams
+            <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 flex justify-center lg:justify-end">
+        <div class="fan" role="group" aria-label="Paper previews">
+          <a class="fan-card" href="#engineering-design" aria-label="Jump to paper 01: Engineering Design Document">
+            <img src="res/research/engineering-design-document-cover.avif" alt="" width="714" height="924" decoding="async"/>
+            <span class="fan-tag"><span><b>01</b> Design</span><span>10 pp</span></span>
+          </a>
+          <a class="fan-card" href="#levitation-control" aria-label="Jump to paper 02: Dynamics-Aware Control of Electromagnetic Levitation">
+            <img src="res/research/technical-aspects-cover.avif" alt="" width="714" height="924" decoding="async"/>
+            <span class="fan-tag"><span><b>02</b> Controls</span><span>19 pp</span></span>
+          </a>
+          <a class="fan-card" href="#socio-economics" aria-label="Jump to paper 03: Socio-Economic Aspects">
+            <img src="res/research/socio-economic-aspects-cover.avif" alt="" width="714" height="924" decoding="async"/>
+            <span class="fan-tag"><span><b>03</b> Socio-Econ</span><span>19 pp</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Volume stats ── -->
+  <section class="bg-surface-container border-b border-outline-variant">
+    <div class="max-w-container-max mx-auto px-6 md:px-margin py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div class="flex flex-col gap-1 relative pl-4">
+        <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Papers</span>
+        <span class="font-headline-md text-headline-md text-on-surface">03</span>
+      </div>
+      <div class="flex flex-col gap-1 relative pl-4">
+        <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Pages</span>
+        <span class="font-headline-md text-headline-md text-on-surface">48</span>
+      </div>
+      <div class="flex flex-col gap-1 relative pl-4">
+        <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Subsystems Documented</span>
+        <span class="font-headline-md text-headline-md text-on-surface">08</span>
+      </div>
+      <div class="flex flex-col gap-1 relative pl-4">
+        <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
+        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Design Cycle</span>
+        <span class="font-headline-md text-headline-md text-on-surface">2025–26</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Index ── -->
+  <section id="papers" class="paper relative bg-surface border-b border-outline-variant py-20 md:py-24">
+    <div class="grid-overlay absolute inset-0 opacity-10"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin">
+      <div class="flex items-end justify-between gap-6 mb-10 reveal">
+        <div>
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
+            <span class="w-8 h-[1px] bg-primary block"></span>Index
+          </span>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase">In This Volume</h2>
+        </div>
+        <span class="hidden md:block font-label-caps text-[10px] text-outline-variant tracking-widest">VOL-2025-26</span>
+      </div>
+
+      <ol class="border-t border-outline-variant reveal reveal-d1">
+        <li>
+          <a href="#engineering-design" class="toc-row grid grid-cols-[3rem_1fr_auto] md:grid-cols-[5rem_14rem_1fr_6rem_2rem] items-center gap-4 md:gap-6 py-6 px-2 border-b border-outline-variant">
+            <span class="font-headline-md text-headline-md text-primary-container">01</span>
+            <span class="hidden md:block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Engineering Design</span>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] md:text-[20px] leading-snug">Engineering Design Document</span>
+            <span class="hidden md:block font-label-caps text-xs text-on-surface-variant tracking-widest text-right">10 PP</span>
+            <svg class="toc-arrow w-5 h-5 text-on-surface-variant justify-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 5v14m-5-5l5 5 5-5"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#levitation-control" class="toc-row grid grid-cols-[3rem_1fr_auto] md:grid-cols-[5rem_14rem_1fr_6rem_2rem] items-center gap-4 md:gap-6 py-6 px-2 border-b border-outline-variant">
+            <span class="font-headline-md text-headline-md text-primary-container">02</span>
+            <span class="hidden md:block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Technical Aspects</span>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] md:text-[20px] leading-snug">Dynamics-Aware Control of Electromagnetic Levitation</span>
+            <span class="hidden md:block font-label-caps text-xs text-on-surface-variant tracking-widest text-right">19 PP</span>
+            <svg class="toc-arrow w-5 h-5 text-on-surface-variant justify-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 5v14m-5-5l5 5 5-5"/></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#socio-economics" class="toc-row grid grid-cols-[3rem_1fr_auto] md:grid-cols-[5rem_14rem_1fr_6rem_2rem] items-center gap-4 md:gap-6 py-6 px-2 border-b border-outline-variant">
+            <span class="font-headline-md text-headline-md text-primary-container">03</span>
+            <span class="hidden md:block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Socio-Economic Aspects</span>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] md:text-[20px] leading-snug">Hyperloop on the Amsterdam–Berlin Corridor</span>
+            <span class="hidden md:block font-label-caps text-xs text-on-surface-variant tracking-widest text-right">19 PP</span>
+            <svg class="toc-arrow w-5 h-5 text-on-surface-variant justify-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 5v14m-5-5l5 5 5-5"/></svg>
+          </a>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ═════════════ 01 · Engineering Design ═════════════ -->
+  <article id="engineering-design" class="paper relative bg-surface border-b border-outline-variant py-20 md:py-28 overflow-hidden">
+    <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin">
+
+      <header class="flex flex-col sm:flex-row items-start sm:items-end gap-2 sm:gap-6 md:gap-10 mb-12 md:mb-16 reveal">
+        <span class="paper-num" aria-hidden="true">01</span>
+        <div class="pb-2 md:pb-4 min-w-0">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+            <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Engineering Design</span>
+            <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">CH-EDD-26</span>
+          </div>
+          <h2 class="font-headline-lg font-bold text-on-surface uppercase leading-tight" style="font-size:clamp(1.6rem,4vw,2.5rem)">Engineering Design Document</h2>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div class="lg:col-span-7 reveal reveal-d1">
+          <p class="font-body-lg text-body-lg text-on-surface mb-5">
+            The 2025–26 design cycle moved the pod away from heavy, off-the-shelf industrial hardware toward a custom-engineered, modular system that is lighter, smaller, and easier to build.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-10">
+            The document walks through all eight subsystems: a press-fit aluminum chassis, switchable magnetic and dual-sided pneumatic brakes, a parametrically optimized linear induction motor, custom levitation electromagnets, in-house power electronics, and a cloud-connected command-and-control stack.
+          </p>
+
+          <div class="grid grid-cols-2 gap-x-6 gap-y-8 mb-2">
+            <div class="metric">
+              <span class="font-mono-stats font-bold text-on-surface block leading-none mb-2" style="font-size:clamp(2rem,4vw,2.75rem)">62<span class="text-primary-container">%</span></span>
+              <span class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest leading-snug block">Chassis mass reduction<br/><span class="text-on-surface-variant/60 normal-case tracking-normal font-body-md">65 lb steel to 25 lb aluminum</span></span>
+            </div>
+            <div class="metric">
+              <span class="font-mono-stats font-bold text-on-surface block leading-none mb-2" style="font-size:clamp(2rem,4vw,2.75rem)">~120<span class="text-primary-container text-[0.55em] ml-1">N</span></span>
+              <span class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest leading-snug block">Simulated LIM thrust<br/><span class="text-on-surface-variant/60 normal-case tracking-normal font-body-md">Custom mini-LIM, ANSYS Maxwell</span></span>
+            </div>
+            <div class="metric">
+              <span class="font-mono-stats font-bold text-on-surface block leading-none mb-2" style="font-size:clamp(2rem,4vw,2.75rem)">&lt;30<span class="text-primary-container text-[0.55em] ml-1">min</span></span>
+              <span class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest leading-snug block">Chassis assembly<br/><span class="text-on-surface-variant/60 normal-case tracking-normal font-body-md">Two people and a rubber mallet</span></span>
+            </div>
+            <div class="metric">
+              <span class="font-mono-stats font-bold text-on-surface block leading-none mb-2" style="font-size:clamp(2rem,4vw,2.75rem)">20<span class="text-primary-container">&times;</span></span>
+              <span class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest leading-snug block">Faster LIM simulations<br/><span class="text-on-surface-variant/60 normal-case tracking-normal font-body-md">5+ hours down to 15 minutes</span></span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="lg:col-span-5 reveal reveal-d2">
+          <div class="grid grid-cols-[minmax(0,9rem)_1fr] sm:grid-cols-[minmax(0,12rem)_1fr] lg:grid-cols-[minmax(0,11rem)_1fr] gap-6 items-start">
+            <a class="doc-preview" href="res/research_papers/engineering-design-document.pdf" target="_blank" rel="noopener" aria-label="Open the Engineering Design Document (PDF, opens in a new tab)">
+              <span class="page block">
+                <img src="res/research/engineering-design-document-cover.avif" alt="" width="714" height="924" loading="lazy" decoding="async"/>
+                <span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">Open PDF</span></span>
+              </span>
+            </a>
+            <dl class="grid grid-cols-1 gap-3 text-sm">
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Author</dt><dd class="text-on-surface">Cornell Hyperloop</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Published</dt><dd class="text-on-surface">May 31, 2026</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Length</dt><dd class="text-on-surface">10 pages</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">File</dt><dd class="text-on-surface">PDF · 3.7 MB</dd></div>
+            </dl>
+          </div>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a href="res/research_papers/engineering-design-document.pdf" target="_blank" rel="noopener" class="btn-icon bg-primary-container text-on-primary-container px-5 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-200 flex items-center gap-2">
+              Read Paper
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <a href="res/research_papers/engineering-design-document.pdf" download="Cornell Hyperloop - Engineering Design Document.pdf" class="btn-icon text-primary px-5 py-3 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+              Download
+            </a>
+            <button type="button" class="cite-btn btn-icon text-on-surface-variant px-4 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:text-primary transition-colors duration-200 flex items-center gap-2" data-cite='Cornell Hyperloop. "Engineering Design Document." Cornell University, Ithaca, NY, May 31, 2026.'>
+              <span class="cite-default flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1"/><path d="M5 15V5a1 1 0 011-1h10"/></svg>Cite</span>
+              <span class="cite-done flex items-center gap-2 text-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Copied</span>
+            </button>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Figure + subsystem index -->
+      <div class="mt-16 md:mt-20 reveal">
+        <figure class="group relative border border-outline-variant bg-[#e9ebf0] overflow-hidden">
+          <span class="absolute top-3 left-3 z-10 font-label-caps text-[10px] tracking-[0.2em] uppercase text-[#0c1324]/70">Fig. 01 — 2025–26 Pod Assembly</span>
+          <span class="hidden sm:block absolute top-3 right-3 z-10 font-label-caps text-[10px] tracking-widest text-[#0c1324]/50 group-hover:text-primary-container transition-colors">CAD-02</span>
+          <img src="res/research/pod-cad-2026.avif" alt="CAD assembly of the 2025–26 pod: a two-layer modular aluminum chassis carrying power electronics, motor drivers, and brake actuators above an I-beam track" width="1163" height="603" class="w-full h-auto block group-hover:scale-[1.02] transition-transform duration-700" loading="lazy" decoding="async"/>
+          <div class="absolute inset-0 bg-surface/25 group-hover:bg-transparent transition-colors duration-300 pointer-events-none"></div>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary-container group-hover:w-full transition-all duration-500"></div>
+        </figure>
+        <figcaption class="mt-3 font-body-md text-sm text-on-surface-variant">The SQ5 chassis: 6.1 ft long and 16 in wide, split into a lower layer for EMI-producing power electronics and an upper layer for sensors and control.</figcaption>
+      </div>
+
+      <div class="mt-14 reveal">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Subsystems Covered</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-outline-variant/40 border border-outline-variant/40">
+          <a href="subteam-views/subteam-braking.html" class="sub-cell bg-surface-container p-6 flex flex-col gap-3 border border-transparent">
+            <div class="flex justify-between items-start"><span class="font-label-caps text-[10px] text-outline-variant tracking-widest">§1</span><svg class="sub-arrow w-4 h-4 text-on-surface-variant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] leading-tight">Magnetic Braking</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed">Switchable eddy-current brake: rotating permanent-magnet disks toggle the field toward the track.</span>
+            <span class="mt-auto pt-2 font-label-caps text-xs text-primary tracking-wider">~2.7 KG ACTUATION PACKAGE</span>
+            <span class="sub-bar"></span>
+          </a>
+          <a href="subteam-views/subteam-braking.html" class="sub-cell bg-surface-container p-6 flex flex-col gap-3 border border-transparent">
+            <div class="flex justify-between items-start"><span class="font-label-caps text-[10px] text-outline-variant tracking-widest">§2</span><svg class="sub-arrow w-4 h-4 text-on-surface-variant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] leading-tight">Frictional Braking</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed">A pneumatic C-bracket that rides linear rails to clamp both faces of the I-beam flange.</span>
+            <span class="mt-auto pt-2 font-label-caps text-xs text-primary tracking-wider">DUAL-SIDED CLAMP</span>
+            <span class="sub-bar"></span>
+          </a>
+          <a href="subteam-views/subteam-structures.html" class="sub-cell bg-surface-container p-6 flex flex-col gap-3 border border-transparent">
+            <div class="flex justify-between items-start"><span class="font-label-caps text-[10px] text-outline-variant tracking-widest">§3</span><svg class="sub-arrow w-4 h-4 text-on-surface-variant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] leading-tight">Aeroshell</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed">Single-piece convex mold, checked as a thin-walled pressure vessel and in ANSYS flow simulation.</span>
+            <span class="mt-auto pt-2 font-label-caps text-xs text-primary tracking-wider">2.6 MPA PEAK HOOP STRESS</span>
+            <span class="sub-bar"></span>
+          </a>
+          <a href="subteam-views/subteam-structures.html" class="sub-cell bg-surface-container p-6 flex flex-col gap-3 border border-transparent">
+            <div class="flex justify-between items-start"><span class="font-label-caps text-[10px] text-outline-variant tracking-widest">§4</span><svg class="sub-arrow w-4 h-4 text-on-surface-variant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] leading-tight">Chassis</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed">6063 aluminum tube with glass-fiber PA6 press-fit joints. Flat-packs for shipping, no welding.</span>
+            <span class="mt-auto pt-2 font-label-caps text-xs text-primary tracking-wider">25 LB · 6.1 FT</span>
+            <span class="sub-bar"></span>
+          </a>
+          <a href="subteam-views/subteam-magnetic.html" class="sub-cell bg-surface-container p-6 flex flex-col gap-3 border border-transparent">
+            <div class="flex justify-between items-start"><span class="font-label-caps text-[10px] text-outline-variant tracking-widest">§5</span><svg class="sub-arrow w-4 h-4 text-on-surface-variant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] leading-tight">Propulsion</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed">Custom mini-LIM: 24 coils in three phases, 6 cm pole pitch, tuned through parametric sweeps.</span>
+            <span class="mt-auto pt-2 font-label-caps text-xs text-primary tracking-wider">~120 N SIMULATED THRUST</span>
+            <span class="sub-bar"></span>
+          </a>
+          <a href="subteam-views/subteam-magnetic.html" class="sub-cell bg-surface-container p-6 flex flex-col gap-3 border border-transparent">
+            <div class="flex justify-between items-start"><span class="font-label-caps text-[10px] text-outline-variant tracking-widest">§6</span><svg class="sub-arrow w-4 h-4 text-on-surface-variant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] leading-tight">Levitation</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed">Cylindrical electromagnets on high-purity iron cores, wound by a custom dual-stepper rig.</span>
+            <span class="mt-auto pt-2 font-label-caps text-xs text-primary tracking-wider">~1,500 TURNS PER MAGNET</span>
+            <span class="sub-bar"></span>
+          </a>
+          <a href="subteam-views/subteam-power.html" class="sub-cell bg-surface-container p-6 flex flex-col gap-3 border border-transparent">
+            <div class="flex justify-between items-start"><span class="font-label-caps text-[10px] text-outline-variant tracking-widest">§7</span><svg class="sub-arrow w-4 h-4 text-on-surface-variant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] leading-tight">Power Systems</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed">Modular Li-ion pack with BMS, a single-board emergency power-off, and a DRV8302 gate-driver inverter.</span>
+            <span class="mt-auto pt-2 font-label-caps text-xs text-primary tracking-wider">CUSTOM 3-PHASE INVERTER</span>
+            <span class="sub-bar"></span>
+          </a>
+          <a href="subteam-views/subteam-ecc.html" class="sub-cell bg-surface-container p-6 flex flex-col gap-3 border border-transparent">
+            <div class="flex justify-between items-start"><span class="font-label-caps text-[10px] text-outline-variant tracking-widest">§8</span><svg class="sub-arrow w-4 h-4 text-on-surface-variant" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
+            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] leading-tight">Command &amp; Control</span>
+            <span class="text-sm text-on-surface-variant leading-relaxed">Raspberry Pi hubs to an AWS API to a live WebSocket GUI, with Cornell SSO and over-the-air flashing.</span>
+            <span class="mt-auto pt-2 font-label-caps text-xs text-primary tracking-wider">12 CONCURRENT HW SESSIONS</span>
+            <span class="sub-bar"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ═════════════ 02 · Levitation Control ═════════════ -->
+  <article id="levitation-control" class="paper relative bg-surface-container-low border-b border-outline-variant py-20 md:py-28 overflow-hidden">
+    <div class="grid-overlay absolute inset-0 opacity-20"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin">
+
+      <header class="flex flex-col sm:flex-row items-start sm:items-end gap-2 sm:gap-6 md:gap-10 mb-12 md:mb-16 reveal">
+        <span class="paper-num" aria-hidden="true">02</span>
+        <div class="pb-2 md:pb-4 min-w-0">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+            <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Technical Aspects · Controls</span>
+            <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">CH-TA-26</span>
+          </div>
+          <h2 class="font-headline-lg font-bold text-on-surface uppercase leading-tight" style="font-size:clamp(1.6rem,4vw,2.5rem)">Dynamics-Aware Control of Electromagnetic Levitation</h2>
+          <p class="font-body-md text-on-surface-variant mt-2 text-sm md:text-base">for Hyperloop Pods Under Motion, Track Irregularity, and Transient Loading</p>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div class="lg:col-span-7 reveal reveal-d1">
+          <p class="font-body-lg text-body-lg text-on-surface mb-5">
+            Maglev pods are usually sized with a static force balance: magnetic lift equals pod weight. This paper argues that is where levitation design starts, not where it ends.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-10">
+            It builds a reduced-order model of a pod with front and rear levitation modules, coupling nonlinear magnetic force, finite coil-current dynamics, heave and pitch, speed-dependent track irregularity, eddy-current effects, and braking load transfer. Three controllers are then compared across the resulting operating envelope.
+          </p>
+
+          <blockquote class="relative border-l-2 border-primary-container pl-6 py-1 mb-10">
+            <p class="font-headline-md text-on-surface leading-snug" style="font-size:clamp(1.15rem,2.2vw,1.5rem)">Static lift calculations can start the design, but they cannot finish it.</p>
+            <footer class="mt-3 font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-[0.2em]">From the conclusion</footer>
+          </blockquote>
+
+          <ol class="space-y-px bg-outline-variant/40 border border-outline-variant/40">
+            <li class="bg-surface-container p-5 flex gap-5">
+              <span class="font-label-caps text-xs text-primary-container tracking-widest pt-1">R1</span>
+              <div><span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Hover is a weak test</span><span class="text-sm text-on-surface-variant leading-relaxed">On a flat guideway, every controller meets the static lift condition and holds the design gap. The differences only appear in motion.</span></div>
+            </li>
+            <li class="bg-surface-container p-5 flex gap-5">
+              <span class="font-label-caps text-xs text-primary-container tracking-widest pt-1">R2</span>
+              <div><span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Speed turns track error into frequency</span><span class="text-sm text-on-surface-variant leading-relaxed">A guideway error of wavelength <span class="math">&lambda;</span> reaches the controller at <span class="math">f = v/&lambda;</span>. At speed, the same bump pushes into the actuator's bandwidth.</span></div>
+            </li>
+            <li class="bg-surface-container p-5 flex gap-5">
+              <span class="font-label-caps text-xs text-primary-container tracking-widest pt-1">R3</span>
+              <div><span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">Braking over a defect is the critical case</span><span class="text-sm text-on-surface-variant leading-relaxed">Load transfer, pitch coupling, finite current response, and a local gap disturbance all arrive at once.</span></div>
+            </li>
+            <li class="bg-surface-container p-5 flex gap-5">
+              <span class="font-label-caps text-xs text-primary-container tracking-widest pt-1">R4</span>
+              <div><span class="font-label-caps text-label-caps text-on-surface uppercase block mb-1">The safe envelope is the metric</span><span class="text-sm text-on-surface-variant leading-relaxed">Static sizing sets the operating point. Closed-loop simulation sets the safe speed and disturbance envelope around it.</span></div>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="lg:col-span-5 reveal reveal-d2">
+          <div class="grid grid-cols-[minmax(0,9rem)_1fr] sm:grid-cols-[minmax(0,12rem)_1fr] lg:grid-cols-[minmax(0,11rem)_1fr] gap-6 items-start">
+            <a class="doc-preview" href="res/research_papers/technical-aspects.pdf" target="_blank" rel="noopener" aria-label="Open Dynamics-Aware Control of Electromagnetic Levitation (PDF, opens in a new tab)">
+              <span class="page block">
+                <img src="res/research/technical-aspects-cover.avif" alt="" width="714" height="924" loading="lazy" decoding="async"/>
+                <span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">Open PDF</span></span>
+              </span>
+            </a>
+            <dl class="grid grid-cols-1 gap-3 text-sm">
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Author</dt><dd class="text-on-surface">Anubhav Nigam</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Published</dt><dd class="text-on-surface">June 15, 2026</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Length</dt><dd class="text-on-surface">19 pages · 7 refs</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">File</dt><dd class="text-on-surface">PDF · 0.6 MB</dd></div>
+            </dl>
+          </div>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a href="res/research_papers/technical-aspects.pdf" target="_blank" rel="noopener" class="btn-icon bg-primary-container text-on-primary-container px-5 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-200 flex items-center gap-2">
+              Read Paper
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <a href="res/research_papers/technical-aspects.pdf" download="Cornell Hyperloop - Technical Aspects.pdf" class="btn-icon text-primary px-5 py-3 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+              Download
+            </a>
+            <button type="button" class="cite-btn btn-icon text-on-surface-variant px-4 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:text-primary transition-colors duration-200 flex items-center gap-2" data-cite='A. Nigam. "Dynamics-Aware Control of Electromagnetic Levitation for Hyperloop Pods Under Motion, Track Irregularity, and Transient Loading." Cornell Hyperloop, Cornell University, Ithaca, NY, June 15, 2026.'>
+              <span class="cite-default flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1"/><path d="M5 15V5a1 1 0 011-1h10"/></svg>Cite</span>
+              <span class="cite-done flex items-center gap-2 text-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Copied</span>
+            </button>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-2">
+            <span class="font-label-caps text-[11px] text-on-surface-variant border border-outline-variant px-3 py-1">Electromagnetic Suspension</span>
+            <span class="font-label-caps text-[11px] text-on-surface-variant border border-outline-variant px-3 py-1">Nonlinear Control</span>
+            <span class="font-label-caps text-[11px] text-on-surface-variant border border-outline-variant px-3 py-1">Vehicle Dynamics</span>
+            <span class="font-label-caps text-[11px] text-on-surface-variant border border-outline-variant px-3 py-1">Eddy-Current Damping</span>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Model diagram -->
+      <figure class="mt-16 md:mt-20 reveal">
+        <div class="relative border border-outline-variant bg-surface-container-lowest overflow-hidden pt-8">
+          <span class="absolute top-3 left-4 z-10 font-label-caps text-[10px] tracking-[0.2em] uppercase text-primary">Fig. 02 — Reduced-Order Pod Model</span>
+          <span class="hidden sm:block absolute top-3 right-4 z-10 font-label-caps text-[10px] tracking-widest text-outline-variant">SIM-EML-01</span>
+          <div class="grid-overlay absolute inset-0 opacity-40"></div>
+          <svg class="lev relative w-full h-auto block" viewBox="0 0 800 330" role="img" aria-labelledby="lev-title lev-desc">
+            <title id="lev-title">Reduced-order levitation model</title>
+            <desc id="lev-desc">A pod body with front and rear electromagnetic levitation modules travels at speed v over a guideway with a sinusoidal irregularity of wavelength lambda. The front and rear air gaps, the vertical heave z, and the pitch angle theta are the coupled states the controller must regulate.</desc>
+            <defs>
+              <clipPath id="lev-clip"><rect x="0" y="0" width="800" height="330"/></clipPath>
+              <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e4beb9"/></marker>
+              <marker id="arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d22b2b"/></marker>
+              <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#5b403d" stroke-width="1" opacity=".55"/></pattern>
+            </defs>
+
+            <!-- Guideway (scrolls to show motion) -->
+            <g clip-path="url(#lev-clip)">
+              <g class="gw-scroll">
+                <path d="M-160 262 q40 -14 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 V330 H-160 Z" fill="url(#hatch)"/>
+                <path d="M-160 262 q40 -14 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#ab8985" stroke-width="1.5"/>
+              </g>
+            </g>
+            <text class="lev-label" x="24" y="318" font-family="Space Grotesk, sans-serif" font-size="10" letter-spacing="2" fill="#e4beb9" opacity=".6">GUIDEWAY <tspan class="math lev-inline" font-size="13" letter-spacing="0">r(x)</tspan></text>
+
+            <!-- Wavelength annotation -->
+            <g stroke="#e4beb9" stroke-width="1" opacity=".75">
+              <line x1="600" y1="292" x2="760" y2="292" marker-start="url(#arr)" marker-end="url(#arr)"/>
+              <line x1="600" y1="286" x2="600" y2="298"/><line x1="760" y1="286" x2="760" y2="298"/>
+            </g>
+            <text x="680" y="321" text-anchor="middle" class="math lev-math" font-size="17" fill="#dce1fb">&#955;</text>
+
+            <!-- Pod -->
+            <g class="pod-heave">
+              <!-- body -->
+              <path d="M214 112 H560 Q616 112 636 146 L644 160 Q644 188 612 190 H214 Q198 190 198 174 V128 Q198 112 214 112 Z" fill="#23293c" stroke="#5b403d" stroke-width="1.5"/>
+              <path d="M226 128 H548" stroke="#2e3447" stroke-width="1"/>
+              <path d="M226 174 H590" stroke="#2e3447" stroke-width="1"/>
+              <text class="lev-hide-sm" x="226" y="148" font-family="Space Grotesk, sans-serif" font-size="10" letter-spacing="2" fill="#e4beb9" opacity=".65">POD BODY · m, J</text>
+
+              <!-- center of mass -->
+              <g transform="translate(410 160)">
+                <circle r="9" fill="#0c1324" stroke="#dce1fb" stroke-width="1.25"/>
+                <path d="M0 0 V-9 A9 9 0 0 1 9 0 Z" fill="#dce1fb"/>
+                <path d="M0 0 V9 A9 9 0 0 1 -9 0 Z" fill="#dce1fb"/>
+              </g>
+              <!-- heave -->
+              <line x1="452" y1="178" x2="452" y2="96" stroke="#d22b2b" stroke-width="1.5" marker-start="url(#arr-r)" marker-end="url(#arr-r)"/>
+              <text x="462" y="152" class="math lev-math" font-size="18" fill="#dce1fb">z</text>
+              <!-- pitch -->
+              <path d="M374 128 A44 44 0 0 1 446 128" fill="none" stroke="#d22b2b" stroke-width="1.5" marker-end="url(#arr-r)" transform="translate(0 -6)"/>
+              <text x="404" y="94" class="math lev-math" font-size="18" fill="#dce1fb">&#952;</text>
+
+              <!-- levitation modules -->
+              <g>
+                <rect x="244" y="190" width="72" height="20" fill="#93000e" stroke="#d22b2b" stroke-width="1"/>
+                <path d="M254 194 V206 M264 194 V206 M274 194 V206 M284 194 V206 M294 194 V206 M304 194 V206" stroke="#ffb4ac" stroke-width="1" opacity=".5"/>
+                <rect x="520" y="190" width="72" height="20" fill="#93000e" stroke="#d22b2b" stroke-width="1"/>
+                <path d="M530 194 V206 M540 194 V206 M550 194 V206 M560 194 V206 M570 194 V206 M580 194 V206" stroke="#ffb4ac" stroke-width="1" opacity=".5"/>
+              </g>
+              <!-- flux -->
+              <g class="flux" stroke="#d22b2b" stroke-width="1.5" stroke-linecap="round">
+                <line x1="262" y1="216" x2="262" y2="240"/><line x1="280" y1="216" x2="280" y2="240"/><line x1="298" y1="216" x2="298" y2="240"/>
+              </g>
+              <g class="flux" stroke="#d22b2b" stroke-width="1.5" stroke-linecap="round">
+                <line x1="538" y1="216" x2="538" y2="240"/><line x1="556" y1="216" x2="556" y2="240"/><line x1="574" y1="216" x2="574" y2="240"/>
+              </g>
+              <!-- gaps -->
+              <g stroke="#e4beb9" stroke-width="1">
+                <line x1="226" y1="210" x2="226" y2="256" marker-start="url(#arr)" marker-end="url(#arr)"/>
+                <line x1="610" y1="210" x2="610" y2="256" marker-start="url(#arr)" marker-end="url(#arr)"/>
+              </g>
+              <text x="218" y="240" text-anchor="end" class="math lev-math" font-size="17" fill="#dce1fb">g<tspan dy="4">r</tspan></text>
+              <text x="618" y="240" class="math lev-math" font-size="17" fill="#dce1fb">g<tspan dy="4">f</tspan></text>
+            </g>
+            <text class="lev-label" x="280" y="102" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" letter-spacing="2" fill="#e4beb9" opacity=".6">REAR MODULE</text>
+            <text class="lev-label" x="556" y="102" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" letter-spacing="2" fill="#e4beb9" opacity=".6">FRONT MODULE</text>
+            <path d="M280 106 V110 M556 106 V110" stroke="#e4beb9" opacity=".4"/>
+
+            <!-- velocity -->
+            <line x1="664" y1="150" x2="752" y2="150" stroke="#d22b2b" stroke-width="2" marker-end="url(#arr-r)"/>
+            <text x="702" y="140" text-anchor="middle" class="math lev-math" font-size="18" fill="#dce1fb">v</text>
+
+            <!-- Equation callout -->
+            <g transform="translate(40 40)">
+              <text class="lev-hide-sm" font-family="Space Grotesk, sans-serif" font-size="9" letter-spacing="2" fill="#e4beb9" opacity=".6">TRACK ERROR SEEN BY THE CONTROLLER</text>
+              <text y="30" class="math lev-math" font-size="24" fill="#dce1fb">f = v / &#955;</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption class="mt-3 font-body-md text-sm text-on-surface-variant">Front and rear modules see different gaps as the pod heaves and pitches over an irregular guideway, so the paper treats them as coupled body actuators rather than independent loops.</figcaption>
+      </figure>
+
+      <!-- Controllers -->
+      <div class="mt-14 reveal">
+        <div class="flex items-center gap-4 mb-6">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Controllers Compared</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <div class="group relative bg-surface-container-high border border-outline-variant p-7 hover:border-primary transition-colors duration-300">
+            <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">CTL-01</span>
+            <h3 class="font-headline-md font-semibold text-on-surface uppercase text-[18px] mb-3 pr-12">PID + Feedforward</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">A static feedforward current from the nominal force balance, corrected by local gap feedback at each module. Simple to validate and adequate near the operating point.</p>
+            <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+          </div>
+          <div class="group relative bg-surface-container-high border border-outline-variant p-7 hover:border-primary transition-colors duration-300">
+            <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">CTL-02</span>
+            <h3 class="font-headline-md font-semibold text-on-surface uppercase text-[18px] mb-3 pr-12">Coordinated Body Feedback</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">State feedback on heave and pitch together, so front and rear modules act as one body. Gains can be scheduled across speed, acceleration, and payload.</p>
+            <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+          </div>
+          <div class="group relative bg-surface-container-high border border-outline-variant p-7 hover:border-primary transition-colors duration-300">
+            <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">CTL-03</span>
+            <h3 class="font-headline-md font-semibold text-on-surface uppercase text-[18px] mb-3 pr-12">Constrained Nonlinear</h3>
+            <p class="text-sm text-on-surface-variant leading-relaxed">Regulates the instantaneous gaps, allocates feasible module forces, and adds a soft clearance barrier near the hard gap. It earns its complexity once actuator limits become active.</p>
+            <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ═════════════ 03 · Socio-Economics ═════════════ -->
+  <article id="socio-economics" class="paper relative bg-surface border-b border-outline-variant py-20 md:py-28 overflow-hidden">
+    <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin">
+
+      <header class="flex flex-col sm:flex-row items-start sm:items-end gap-2 sm:gap-6 md:gap-10 mb-12 md:mb-16 reveal">
+        <span class="paper-num" aria-hidden="true">03</span>
+        <div class="pb-2 md:pb-4 min-w-0">
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mb-3">
+            <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Socio-Economic Aspects</span>
+            <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">CH-SE-26</span>
+          </div>
+          <h2 class="font-headline-lg font-bold text-on-surface uppercase leading-tight" style="font-size:clamp(1.6rem,4vw,2.5rem)">Hyperloop on the Amsterdam–Berlin Corridor</h2>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div class="lg:col-span-7 reveal reveal-d1">
+          <p class="font-body-lg text-body-lg text-on-surface mb-5">
+            Can hyperloop outperform rail and aviation on a real, high-demand European route? This study tests the question on the ~575 km Amsterdam–Berlin corridor.
+          </p>
+          <p class="font-body-md text-body-md text-on-surface-variant mb-10">
+            It combines a three-phase kinematic travel-time model, a comparative lifecycle-emissions assessment across hyperloop, rail, and aviation, and EU infrastructure cost benchmarks, then examines the conditions under which hyperloop could meaningfully help decarbonize intercity travel.
+          </p>
+
+          <div class="grid grid-cols-2 gap-x-6 gap-y-8">
+            <div class="metric">
+              <span class="font-mono-stats font-bold text-on-surface block leading-none mb-2" style="font-size:clamp(2rem,4vw,2.75rem)">~50<span class="text-primary-container text-[0.55em] ml-1">min</span></span>
+              <span class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest leading-snug block">In-tube travel time<br/><span class="text-on-surface-variant/60 normal-case tracking-normal font-body-md">At 700 km/h with 0.5 g acceleration</span></span>
+            </div>
+            <div class="metric">
+              <span class="font-mono-stats font-bold text-on-surface block leading-none mb-2" style="font-size:clamp(2rem,4vw,2.75rem)">90–95<span class="text-primary-container">%</span></span>
+              <span class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest leading-snug block">Lower emissions than flying<br/><span class="text-on-surface-variant/60 normal-case tracking-normal font-body-md">Lifecycle, per passenger</span></span>
+            </div>
+            <div class="metric">
+              <span class="font-mono-stats font-bold text-on-surface block leading-none mb-2" style="font-size:clamp(2rem,4vw,2.75rem)">60–80<span class="text-primary-container">%</span></span>
+              <span class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest leading-snug block">Lower than intercity rail<br/><span class="text-on-surface-variant/60 normal-case tracking-normal font-body-md">Same corridor, same functional unit</span></span>
+            </div>
+            <div class="metric">
+              <span class="font-mono-stats font-bold text-on-surface block leading-none mb-2" style="font-size:clamp(2rem,4vw,2.75rem)">17–24<span class="text-primary-container text-[0.55em] ml-1">B</span></span>
+              <span class="font-label-caps text-[11px] text-on-surface-variant uppercase tracking-widest leading-snug block">Infrastructure, EUR<br/><span class="text-on-surface-variant/60 normal-case tracking-normal font-body-md">Mixed elevated and tunneled build</span></span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="lg:col-span-5 reveal reveal-d2">
+          <div class="grid grid-cols-[minmax(0,9rem)_1fr] sm:grid-cols-[minmax(0,12rem)_1fr] lg:grid-cols-[minmax(0,11rem)_1fr] gap-6 items-start">
+            <a class="doc-preview" href="res/research_papers/socio-economic-aspects.pdf" target="_blank" rel="noopener" aria-label="Open Socio-Economic Aspects (PDF, opens in a new tab)">
+              <span class="page block">
+                <img src="res/research/socio-economic-aspects-cover.avif" alt="" width="714" height="924" loading="lazy" decoding="async"/>
+                <span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">Open PDF</span></span>
+              </span>
+            </a>
+            <dl class="grid grid-cols-1 gap-3 text-sm">
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Author</dt><dd class="text-on-surface">Cornell Hyperloop</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Published</dt><dd class="text-on-surface">2026</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">Length</dt><dd class="text-on-surface">19 pages</dd></div>
+              <div><dt class="font-label-caps text-[10px] text-on-surface-variant/60 uppercase tracking-widest mb-1">File</dt><dd class="text-on-surface">PDF · 0.4 MB</dd></div>
+            </dl>
+          </div>
+          <div class="flex flex-wrap gap-3 mt-8">
+            <a href="res/research_papers/socio-economic-aspects.pdf" target="_blank" rel="noopener" class="btn-icon bg-primary-container text-on-primary-container px-5 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-200 flex items-center gap-2">
+              Read Paper
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </a>
+            <a href="res/research_papers/socio-economic-aspects.pdf" download="Cornell Hyperloop - Socio-Economic Aspects.pdf" class="btn-icon text-primary px-5 py-3 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg>
+              Download
+            </a>
+            <button type="button" class="cite-btn btn-icon text-on-surface-variant px-4 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:text-primary transition-colors duration-200 flex items-center gap-2" data-cite='Cornell Hyperloop. "Socio-Economic Aspects." Cornell University, Ithaca, NY, 2026.'>
+              <span class="cite-default flex items-center gap-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="1"/><path d="M5 15V5a1 1 0 011-1h10"/></svg>Cite</span>
+              <span class="cite-done flex items-center gap-2 text-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Copied</span>
+            </button>
+          </div>
+          <div class="mt-8 flex flex-wrap gap-2">
+            <span class="font-label-caps text-[11px] text-on-surface-variant border border-outline-variant px-3 py-1">Lifecycle Assessment</span>
+            <span class="font-label-caps text-[11px] text-on-surface-variant border border-outline-variant px-3 py-1">Infrastructure Cost</span>
+            <span class="font-label-caps text-[11px] text-on-surface-variant border border-outline-variant px-3 py-1">EU Green Deal</span>
+          </div>
+        </aside>
+      </div>
+
+      <!-- Route + charts -->
+      <div class="mt-16 md:mt-20 border border-outline-variant bg-surface-container-low relative reveal">
+        <div class="grid-overlay absolute inset-0 opacity-30 pointer-events-none"></div>
+        <div class="relative px-6 md:px-10 pt-10 pb-8 border-b border-outline-variant">
+          <span class="absolute top-3 left-4 font-label-caps text-[10px] tracking-[0.2em] uppercase text-primary">Fig. 03 — Corridor Comparison</span>
+          <span class="hidden sm:block absolute top-3 right-4 font-label-caps text-[10px] tracking-widest text-outline-variant">AMS-BER</span>
+          <div class="flex items-center gap-4 md:gap-6 mt-6" aria-label="Amsterdam to Berlin, about 575 kilometers">
+            <div class="flex flex-col items-start shrink-0">
+              <span class="font-headline-md font-semibold text-on-surface uppercase text-[15px] md:text-[20px]">Amsterdam</span>
+              <span class="font-label-caps text-[10px] text-on-surface-variant/60 tracking-widest">AMS · NL</span>
+            </div>
+            <div class="relative flex-1 h-10" aria-hidden="true">
+              <span class="absolute left-0 right-0 top-1/2 h-px bg-outline-variant"></span>
+              <span class="absolute left-0 top-1/2 w-2.5 h-2.5 -mt-[5px] rounded-full bg-on-surface"></span>
+              <span class="absolute right-0 top-1/2 w-2.5 h-2.5 -mt-[5px] rounded-full bg-on-surface"></span>
+              <span class="route-pod"></span>
+              <span class="absolute left-1/2 -translate-x-1/2 -top-2 whitespace-nowrap font-label-caps text-[11px] text-on-surface-variant tracking-[0.2em] bg-surface-container-low px-3">~575 KM</span>
+            </div>
+            <div class="flex flex-col items-end shrink-0">
+              <span class="font-headline-md font-semibold text-on-surface uppercase text-[15px] md:text-[20px]">Berlin</span>
+              <span class="font-label-caps text-[10px] text-on-surface-variant/60 tracking-widest">BER · DE</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative grid grid-cols-1 lg:grid-cols-2">
+          <!-- Journey time -->
+          <div class="rc-chart p-6 md:p-10 lg:border-r border-b lg:border-b-0 border-outline-variant" data-max="8">
+            <h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest mb-1">Journey time</h3>
+            <p class="text-xs text-on-surface-variant mb-6">Hours, one way. Bars show the reported range.</p>
+            <div class="rc-rows">
+              <div class="rc-row" tabindex="0" data-lo="4.5" data-hi="5" data-note="Includes check-in, security, boarding, and city transfer.">
+                <span class="text-sm text-on-surface-variant">Aviation</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">4.5–5 h</span></div>
+              </div>
+              <div class="rc-row" tabindex="0" data-lo="6" data-hi="6" data-note="ICE (Deutsche Bahn). City centre to city centre, 1–2 changes.">
+                <span class="text-sm text-on-surface-variant">Intercity rail</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">~6 h</span></div>
+              </div>
+              <div class="rc-row" tabindex="0" data-lo="7" data-hi="8" data-note="GoVolta budget rail. Direct, 160 km/h maximum.">
+                <span class="text-sm text-on-surface-variant">Budget rail</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">7–8 h</span></div>
+              </div>
+              <div class="rc-row is-hl" tabindex="0" data-lo="0.9" data-hi="1.1667" data-note="Kinematic model at 700 km/h and 0.5 g, with an 8-minute error band and station dwell.">
+                <span class="text-sm text-on-surface">Hyperloop · 700 km/h</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">54–70 min</span></div>
+              </div>
+              <div class="rc-row is-hl" tabindex="0" data-lo="0.5667" data-hi="0.8333" data-note="Upper-bound kinematic model at 1,200 km/h and 0.5 g, with an 8-minute error band.">
+                <span class="text-sm text-on-surface">Hyperloop · 1,200 km/h</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">34–50 min</span></div>
+              </div>
+            </div>
+            <div class="rc-axis mt-2" data-ticks="0,2,4,6,8" data-unit=" h"></div>
+          </div>
+
+          <!-- Emissions -->
+          <div class="rc-chart p-6 md:p-10" data-max="150">
+            <h3 class="font-label-caps text-label-caps text-on-surface uppercase tracking-widest mb-1">CO<sub>2</sub> per passenger</h3>
+            <p class="text-xs text-on-surface-variant mb-6">Kilograms, one way across 575 km.</p>
+            <div class="rc-rows">
+              <div class="rc-row" tabindex="0" data-lo="88" data-hi="147" data-note="153–255 g/pkm for short-haul flights. The upper value includes radiative forcing.">
+                <span class="text-sm text-on-surface-variant">Aviation</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">88–147 kg</span></div>
+              </div>
+              <div class="rc-row" tabindex="0" data-lo="17" data-hi="24" data-note="30–41 g/pkm, in line with long-distance ICE services.">
+                <span class="text-sm text-on-surface-variant">Intercity rail</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">17–24 kg</span></div>
+              </div>
+              <div class="rc-row is-hl" tabindex="0" data-lo="3.5" data-hi="8" data-note="6–14 g/pkm on today's blended Dutch-German grid (250–310 g/kWh) at 70–80% occupancy.">
+                <span class="text-sm text-on-surface">Hyperloop · today's grid</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">3.5–8 kg</span></div>
+              </div>
+              <div class="rc-row is-hl" tabindex="0" data-lo="1.7" data-hi="4.6" data-note="3–8 g/pkm on the projected 2035 grid (100–150 g/kWh).">
+                <span class="text-sm text-on-surface">Hyperloop · 2035 grid</span>
+                <div class="rc-track"><span class="rc-bar"></span><span class="rc-val">1.7–4.6 kg</span></div>
+              </div>
+            </div>
+            <div class="rc-axis mt-2" data-ticks="0,50,100,150" data-unit=" kg"></div>
+          </div>
+          <div class="rc-tip" role="tooltip" aria-hidden="true"><span class="rc-tip-text block text-xs text-on-surface leading-relaxed"></span></div>
+        </div>
+        <p class="relative px-6 md:px-10 py-4 border-t border-outline-variant text-[11px] text-on-surface-variant/60 leading-relaxed">Source: figures as reported in the paper, drawing on Beckert et al. (2024), Ember (2024), and Ramboll et al. (2025). Hover or focus a row for its basis.</p>
+      </div>
+
+      <!-- Findings -->
+      <div class="mt-14 grid grid-cols-1 md:grid-cols-3 gap-gutter reveal">
+        <div class="group relative bg-surface-container-high border border-outline-variant p-7 hover:border-primary transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">TIME</span>
+          <h3 class="font-headline-md font-semibold text-on-surface uppercase text-[18px] mb-3 pr-12">A same-day round trip</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Sub-hour travel holds even at a gentler 0.3 g, which adds only 1.7 minutes. The real threat is terminal time: security and boarding have to stay within 10–15 minutes.</p>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+        </div>
+        <div class="group relative bg-surface-container-high border border-outline-variant p-7 hover:border-primary transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">CARBON</span>
+          <h3 class="font-headline-md font-semibold text-on-surface uppercase text-[18px] mb-3 pr-12">Cleaner as the grid gets cleaner</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Hyperloop already beats aviation on today's grid. Germany's energy policy and early occupancy (below ~50%, per-passenger emissions climb fast) are the swing variables.</p>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+        </div>
+        <div class="group relative bg-surface-container-high border border-outline-variant p-7 hover:border-primary transition-colors duration-300">
+          <span class="absolute top-4 right-4 font-label-caps text-[10px] text-outline-variant group-hover:text-primary transition-colors">COST</span>
+          <h3 class="font-headline-md font-semibold text-on-surface uppercase text-[18px] mb-3 pr-12">Tunnels drive the budget</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Elevated track over flat terrain runs EUR 25–35M per km. The 40–60 km of urban tunnels add EUR 2.8–4.2B, with ~EUR 45M a year in maintenance.</p>
+          <div class="absolute bottom-0 left-0 w-0 h-[2px] bg-primary group-hover:w-full transition-all duration-500"></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- ── CTA ── -->
+  <section class="py-16 bg-surface-container border-b border-outline-variant relative overflow-hidden">
+    <div class="scan-line absolute inset-0 opacity-50"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <div>
+        <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase block mb-2">Join the Team</span>
+        <h3 class="font-headline-md text-headline-md text-on-surface uppercase">Want to write next year's papers?</h3>
+      </div>
+      <div class="flex flex-wrap gap-4">
+        <a href="apply.html" class="bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-200">Apply Now</a>
+        <a href="sponsors.html" class="text-primary px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container-high transition-all duration-200">Support Our Research</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="sr-status" class="sr-only" aria-live="polite"></div>
+<div id="footer-placeholder"></div>
+<script src="shared.js?v=9"></script>
+<script>
+(function(){
+  // --- Scroll reveal ---
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('is-in'); });
+  }
+
+  // --- Range charts: position bars and axis ticks from data attributes ---
+  document.querySelectorAll('.rc-chart').forEach(function(chart){
+    var max = parseFloat(chart.dataset.max);
+    var pct = function(v){ return (v / max) * 100; };
+    var axis = chart.querySelector('.rc-axis');
+    var ticks = axis.dataset.ticks.split(',').map(parseFloat);
+
+    chart.querySelectorAll('.rc-row').forEach(function(row){
+      var lo = parseFloat(row.dataset.lo), hi = parseFloat(row.dataset.hi);
+      var track = row.querySelector('.rc-track');
+      ticks.forEach(function(t){
+        var g = document.createElement('span');
+        g.className = 'rc-grid';
+        g.style.left = pct(t) + '%';
+        track.insertBefore(g, track.firstChild);
+      });
+      var bar = row.querySelector('.rc-bar');
+      var val = row.querySelector('.rc-val');
+      bar.style.left = pct(lo) + '%';
+      bar.style.width = pct(hi - lo) + '%';
+      // Keep the value label inside the plot: flip it to the left of the bar near the right edge.
+      if (pct(hi) > 78) {
+        val.style.right = (100 - pct(lo)) + '%';
+        val.style.paddingLeft = '0';
+        val.style.paddingRight = '.6rem';
+      } else {
+        val.style.left = 'calc(' + pct(hi) + '% + 10px)';
+      }
+    });
+
+    ticks.forEach(function(t){
+      var s = document.createElement('span');
+      s.style.left = pct(t) + '%';
+      s.textContent = t + (t === ticks[ticks.length - 1] ? axis.dataset.unit : '');
+      axis.appendChild(s);
+    });
+  });
+
+  // --- Range chart tooltip (enhancement only; every value is also labeled) ---
+  var tip = document.querySelector('.rc-tip');
+  var tipText = tip && tip.querySelector('.rc-tip-text');
+  function showTip(row){
+    if (!tip) return;
+    var host = tip.parentElement.getBoundingClientRect();
+    var bar = row.querySelector('.rc-bar').getBoundingClientRect();
+    tipText.textContent = row.dataset.note;
+    tip.classList.add('show');
+    var left = Math.min(Math.max(bar.left - host.left, 12), host.width - tip.offsetWidth - 12);
+    tip.style.left = left + 'px';
+    tip.style.top = (bar.bottom - host.top + 10) + 'px';
+  }
+  function hideTip(){ if (tip) tip.classList.remove('show'); }
+  document.querySelectorAll('.rc-row').forEach(function(row){
+    row.addEventListener('mouseenter', function(){ showTip(row); });
+    row.addEventListener('mouseleave', hideTip);
+    row.addEventListener('focus', function(){ showTip(row); });
+    row.addEventListener('blur', hideTip);
+  });
+
+  // --- Copy citation ---
+  var status = document.getElementById('sr-status');
+  function fallbackCopy(text){
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', '');
+    ta.style.position = 'fixed';
+    ta.style.opacity = '0';
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(ta);
+  }
+  document.querySelectorAll('.cite-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var text = btn.dataset.cite;
+      var done = function(){
+        btn.dataset.copied = 'true';
+        if (status) status.textContent = 'Citation copied to clipboard.';
+        clearTimeout(btn._t);
+        btn._t = setTimeout(function(){ btn.dataset.copied = 'false'; }, 2000);
+      };
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done, function(){ fallbackCopy(text); done(); });
+      } else {
+        fallbackCopy(text);
+        done();
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

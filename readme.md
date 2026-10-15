@@ -30,6 +30,7 @@ Then open <http://localhost:8000>. (Use a server rather than opening files direc
 hyperloop_website/
 ├── index.html                  # Home — hero, mission, stats, subsystem overview
 ├── subteams.html               # Engineering divisions overview (card grid)
+├── research.html               # Published research papers (2025–26 volume)
 ├── members.html                # Full roster, data-driven from members.json
 ├── apply.html                  # Recruitment / application page
 ├── sponsors.html               # Sponsor logos and tiers
@@ -48,6 +49,8 @@ hyperloop_website/
     ├── compressed_teamPhotos/  # Web-optimized team headshots (used by members.html)
     ├── avifs/                  # Shared AVIF versions of subteam/section images
     ├── sponsors/               # Sponsor logo PNGs
+    ├── research_papers/        # Research paper PDFs linked from research.html
+    ├── research/               # Paper cover previews and figures (AVIF)
     ├── unused/                 # Original/source images and retired experiments
     └── *.avif / *.webp / *.png / *.jpg # Optimized site imagery kept at the top level when needed
 ```
@@ -58,4 +61,5 @@ hyperloop_website/
 - **Image optimization** — Run `tools/convert_images.py` to convert any new JPG/PNG assets to AVIF before referencing them in HTML or `res/members.json`.
 - **New subteam page** — Copy an existing file from `subteam-views/`, update content, add a card to `subteams.html`, and add the path to the `PAGES` array in `sw.js`.
 - **Nav links** — Edit the `NAV_LINKS` array at the top of `shared.js`.
+- **Research papers** — Add the PDF to `res/research_papers/` (URL-safe filename), save a page-one preview as AVIF in `res/research/`, and add an `<article>` plus an index row to `research.html`.
 - **Color / typography** — The Tailwind config block is duplicated in each HTML file's `<head>`. Update all files if changing the design system (or consolidate into a shared config file if a build step is introduced).

@@ -1,6 +1,7 @@
 const NAV_LINKS = [
   { href: "index.html", label: "Home" },
   { href: "subteams.html", label: "Subteams" },
+  { href: "research.html", label: "Research" },
   { href: "members.html", label: "Members" },
   { href: "news.html", label: "News" },
   { href: "apply.html", label: "Apply" },
@@ -45,7 +46,7 @@ function renderAnnouncementBar() {
 function renderNav() {
   const links = NAV_LINKS.map(({ href, label }) => {
     const active = currentPage() === href;
-    const base = "font-headline-md text-headline-md font-bold uppercase tracking-tighter transition-all duration-200 hover:bg-surface-container-high px-2 py-1";
+    const base = "font-headline-md text-base xl:text-[20px] font-bold uppercase tracking-tighter transition-all duration-200 hover:bg-surface-container-high px-2 py-1";
     const cls = active
       ? `${base} text-primary border-b-2 border-primary pb-1`
       : `${base} text-on-surface-variant hover:text-primary`;
@@ -65,13 +66,13 @@ function renderNav() {
   <div class="flex justify-between items-center w-full px-margin py-4 max-w-container-max mx-auto">
     <a class="flex items-center gap-3 font-headline-md text-primary font-black tracking-widest uppercase min-w-0" href="${ROOT}index.html">
       <img src="${ROOT}res/logonobg.avif" alt="Hyperloop logo" class="h-8 w-auto flex-shrink-0"/>
-      <span class="hidden lg:inline">CORNELL HYPERLOOP</span><span class="sm:hidden">HYPERLOOP</span>
+      <span class="hidden sm:inline lg:hidden xl:inline">CORNELL HYPERLOOP</span><span class="sm:hidden">HYPERLOOP</span>
     </a>
-    <nav class="hidden md:flex gap-gutter items-center">${links}</nav>
-    <a href="${ROOT}apply.html" class="hidden md:block bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
-    <button id="mobile-menu-btn" class="md:hidden text-primary p-2 flex-shrink-0" aria-label="Toggle menu" aria-expanded="false"><span class="material-symbols-outlined text-[28px]">menu</span></button>
+    <nav class="hidden lg:flex gap-2 xl:gap-4 items-center">${links}</nav>
+    <a href="${ROOT}apply.html" class="hidden lg:block flex-shrink-0 bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
+    <button id="mobile-menu-btn" class="lg:hidden text-primary p-2 flex-shrink-0" aria-label="Toggle menu" aria-expanded="false"><span class="material-symbols-outlined text-[28px]">menu</span></button>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden border-t border-transparent bg-surface">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-transparent bg-surface">
     <nav class="flex flex-col py-2">${mobileLinks}</nav>
     <div class="px-4 py-3 border-t border-outline-variant">
       <a href="${ROOT}apply.html" class="block w-full text-center bg-primary-container text-on-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary transition-colors duration-200">JOIN TEAM</a>
@@ -155,12 +156,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileMenu = document.getElementById("mobile-menu");
   const navScrollThreshold = 12;
   const screenWidth = window.innerWidth || document.documentElement.clientWidth;
-  const mdScreen = 768;
+  const desktopNavMin = 1024;
   let navChromeState = null;
 
   function updateNavChrome() {
     if (!header) return;
-    if (screenWidth <= mdScreen) {
+    if (screenWidth < desktopNavMin) {
       header.classList.toggle("bg-transparent", false);
       header.classList.toggle("bg-surface/95", true);
       header.classList.toggle("border-transparent", false);
