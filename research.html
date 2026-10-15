@@ -3,20 +3,20 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Cornell Hyperloop — Research</title>
-<meta name="description" content="Research papers from Cornell Hyperloop's 2025–26 design cycle: pod engineering design, dynamics-aware maglev control, and the socio-economics of an Amsterdam–Berlin hyperloop."/>
+<title>Cornell Hyperloop — Research &amp; News</title>
+<meta name="description" content="Cornell Hyperloop research and news: 2025–26 papers on pod engineering, dynamics-aware maglev control, and an Amsterdam–Berlin hyperloop, plus our newsletter and announcement archive."/>
 <meta name="robots" content="index,follow"/>
 <link rel="canonical" href="https://www.cornellhyperloop.com/research.html"/>
-<meta property="og:title" content="Cornell Hyperloop — Research"/>
-<meta property="og:description" content="Research papers from Cornell Hyperloop's 2025–26 design cycle: pod engineering design, dynamics-aware maglev control, and the socio-economics of an Amsterdam–Berlin hyperloop."/>
+<meta property="og:title" content="Cornell Hyperloop — Research &amp; News"/>
+<meta property="og:description" content="Cornell Hyperloop research and news: 2025–26 papers on pod engineering, dynamics-aware maglev control, and an Amsterdam–Berlin hyperloop, plus our newsletter and announcement archive."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://www.cornellhyperloop.com/research.html"/>
 <meta property="og:image" content="https://www.cornellhyperloop.com/res/research/pod-cad-2026.avif"/>
 <meta property="og:image:alt" content="CAD assembly of the 2025–26 Cornell Hyperloop pod on its I-beam track"/>
 <meta property="og:site_name" content="Cornell Hyperloop"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Cornell Hyperloop — Research"/>
-<meta name="twitter:description" content="Research papers from Cornell Hyperloop's 2025–26 design cycle."/>
+<meta name="twitter:title" content="Cornell Hyperloop — Research &amp; News"/>
+<meta name="twitter:description" content="Research papers and news from Cornell Hyperloop."/>
 <meta name="twitter:image" content="https://www.cornellhyperloop.com/res/research/pod-cad-2026.avif"/>
 <link rel="icon" href="/favicon.png?v=6" type="image/png"/>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; img-src 'self' data: https:; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; frame-src https://www.youtube.com; worker-src 'self'; object-src 'none'"/>
@@ -103,22 +103,48 @@
   .sub-cell .sub-arrow{transition:transform .3s,color .3s}
   .sub-cell:hover .sub-arrow,.sub-cell:focus-visible .sub-arrow{transform:translate(3px,-3px);color:#d22b2b}
 
-  /* ── Levitation diagram ── */
-  .gw-scroll{animation:gw-scroll 2.2s linear infinite}
-  @keyframes gw-scroll{to{transform:translateX(-160px)}}
-  .pod-heave{transform-box:view-box;transform-origin:410px 160px;animation:pod-heave 4.4s ease-in-out infinite}
-  @keyframes pod-heave{0%,100%{transform:translateY(0) rotate(0)}30%{transform:translateY(-3px) rotate(-.7deg)}65%{transform:translateY(2px) rotate(.5deg)}}
-  .flux line{animation:flux 1.6s ease-in-out infinite}
-  .flux line:nth-child(2){animation-delay:.25s}.flux line:nth-child(3){animation-delay:.5s}
-  @keyframes flux{0%,100%{opacity:.15}50%{opacity:.75}}
+  /* ── News archive ── */
+  .doc-preview .page img{object-position:top}
+  .doc-preview.sm{margin:0 8px 16px 0}
+  .doc-preview.sm::before{transform:translate(8px,8px)}
+  .doc-preview.sm::after{transform:translate(4px,4px)}
+  .doc-preview.sq{aspect-ratio:1}
+  .news-card{display:block;width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:zoom-in}
+  .news-card:focus-visible{outline:none}
+  .news-card:hover .page,.news-card:focus-visible .page{transform:translate(-3px,-3px);border-color:rgba(210,43,43,.7)}
+  .news-card:hover .doc-preview.sm::before{transform:translate(11px,11px)}
+  .news-card:hover .page img,.news-card:focus-visible .page img{filter:none}
+  .news-card:hover .page-cta,.news-card:focus-visible .page-cta{opacity:1}
+  .news-card:focus-visible .page{outline:2px solid #d22b2b;outline-offset:3px}
+  .pill{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border:1px solid #5b403d;background:transparent;color:rgba(228,190,185,.8);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:border-color .2s,background-color .2s,color .2s}
+  .pill .pill-n{font-size:10px;letter-spacing:.08em;color:rgba(228,190,185,.45)}
+  .pill:hover{border-color:rgba(210,43,43,.6);color:#dce1fb}
+  .pill[aria-pressed="true"]{border-color:#d22b2b;background:rgba(210,43,43,.14);color:#dce1fb}
+  .pill[aria-pressed="true"] .pill-n{color:#ffb4ac}
+  .pill:focus-visible{outline:2px solid #d22b2b;outline-offset:2px}
 
-  .lev .lev-math tspan{font-size:.65em}
-  .lev .lev-inline{font-size:13px}
-  @media (max-width:640px){
-    .lev .lev-label{font-size:19px;letter-spacing:1px}
-    .lev .lev-label .lev-inline{font-size:24px}
-    .lev .lev-math{font-size:32px}
-    .lev .lev-hide-sm{display:none}
+  /* ── Archive viewer ── */
+  .viewer{padding:0;margin:auto;width:min(1120px,94vw);max-width:none;max-height:92vh;overflow:hidden;border:1px solid rgba(210,43,43,.3);background:#0f1626;color:#dce1fb;box-shadow:0 40px 120px rgba(0,0,0,.6)}
+  .viewer::backdrop{background:rgba(5,9,20,.9);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .viewer[open]{animation:viewer-in .35s cubic-bezier(.16,1,.3,1)}
+  @keyframes viewer-in{from{opacity:0;transform:translateY(12px) scale(.985)}to{opacity:1;transform:none}}
+  .viewer-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;height:min(92vh,880px)}
+  .viewer-media{position:relative;display:flex;align-items:center;justify-content:center;min-height:0;overflow:hidden;background:#070d1f}
+  .viewer-media img{display:block;max-width:100%;max-height:100%;object-fit:contain}
+  .viewer-info{display:flex;flex-direction:column;padding:1.75rem;border-left:1px solid #5b403d;overflow-y:auto}
+  .viewer-close{flex-shrink:0;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border:1px solid #5b403d;color:#e4beb9;transition:border-color .2s,color .2s}
+  .viewer-close:hover,.viewer-close:focus-visible{border-color:#d22b2b;color:#dce1fb;outline:none}
+  .viewer-close svg{width:18px;height:18px}
+  .viewer-nav{position:absolute;top:50%;width:44px;height:44px;margin-top:-22px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(91,64,61,.8);background:rgba(7,13,31,.75);color:#dce1fb;transition:border-color .2s,background-color .2s}
+  .viewer-nav:hover,.viewer-nav:focus-visible{border-color:#d22b2b;background:rgba(210,43,43,.2);outline:none}
+  .viewer-nav svg{width:20px;height:20px}
+  .viewer-nav[hidden]{display:none}
+  .viewer-prev{left:12px}.viewer-next{right:12px}
+  html.viewer-open,html.viewer-open body{overflow-y:hidden}
+  @media (max-width:768px){
+    .viewer{max-height:94vh}
+    .viewer-grid{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto;height:min(94vh,900px)}
+    .viewer-info{max-height:42vh;padding:1.25rem;border-left:0;border-top:1px solid #5b403d}
   }
 
   /* ── Route line ── */
@@ -148,7 +174,7 @@
     html{scroll-behavior:auto}
     .js .reveal{opacity:1;transform:none;transition:none}
     .js .fan-card{opacity:1;animation:none}
-    .gw-scroll,.pod-heave,.flux line,.route-pod{animation:none}
+    .route-pod,.viewer[open]{animation:none}
     .route-pod{left:calc(50% - 17px)}
   }
 </style>
@@ -156,7 +182,7 @@
 {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
-  "name": "Cornell Hyperloop Research",
+  "name": "Cornell Hyperloop Research & News",
   "url": "https://www.cornellhyperloop.com/research.html",
   "hasPart": [
     {
@@ -207,12 +233,12 @@
           Published<br/><span class="text-primary-container">Research</span>
         </h1>
         <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mb-10">
-          Three papers from our 2025–26 cycle: the engineering behind this year's pod, the control theory of keeping it levitated at speed, and the case for hyperloop on a real European corridor.
+          Three papers from our 2025–26 cycle: the engineering behind this year's pod, the control theory of keeping it levitated at speed, and the case for hyperloop on a real European corridor. Plus every newsletter and announcement from the team.
         </p>
         <div class="flex flex-wrap gap-4">
           <a href="#papers" class="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-200 border border-primary-container hover:border-primary">Browse Papers</a>
-          <a href="subteams.html" class="bg-transparent text-primary px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2">
-            Subteams
+          <a href="#news" class="bg-transparent text-primary px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2">
+            News Archive
             <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
@@ -237,32 +263,6 @@
     </div>
   </section>
 
-  <!-- ── Volume stats ── -->
-  <section class="bg-surface-container border-b border-outline-variant">
-    <div class="max-w-container-max mx-auto px-6 md:px-margin py-8 grid grid-cols-2 md:grid-cols-4 gap-8">
-      <div class="flex flex-col gap-1 relative pl-4">
-        <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Papers</span>
-        <span class="font-headline-md text-headline-md text-on-surface">03</span>
-      </div>
-      <div class="flex flex-col gap-1 relative pl-4">
-        <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Pages</span>
-        <span class="font-headline-md text-headline-md text-on-surface">48</span>
-      </div>
-      <div class="flex flex-col gap-1 relative pl-4">
-        <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Subsystems Documented</span>
-        <span class="font-headline-md text-headline-md text-on-surface">08</span>
-      </div>
-      <div class="flex flex-col gap-1 relative pl-4">
-        <span class="absolute left-0 top-0 bottom-0 w-[2px] bg-primary-container"></span>
-        <span class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Design Cycle</span>
-        <span class="font-headline-md text-headline-md text-on-surface">2025–26</span>
-      </div>
-    </div>
-  </section>
-
   <!-- ── Index ── -->
   <section id="papers" class="paper relative bg-surface border-b border-outline-variant py-20 md:py-24">
     <div class="grid-overlay absolute inset-0 opacity-10"></div>
@@ -272,7 +272,7 @@
           <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
             <span class="w-8 h-[1px] bg-primary block"></span>Index
           </span>
-          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase">In This Volume</h2>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase">2025-26 Papers</h2>
         </div>
         <span class="hidden md:block font-label-caps text-[10px] text-outline-variant tracking-widest">VOL-2025-26</span>
       </div>
@@ -553,99 +553,6 @@
         </aside>
       </div>
 
-      <!-- Model diagram -->
-      <figure class="mt-16 md:mt-20 reveal">
-        <div class="relative border border-outline-variant bg-surface-container-lowest overflow-hidden pt-8">
-          <span class="absolute top-3 left-4 z-10 font-label-caps text-[10px] tracking-[0.2em] uppercase text-primary">Fig. 02 — Reduced-Order Pod Model</span>
-          <span class="hidden sm:block absolute top-3 right-4 z-10 font-label-caps text-[10px] tracking-widest text-outline-variant">SIM-EML-01</span>
-          <div class="grid-overlay absolute inset-0 opacity-40"></div>
-          <svg class="lev relative w-full h-auto block" viewBox="0 0 800 330" role="img" aria-labelledby="lev-title lev-desc">
-            <title id="lev-title">Reduced-order levitation model</title>
-            <desc id="lev-desc">A pod body with front and rear electromagnetic levitation modules travels at speed v over a guideway with a sinusoidal irregularity of wavelength lambda. The front and rear air gaps, the vertical heave z, and the pitch angle theta are the coupled states the controller must regulate.</desc>
-            <defs>
-              <clipPath id="lev-clip"><rect x="0" y="0" width="800" height="330"/></clipPath>
-              <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#e4beb9"/></marker>
-              <marker id="arr-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#d22b2b"/></marker>
-              <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#5b403d" stroke-width="1" opacity=".55"/></pattern>
-            </defs>
-
-            <!-- Guideway (scrolls to show motion) -->
-            <g clip-path="url(#lev-clip)">
-              <g class="gw-scroll">
-                <path d="M-160 262 q40 -14 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 V330 H-160 Z" fill="url(#hatch)"/>
-                <path d="M-160 262 q40 -14 80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0 t80 0" fill="none" stroke="#ab8985" stroke-width="1.5"/>
-              </g>
-            </g>
-            <text class="lev-label" x="24" y="318" font-family="Space Grotesk, sans-serif" font-size="10" letter-spacing="2" fill="#e4beb9" opacity=".6">GUIDEWAY <tspan class="math lev-inline" font-size="13" letter-spacing="0">r(x)</tspan></text>
-
-            <!-- Wavelength annotation -->
-            <g stroke="#e4beb9" stroke-width="1" opacity=".75">
-              <line x1="600" y1="292" x2="760" y2="292" marker-start="url(#arr)" marker-end="url(#arr)"/>
-              <line x1="600" y1="286" x2="600" y2="298"/><line x1="760" y1="286" x2="760" y2="298"/>
-            </g>
-            <text x="680" y="321" text-anchor="middle" class="math lev-math" font-size="17" fill="#dce1fb">&#955;</text>
-
-            <!-- Pod -->
-            <g class="pod-heave">
-              <!-- body -->
-              <path d="M214 112 H560 Q616 112 636 146 L644 160 Q644 188 612 190 H214 Q198 190 198 174 V128 Q198 112 214 112 Z" fill="#23293c" stroke="#5b403d" stroke-width="1.5"/>
-              <path d="M226 128 H548" stroke="#2e3447" stroke-width="1"/>
-              <path d="M226 174 H590" stroke="#2e3447" stroke-width="1"/>
-              <text class="lev-hide-sm" x="226" y="148" font-family="Space Grotesk, sans-serif" font-size="10" letter-spacing="2" fill="#e4beb9" opacity=".65">POD BODY · m, J</text>
-
-              <!-- center of mass -->
-              <g transform="translate(410 160)">
-                <circle r="9" fill="#0c1324" stroke="#dce1fb" stroke-width="1.25"/>
-                <path d="M0 0 V-9 A9 9 0 0 1 9 0 Z" fill="#dce1fb"/>
-                <path d="M0 0 V9 A9 9 0 0 1 -9 0 Z" fill="#dce1fb"/>
-              </g>
-              <!-- heave -->
-              <line x1="452" y1="178" x2="452" y2="96" stroke="#d22b2b" stroke-width="1.5" marker-start="url(#arr-r)" marker-end="url(#arr-r)"/>
-              <text x="462" y="152" class="math lev-math" font-size="18" fill="#dce1fb">z</text>
-              <!-- pitch -->
-              <path d="M374 128 A44 44 0 0 1 446 128" fill="none" stroke="#d22b2b" stroke-width="1.5" marker-end="url(#arr-r)" transform="translate(0 -6)"/>
-              <text x="404" y="94" class="math lev-math" font-size="18" fill="#dce1fb">&#952;</text>
-
-              <!-- levitation modules -->
-              <g>
-                <rect x="244" y="190" width="72" height="20" fill="#93000e" stroke="#d22b2b" stroke-width="1"/>
-                <path d="M254 194 V206 M264 194 V206 M274 194 V206 M284 194 V206 M294 194 V206 M304 194 V206" stroke="#ffb4ac" stroke-width="1" opacity=".5"/>
-                <rect x="520" y="190" width="72" height="20" fill="#93000e" stroke="#d22b2b" stroke-width="1"/>
-                <path d="M530 194 V206 M540 194 V206 M550 194 V206 M560 194 V206 M570 194 V206 M580 194 V206" stroke="#ffb4ac" stroke-width="1" opacity=".5"/>
-              </g>
-              <!-- flux -->
-              <g class="flux" stroke="#d22b2b" stroke-width="1.5" stroke-linecap="round">
-                <line x1="262" y1="216" x2="262" y2="240"/><line x1="280" y1="216" x2="280" y2="240"/><line x1="298" y1="216" x2="298" y2="240"/>
-              </g>
-              <g class="flux" stroke="#d22b2b" stroke-width="1.5" stroke-linecap="round">
-                <line x1="538" y1="216" x2="538" y2="240"/><line x1="556" y1="216" x2="556" y2="240"/><line x1="574" y1="216" x2="574" y2="240"/>
-              </g>
-              <!-- gaps -->
-              <g stroke="#e4beb9" stroke-width="1">
-                <line x1="226" y1="210" x2="226" y2="256" marker-start="url(#arr)" marker-end="url(#arr)"/>
-                <line x1="610" y1="210" x2="610" y2="256" marker-start="url(#arr)" marker-end="url(#arr)"/>
-              </g>
-              <text x="218" y="240" text-anchor="end" class="math lev-math" font-size="17" fill="#dce1fb">g<tspan dy="4">r</tspan></text>
-              <text x="618" y="240" class="math lev-math" font-size="17" fill="#dce1fb">g<tspan dy="4">f</tspan></text>
-            </g>
-            <text class="lev-label" x="280" y="102" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" letter-spacing="2" fill="#e4beb9" opacity=".6">REAR MODULE</text>
-            <text class="lev-label" x="556" y="102" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" letter-spacing="2" fill="#e4beb9" opacity=".6">FRONT MODULE</text>
-            <path d="M280 106 V110 M556 106 V110" stroke="#e4beb9" opacity=".4"/>
-
-            <!-- velocity -->
-            <line x1="664" y1="150" x2="752" y2="150" stroke="#d22b2b" stroke-width="2" marker-end="url(#arr-r)"/>
-            <text x="702" y="140" text-anchor="middle" class="math lev-math" font-size="18" fill="#dce1fb">v</text>
-
-            <!-- Equation callout -->
-            <g transform="translate(40 40)">
-              <text class="lev-hide-sm" font-family="Space Grotesk, sans-serif" font-size="9" letter-spacing="2" fill="#e4beb9" opacity=".6">TRACK ERROR SEEN BY THE CONTROLLER</text>
-              <text y="30" class="math lev-math" font-size="24" fill="#dce1fb">f = v / &#955;</text>
-            </g>
-          </svg>
-        </div>
-        <figcaption class="mt-3 font-body-md text-sm text-on-surface-variant">Front and rear modules see different gaps as the pod heaves and pitches over an irregular guideway, so the paper treats them as coupled body actuators rather than independent loops.</figcaption>
-      </figure>
-
       <!-- Controllers -->
       <div class="mt-14 reveal">
         <div class="flex items-center gap-4 mb-6">
@@ -865,6 +772,140 @@
     </div>
   </article>
 
+  <!-- ═════════════ News Archive ═════════════ -->
+  <section id="news" class="paper relative bg-surface-container-low border-b border-outline-variant py-20 md:py-28 overflow-hidden">
+    <div class="grid-overlay absolute inset-0 opacity-20"></div>
+    <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin">
+      <div class="flex items-end justify-between gap-6 mb-10 reveal">
+        <div>
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
+            <span class="w-8 h-[1px] bg-primary block"></span>News Archive
+          </span>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">Newsletters &amp; Announcements</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Seasonal newsletters, recruitment flyers, and event announcements from the team. Select any item to read it full size.</p>
+        </div>
+        <span class="hidden md:block font-label-caps text-[10px] text-outline-variant tracking-widest">ARC-24-26</span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 mb-14 reveal" role="group" aria-label="Filter the news archive">
+          <button type="button" class="pill" data-filter="all" aria-pressed="true">All <span class="pill-n">12</span></button>
+          <button type="button" class="pill" data-filter="sp26" aria-pressed="false">Spring 2026 <span class="pill-n">02</span></button>
+          <button type="button" class="pill" data-filter="fa25" aria-pressed="false">Fall 2025 <span class="pill-n">01</span></button>
+          <button type="button" class="pill" data-filter="wi25" aria-pressed="false">Winter 2025 <span class="pill-n">03</span></button>
+          <button type="button" class="pill" data-filter="fa24" aria-pressed="false">Fall 2024 <span class="pill-n">04</span></button>
+          <button type="button" class="pill" data-filter="event" aria-pressed="false">Events <span class="pill-n">02</span></button>
+      </div>
+
+      <div class="flex flex-col gap-16 md:gap-20">
+      <div class="news-group reveal" data-season="event">
+        <div class="flex items-center gap-4 mb-7">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Events &amp; Flyers</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">MISC</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
+          <button type="button" class="news-card" data-full="res/articles/CDRFlyler.jpeg" data-tag="Flyer" data-title="Critical Design Review — February 2026" data-desc="Cornell Hyperloop invited alumni to our Critical Design Review on February 28th, 2026 at 11:00 AM. CDR is a major milestone where the team presents the year&#x27;s full design and progress for external feedback.">
+            <span class="doc-preview sm sq"><span class="page block"><img src="res/articles/thumbs/CDRFlyler.avif" alt="Critical Design Review — February 2026" width="520" height="520" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Flyer</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Critical Design Review</span>
+          </button>
+          <button type="button" class="news-card" data-full="res/articles/givingDayFlyer2026.jpeg" data-tag="Flyer" data-title="Cornell Giving Day 2026" data-desc="Support Cornell Hyperloop on Giving Day, March 12, 2026. Gifts directly fund advanced parts, cutting-edge materials, and essential testing that keep our team competing at the highest level.">
+            <span class="doc-preview sm sq"><span class="page block"><img src="res/articles/thumbs/givingDayFlyer2026.avif" alt="Cornell Giving Day 2026" width="520" height="520" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Flyer</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Giving Day 2026</span>
+          </button>
+        </div>
+      </div>
+      <div class="news-group reveal" data-season="sp26">
+        <div class="flex items-center gap-4 mb-7">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Spring 2026</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">SEM-SP26</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
+          <button type="button" class="news-card" data-full="res/articles/sp26Eng.png" data-tag="Flyer" data-title="Spring 2026 Recruitment — Engineering" data-desc="Recruiting freshmen and sophomores to join our Electrical and Business teams for Spring 2026. Come help design what&#x27;s next in high-speed transportation.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/sp26Eng.avif" alt="Spring 2026 Recruitment — Engineering" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Flyer</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Recruitment — Engineering</span>
+          </button>
+          <button type="button" class="news-card" data-full="res/articles/sp26Business.png" data-tag="Flyer" data-title="Spring 2026 Recruitment — Business" data-desc="Recruiting new members to join the Cornell Hyperloop Business team for Spring 2026. Help drive sponsorships, outreach, and team operations.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/sp26Business.avif" alt="Spring 2026 Recruitment — Business" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Flyer</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Recruitment — Business</span>
+          </button>
+        </div>
+      </div>
+      <div class="news-group reveal" data-season="fa25">
+        <div class="flex items-center gap-4 mb-7">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Fall 2025</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">SEM-FA25</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
+          <button type="button" class="news-card" data-full="res/articles/fa2025NewsLetter.jpeg" data-tag="Newsletter" data-title="Fall 2025 Newsletter — Keeping in The Loop" data-desc="Our Fall 2025 edition of Keeping in The Loop is here. We share exciting updates on our technical progress, upcoming events, and our ongoing mission to revolutionize high-speed transportation.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/fa2025NewsLetter.avif" alt="Fall 2025 Newsletter — Keeping in The Loop" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Keeping in The Loop</span>
+          </button>
+        </div>
+      </div>
+      <div class="news-group reveal" data-season="wi25">
+        <div class="flex items-center gap-4 mb-7">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Winter 2025</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">SEM-WI25</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
+          <button type="button" class="news-card" data-full="res/articles/winter 2025 page-0.jpg" data-tag="Newsletter · Pg 1" data-title="Winter 2025 Newsletter — Page 1" data-desc="The Winter 2025 edition of our team newsletter. Page 1 covers team highlights, semester milestones, and a look at what Cornell Hyperloop accomplished heading into the new year.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-0.avif" alt="Winter 2025 Newsletter — Page 1" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter · Pg 1</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025</span>
+          </button>
+          <button type="button" class="news-card" data-full="res/articles/winter 2025 page-1.jpg" data-tag="Newsletter · Pg 2" data-title="Winter 2025 Newsletter — Page 2" data-desc="Page 2 of the Winter 2025 newsletter. Dives into subteam-level updates across Mechanical, Electrical, and Business, highlighting key design decisions and progress made during the semester.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-1.avif" alt="Winter 2025 Newsletter — Page 2" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter · Pg 2</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025</span>
+          </button>
+          <button type="button" class="news-card" data-full="res/articles/winter 2025 page-2.jpg" data-tag="Newsletter · Pg 3" data-title="Winter 2025 Newsletter — Page 3" data-desc="Page 3 of the Winter 2025 newsletter. Wraps up with a look ahead at competition goals, team growth, and the road to European Hyperloop Week.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-2.avif" alt="Winter 2025 Newsletter — Page 3" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter · Pg 3</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025</span>
+          </button>
+        </div>
+      </div>
+      <div class="news-group reveal" data-season="fa24">
+        <div class="flex items-center gap-4 mb-7">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Fall 2024</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">SEM-FA24</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
+          <button type="button" class="news-card" data-full="res/articles/fa24NewsLetter.jpg" data-tag="Newsletter" data-title="Fall 2024 Newsletter — Full Team" data-desc="The Fall 2024 full-team newsletter. Covers the semester&#x27;s biggest milestones across all subteams, competition prep updates, and a look at the team&#x27;s direction heading into winter.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/fa24NewsLetter.avif" alt="Fall 2024 Newsletter — Full Team" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Full Team — FA24</span>
+          </button>
+          <button type="button" class="news-card" data-full="res/articles/24NewsLetterMech.jpg" data-tag="Newsletter" data-title="Fall 2024 Newsletter — Mechanical" data-desc="The Mechanical subteam&#x27;s Fall 2024 update. Highlights structural design progress, chassis iterations, and braking system development for the competition pod.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterMech.avif" alt="Fall 2024 Newsletter — Mechanical" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Mechanical — FA24</span>
+          </button>
+          <button type="button" class="news-card" data-full="res/articles/24NewsLetterElectrical.jpg" data-tag="Newsletter" data-title="Fall 2024 Newsletter — Electrical" data-desc="The Electrical subteam&#x27;s Fall 2024 update. Covers advances in magnetic levitation research, power distribution, PCB design, and embedded controls work.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterElectrical.avif" alt="Fall 2024 Newsletter — Electrical" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Electrical — FA24</span>
+          </button>
+          <button type="button" class="news-card" data-full="res/articles/24NewsLetterBusiness.jpg" data-tag="Newsletter" data-title="Fall 2024 Newsletter — Business" data-desc="The Business subteam&#x27;s Fall 2024 update. Recaps sponsorship outreach, fundraising progress, and team operations highlights from the semester.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterBusiness.avif" alt="Fall 2024 Newsletter — Business" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Business — FA24</span>
+          </button>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── CTA ── -->
   <section class="py-16 bg-surface-container border-b border-outline-variant relative overflow-hidden">
     <div class="scan-line absolute inset-0 opacity-50"></div>
@@ -880,6 +921,28 @@
     </div>
   </section>
 </main>
+
+<dialog id="viewer" class="viewer" aria-labelledby="viewer-title">
+  <div class="viewer-grid">
+    <div class="viewer-media">
+      <img id="viewer-img" alt=""/>
+      <button type="button" class="viewer-nav viewer-prev" aria-label="Previous item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button type="button" class="viewer-nav viewer-next" aria-label="Next item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+    <div class="viewer-info">
+      <div class="flex items-start justify-between gap-4 mb-6">
+        <span id="viewer-tag" class="font-label-caps text-[10px] text-primary-container uppercase tracking-[0.2em] pt-2"></span>
+        <button type="button" class="viewer-close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+      <h3 id="viewer-title" class="font-headline-md font-semibold text-on-surface uppercase text-[18px] leading-snug mb-4"></h3>
+      <p id="viewer-desc" class="text-sm text-on-surface-variant leading-relaxed mb-8"></p>
+      <div class="mt-auto flex items-center justify-between gap-4 pt-6 border-t border-outline-variant">
+        <span id="viewer-count" class="font-label-caps text-[10px] text-on-surface-variant/60 tracking-widest"></span>
+        <a id="viewer-open" href="#" target="_blank" rel="noopener" class="btn-icon text-primary font-label-caps text-[11px] uppercase tracking-widest flex items-center gap-2 hover:text-on-surface transition-colors">Full Size<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <div id="sr-status" class="sr-only" aria-live="polite"></div>
 <div id="footer-placeholder"></div>
@@ -960,6 +1023,83 @@
     row.addEventListener('focus', function(){ showTip(row); });
     row.addEventListener('blur', hideTip);
   });
+
+  // --- News archive: season filter ---
+  var pills = document.querySelectorAll('.pill');
+  var newsGroups = document.querySelectorAll('.news-group');
+  pills.forEach(function(pill){
+    pill.addEventListener('click', function(){
+      var filter = pill.dataset.filter;
+      pills.forEach(function(p){ p.setAttribute('aria-pressed', String(p === pill)); });
+      newsGroups.forEach(function(group){
+        var show = filter === 'all' || group.dataset.season === filter;
+        group.hidden = !show;
+        if (show) group.classList.add('is-in');
+      });
+    });
+  });
+
+  // --- News archive: full-size viewer (steps through the items currently shown) ---
+  var viewer = document.getElementById('viewer');
+  var newsCards = document.querySelectorAll('.news-card');
+  if (viewer && typeof viewer.showModal === 'function') {
+    var vImg = document.getElementById('viewer-img');
+    var vTag = document.getElementById('viewer-tag');
+    var vTitle = document.getElementById('viewer-title');
+    var vDesc = document.getElementById('viewer-desc');
+    var vOpen = document.getElementById('viewer-open');
+    var vCount = document.getElementById('viewer-count');
+    var vPrev = viewer.querySelector('.viewer-prev');
+    var vNext = viewer.querySelector('.viewer-next');
+    var vClose = viewer.querySelector('.viewer-close');
+    var shown = [], current = 0, opener = null;
+    var pad = function(n){ return (n < 10 ? '0' : '') + n; };
+
+    function render(){
+      var card = shown[current];
+      vImg.src = card.dataset.full;
+      vImg.alt = card.dataset.title;
+      vTag.textContent = card.dataset.tag;
+      vTitle.textContent = card.dataset.title;
+      vDesc.textContent = card.dataset.desc;
+      vOpen.href = card.dataset.full;
+      vCount.textContent = pad(current + 1) + ' / ' + pad(shown.length);
+      vPrev.hidden = vNext.hidden = shown.length < 2;
+    }
+    function step(delta){
+      current = (current + delta + shown.length) % shown.length;
+      render();
+    }
+
+    newsCards.forEach(function(card){
+      card.addEventListener('click', function(){
+        shown = Array.prototype.slice.call(document.querySelectorAll('.news-group:not([hidden]) .news-card'));
+        current = shown.indexOf(card);
+        opener = card;
+        render();
+        document.documentElement.classList.add('viewer-open');
+        viewer.showModal();
+        vClose.focus();
+      });
+    });
+    vPrev.addEventListener('click', function(){ step(-1); });
+    vNext.addEventListener('click', function(){ step(1); });
+    vClose.addEventListener('click', function(){ viewer.close(); });
+    viewer.addEventListener('click', function(e){ if (e.target === viewer) viewer.close(); });
+    viewer.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowLeft') { e.preventDefault(); step(-1); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); step(1); }
+    });
+    viewer.addEventListener('close', function(){
+      document.documentElement.classList.remove('viewer-open');
+      vImg.removeAttribute('src');
+      if (opener) opener.focus({ preventScroll: true });
+    });
+  } else {
+    newsCards.forEach(function(card){
+      card.addEventListener('click', function(){ window.open(card.dataset.full, '_blank', 'noopener'); });
+    });
+  }
 
   // --- Copy citation ---
   var status = document.getElementById('sr-status');

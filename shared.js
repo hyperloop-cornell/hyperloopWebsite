@@ -1,9 +1,8 @@
 const NAV_LINKS = [
   { href: "index.html", label: "Home" },
   { href: "subteams.html", label: "Subteams" },
-  { href: "research.html", label: "Research" },
+  { href: "research.html", label: "Research & News" },
   { href: "members.html", label: "Members" },
-  { href: "news.html", label: "News" },
   { href: "apply.html", label: "Apply" },
   { href: "sponsors.html", label: "Sponsors" },
 ];

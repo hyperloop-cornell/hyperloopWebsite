@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <script>
   (function(){
-    var redirects = { '/archived-news-letters': '/news.html', '/archived-news-letters/': '/news.html' };
+    var redirects = { '/archived-news-letters': '/research.html#news', '/archived-news-letters/': '/research.html#news', '/news': '/research.html#news', '/news/': '/research.html#news' };
     var path = window.location.pathname.replace(/\/+$/, '') || '/';
     var target = redirects[path];
     if (target) window.location.replace(target);
