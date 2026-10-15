@@ -1148,10 +1148,6 @@ input:where([type='file']):focus {
   height: 10rem;
 }
 
-.h-5 {
-  height: 1.25rem;
-}
-
 .h-6 {
   height: 1.5rem;
 }
@@ -1262,10 +1258,6 @@ input:where([type='file']):focus {
 
 .w-40 {
   width: 10rem;
-}
-
-.w-5 {
-  width: 1.25rem;
 }
 
 .w-6 {
@@ -1410,10 +1402,6 @@ input:where([type='file']):focus {
 
 .grid-cols-2 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.grid-cols-\[3rem_1fr_auto\] {
-  grid-template-columns: 3rem 1fr auto;
 }
 
 .grid-cols-\[minmax\(0\2c 9rem\)_1fr\] {
@@ -1567,10 +1555,6 @@ input:where([type='file']):focus {
 
 .self-start {
   align-self: flex-start;
-}
-
-.justify-self-end {
-  justify-self: end;
 }
 
 .overflow-hidden {
@@ -2007,11 +1991,6 @@ input:where([type='file']):focus {
   padding-bottom: 1rem;
 }
 
-.py-6 {
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-}
-
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -2079,10 +2058,6 @@ input:where([type='file']):focus {
 
 .text-center {
   text-align: center;
-}
-
-.text-right {
-  text-align: right;
 }
 
 .font-body-lg {
@@ -2351,6 +2326,10 @@ input:where([type='file']):focus {
 
 .text-on-surface-variant\/60 {
   color: rgb(228 190 185 / 0.6);
+}
+
+.text-on-surface-variant\/70 {
+  color: rgb(228 190 185 / 0.7);
 }
 
 .text-on-surface-variant\/90 {
@@ -2851,10 +2830,6 @@ input:where([type='file']):focus {
 
   .md\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .md\:grid-cols-\[5rem_14rem_1fr_6rem_2rem\] {
-    grid-template-columns: 5rem 14rem 1fr 6rem 2rem;
   }
 
   .md\:flex-row {

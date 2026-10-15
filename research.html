@@ -61,13 +61,6 @@
   .fan-card:nth-child(3){--x:184px;--y:78px;--r:8deg;z-index:1;animation-delay:.55s}
   @keyframes fan-in{from{opacity:0;translate:0 40px}to{opacity:1;translate:0 0}}
 
-  /* ── Index rows ── */
-  .toc-row{position:relative;transition:background-color .25s}
-  .toc-row::after{content:'';position:absolute;left:0;bottom:-1px;height:1px;width:0;background:#d22b2b;transition:width .5s cubic-bezier(.16,1,.3,1)}
-  .toc-row:hover,.toc-row:focus-visible{background:rgba(25,31,49,.7);outline:none}
-  .toc-row:hover::after,.toc-row:focus-visible::after{width:100%}
-  .toc-row .toc-arrow{transition:transform .3s,color .3s}
-  .toc-row:hover .toc-arrow,.toc-row:focus-visible .toc-arrow{transform:translateY(3px);color:#d22b2b}
 
   /* ── Paper header numeral ── */
   .paper-num{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:.8;letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px rgba(210,43,43,.55);font-size:clamp(72px,13vw,176px);user-select:none}
@@ -109,13 +102,16 @@
   .doc-preview.sm::before{transform:translate(8px,8px)}
   .doc-preview.sm::after{transform:translate(4px,4px)}
   .doc-preview.sq{aspect-ratio:1}
-  .news-card{display:block;width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:zoom-in}
+  .news-card{display:block;align-self:start;width:100%;padding:0;border:0;background:none;color:inherit;text-align:left;cursor:zoom-in}
   .news-card:focus-visible{outline:none}
   .news-card:hover .page,.news-card:focus-visible .page{transform:translate(-3px,-3px);border-color:rgba(210,43,43,.7)}
   .news-card:hover .doc-preview.sm::before{transform:translate(11px,11px)}
   .news-card:hover .page img,.news-card:focus-visible .page img{filter:none}
   .news-card:hover .page-cta,.news-card:focus-visible .page-cta{opacity:1}
   .news-card:focus-visible .page{outline:2px solid #d22b2b;outline-offset:3px}
+  .news-card.is-paper{cursor:pointer}
+  .news-card[hidden]{display:none}
+  .news-card.is-paper .page{border-color:rgba(210,43,43,.35)}
   .pill{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;border:1px solid #5b403d;background:transparent;color:rgba(228,190,185,.8);font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:border-color .2s,background-color .2s,color .2s}
   .pill .pill-n{font-size:10px;letter-spacing:.08em;color:rgba(228,190,185,.45)}
   .pill:hover{border-color:rgba(210,43,43,.6);color:#dce1fb}
@@ -236,9 +232,9 @@
           Three papers from our 2025–26 cycle: the engineering behind this year's pod, the control theory of keeping it levitated at speed, and the case for hyperloop on a real European corridor. Plus every newsletter and announcement from the team.
         </p>
         <div class="flex flex-wrap gap-4">
-          <a href="#papers" class="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-200 border border-primary-container hover:border-primary">Browse Papers</a>
-          <a href="#news" class="bg-transparent text-primary px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2">
-            News Archive
+          <a href="#papers" class="bg-primary-container text-on-primary-container px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary hover:text-on-primary transition-colors duration-200 border border-primary-container hover:border-primary">Browse Index</a>
+          <a href="#engineering-design" class="bg-transparent text-primary px-6 py-3 md:px-8 md:py-4 font-label-caps text-label-caps uppercase tracking-widest border border-outline-variant hover:border-primary hover:bg-surface-container transition-all duration-200 flex items-center gap-2">
+            Read the Papers
             <span class="material-symbols-outlined">arrow_forward</span>
           </a>
         </div>
@@ -263,8 +259,9 @@
     </div>
   </section>
 
-  <!-- ── Index ── -->
+  <!-- ── Index: papers + news archive ── -->
   <section id="papers" class="paper relative bg-surface border-b border-outline-variant py-20 md:py-24">
+    <span id="news" class="paper absolute top-0" aria-hidden="true"></span>
     <div class="grid-overlay absolute inset-0 opacity-10"></div>
     <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin">
       <div class="flex items-end justify-between gap-6 mb-10 reveal">
@@ -272,40 +269,114 @@
           <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
             <span class="w-8 h-[1px] bg-primary block"></span>Index
           </span>
-          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase">2025-26 Papers</h2>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">Papers &amp; News</h2>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Our research papers alongside every newsletter, flyer, and announcement, by academic year. Papers open their full write-up below; everything else opens full size.</p>
         </div>
-        <span class="hidden md:block font-label-caps text-[10px] text-outline-variant tracking-widest">VOL-2025-26</span>
+        <span class="hidden md:block font-label-caps text-[10px] text-outline-variant tracking-widest">IDX-24-26</span>
       </div>
 
-      <ol class="border-t border-outline-variant reveal reveal-d1">
-        <li>
-          <a href="#engineering-design" class="toc-row grid grid-cols-[3rem_1fr_auto] md:grid-cols-[5rem_14rem_1fr_6rem_2rem] items-center gap-4 md:gap-6 py-6 px-2 border-b border-outline-variant">
-            <span class="font-headline-md text-headline-md text-primary-container">01</span>
-            <span class="hidden md:block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Engineering Design</span>
-            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] md:text-[20px] leading-snug">Engineering Design Document</span>
-            <span class="hidden md:block font-label-caps text-xs text-on-surface-variant tracking-widest text-right">10 PP</span>
-            <svg class="toc-arrow w-5 h-5 text-on-surface-variant justify-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 5v14m-5-5l5 5 5-5"/></svg>
+      <div class="flex flex-wrap items-center gap-2 mb-14 reveal" role="group" aria-label="Filter the index">
+          <button type="button" class="pill" data-filter="all" aria-pressed="true">All <span class="pill-n">15</span></button>
+          <button type="button" class="pill" data-filter="paper" aria-pressed="false">Papers <span class="pill-n">03</span></button>
+          <button type="button" class="pill" data-filter="newsletter" aria-pressed="false">Newsletters <span class="pill-n">08</span></button>
+          <button type="button" class="pill" data-filter="flyer" aria-pressed="false">Flyers &amp; Events <span class="pill-n">04</span></button>
+      </div>
+
+      <div class="flex flex-col gap-16 md:gap-20">
+      <div class="news-group reveal" data-year="AY-25-26">
+        <div class="flex items-center gap-4 mb-7">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">2025–26</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">AY-25-26</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
+          <a href="#engineering-design" class="news-card is-paper" data-type="paper">
+            <span class="doc-preview sm"><span class="page block"><img src="res/research/engineering-design-document-cover.avif" alt="" width="714" height="924" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">Read</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Paper 01 · May 2026</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Engineering Design Document</span>
           </a>
-        </li>
-        <li>
-          <a href="#levitation-control" class="toc-row grid grid-cols-[3rem_1fr_auto] md:grid-cols-[5rem_14rem_1fr_6rem_2rem] items-center gap-4 md:gap-6 py-6 px-2 border-b border-outline-variant">
-            <span class="font-headline-md text-headline-md text-primary-container">02</span>
-            <span class="hidden md:block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Technical Aspects</span>
-            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] md:text-[20px] leading-snug">Dynamics-Aware Control of Electromagnetic Levitation</span>
-            <span class="hidden md:block font-label-caps text-xs text-on-surface-variant tracking-widest text-right">19 PP</span>
-            <svg class="toc-arrow w-5 h-5 text-on-surface-variant justify-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 5v14m-5-5l5 5 5-5"/></svg>
+          <a href="#levitation-control" class="news-card is-paper" data-type="paper">
+            <span class="doc-preview sm"><span class="page block"><img src="res/research/technical-aspects-cover.avif" alt="" width="714" height="924" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">Read</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Paper 02 · Jun 2026</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Dynamics-Aware Maglev Control</span>
           </a>
-        </li>
-        <li>
-          <a href="#socio-economics" class="toc-row grid grid-cols-[3rem_1fr_auto] md:grid-cols-[5rem_14rem_1fr_6rem_2rem] items-center gap-4 md:gap-6 py-6 px-2 border-b border-outline-variant">
-            <span class="font-headline-md text-headline-md text-primary-container">03</span>
-            <span class="hidden md:block font-label-caps text-label-caps text-on-surface-variant uppercase tracking-widest text-xs">Socio-Economic Aspects</span>
-            <span class="font-headline-md font-semibold text-on-surface uppercase text-[17px] md:text-[20px] leading-snug">Hyperloop on the Amsterdam–Berlin Corridor</span>
-            <span class="hidden md:block font-label-caps text-xs text-on-surface-variant tracking-widest text-right">19 PP</span>
-            <svg class="toc-arrow w-5 h-5 text-on-surface-variant justify-self-end" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M12 5v14m-5-5l5 5 5-5"/></svg>
+          <a href="#socio-economics" class="news-card is-paper" data-type="paper">
+            <span class="doc-preview sm"><span class="page block"><img src="res/research/socio-economic-aspects-cover.avif" alt="" width="714" height="924" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">Read</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Paper 03 · 2026</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Amsterdam–Berlin Corridor</span>
           </a>
-        </li>
-      </ol>
+          <button type="button" class="news-card" data-type="flyer" data-full="res/articles/givingDayFlyer2026.jpeg" data-tag="Flyer · Mar 2026" data-title="Cornell Giving Day 2026" data-desc="Support Cornell Hyperloop on Giving Day, March 12, 2026. Gifts directly fund advanced parts, cutting-edge materials, and essential testing that keep our team competing at the highest level.">
+            <span class="doc-preview sm sq"><span class="page block"><img src="res/articles/thumbs/givingDayFlyer2026.avif" alt="Cornell Giving Day 2026" width="520" height="520" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Flyer · Mar 2026</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Giving Day 2026</span>
+          </button>
+          <button type="button" class="news-card" data-type="flyer" data-full="res/articles/CDRFlyler.jpeg" data-tag="Event · Feb 2026" data-title="Critical Design Review — February 2026" data-desc="Cornell Hyperloop invited alumni to our Critical Design Review on February 28th, 2026 at 11:00 AM. CDR is a major milestone where the team presents the year&#x27;s full design and progress for external feedback.">
+            <span class="doc-preview sm sq"><span class="page block"><img src="res/articles/thumbs/CDRFlyler.avif" alt="Critical Design Review — February 2026" width="520" height="520" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Event · Feb 2026</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Critical Design Review</span>
+          </button>
+          <button type="button" class="news-card" data-type="flyer" data-full="res/articles/sp26Eng.png" data-tag="Flyer · Spring 2026" data-title="Spring 2026 Recruitment — Engineering" data-desc="Recruiting freshmen and sophomores to join our Electrical and Business teams for Spring 2026. Come help design what&#x27;s next in high-speed transportation.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/sp26Eng.avif" alt="Spring 2026 Recruitment — Engineering" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Flyer · Spring 2026</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Recruitment — Engineering</span>
+          </button>
+          <button type="button" class="news-card" data-type="flyer" data-full="res/articles/sp26Business.png" data-tag="Flyer · Spring 2026" data-title="Spring 2026 Recruitment — Business" data-desc="Recruiting new members to join the Cornell Hyperloop Business team for Spring 2026. Help drive sponsorships, outreach, and team operations.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/sp26Business.avif" alt="Spring 2026 Recruitment — Business" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Flyer · Spring 2026</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Recruitment — Business</span>
+          </button>
+          <button type="button" class="news-card" data-type="newsletter" data-full="res/articles/fa2025NewsLetter.jpeg" data-tag="Newsletter · Fall 2025" data-title="Fall 2025 Newsletter — Keeping in The Loop" data-desc="Our Fall 2025 edition of Keeping in The Loop is here. We share exciting updates on our technical progress, upcoming events, and our ongoing mission to revolutionize high-speed transportation.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/fa2025NewsLetter.avif" alt="Fall 2025 Newsletter — Keeping in The Loop" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Newsletter · Fall 2025</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Keeping in The Loop</span>
+          </button>
+        </div>
+      </div>
+      <div class="news-group reveal" data-year="AY-24-25">
+        <div class="flex items-center gap-4 mb-7">
+          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">2024–25</span>
+          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
+          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">AY-24-25</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
+          <button type="button" class="news-card" data-type="newsletter" data-full="res/articles/winter 2025 page-0.jpg" data-tag="Newsletter · Winter 2025" data-title="Winter 2025 Newsletter — Page 1" data-desc="The Winter 2025 edition of our team newsletter. Page 1 covers team highlights, semester milestones, and a look at what Cornell Hyperloop accomplished heading into the new year.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-0.avif" alt="Winter 2025 Newsletter — Page 1" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Newsletter · Winter 2025</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025 · Page 1</span>
+          </button>
+          <button type="button" class="news-card" data-type="newsletter" data-full="res/articles/winter 2025 page-1.jpg" data-tag="Newsletter · Winter 2025" data-title="Winter 2025 Newsletter — Page 2" data-desc="Page 2 of the Winter 2025 newsletter. Dives into subteam-level updates across Mechanical, Electrical, and Business, highlighting key design decisions and progress made during the semester.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-1.avif" alt="Winter 2025 Newsletter — Page 2" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Newsletter · Winter 2025</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025 · Page 2</span>
+          </button>
+          <button type="button" class="news-card" data-type="newsletter" data-full="res/articles/winter 2025 page-2.jpg" data-tag="Newsletter · Winter 2025" data-title="Winter 2025 Newsletter — Page 3" data-desc="Page 3 of the Winter 2025 newsletter. Wraps up with a look ahead at competition goals, team growth, and the road to European Hyperloop Week.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-2.avif" alt="Winter 2025 Newsletter — Page 3" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Newsletter · Winter 2025</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025 · Page 3</span>
+          </button>
+          <button type="button" class="news-card" data-type="newsletter" data-full="res/articles/fa24NewsLetter.jpg" data-tag="Newsletter · Fall 2024" data-title="Fall 2024 Newsletter — Full Team" data-desc="The Fall 2024 full-team newsletter. Covers the semester&#x27;s biggest milestones across all subteams, competition prep updates, and a look at the team&#x27;s direction heading into winter.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/fa24NewsLetter.avif" alt="Fall 2024 Newsletter — Full Team" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Newsletter · Fall 2024</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Full Team</span>
+          </button>
+          <button type="button" class="news-card" data-type="newsletter" data-full="res/articles/24NewsLetterMech.jpg" data-tag="Newsletter · Fall 2024" data-title="Fall 2024 Newsletter — Mechanical" data-desc="The Mechanical subteam&#x27;s Fall 2024 update. Highlights structural design progress, chassis iterations, and braking system development for the competition pod.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterMech.avif" alt="Fall 2024 Newsletter — Mechanical" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Newsletter · Fall 2024</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Mechanical</span>
+          </button>
+          <button type="button" class="news-card" data-type="newsletter" data-full="res/articles/24NewsLetterElectrical.jpg" data-tag="Newsletter · Fall 2024" data-title="Fall 2024 Newsletter — Electrical" data-desc="The Electrical subteam&#x27;s Fall 2024 update. Covers advances in magnetic levitation research, power distribution, PCB design, and embedded controls work.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterElectrical.avif" alt="Fall 2024 Newsletter — Electrical" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Newsletter · Fall 2024</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Electrical</span>
+          </button>
+          <button type="button" class="news-card" data-type="newsletter" data-full="res/articles/24NewsLetterBusiness.jpg" data-tag="Newsletter · Fall 2024" data-title="Fall 2024 Newsletter — Business" data-desc="The Business subteam&#x27;s Fall 2024 update. Recaps sponsorship outreach, fundraising progress, and team operations highlights from the semester.">
+            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterBusiness.avif" alt="Fall 2024 Newsletter — Business" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
+            <span class="block font-label-caps text-[10px] text-on-surface-variant/70 uppercase tracking-[0.16em] mb-1">Newsletter · Fall 2024</span>
+            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Business</span>
+          </button>
+        </div>
+      </div>
+      </div>
     </div>
   </section>
 
@@ -772,140 +843,6 @@
     </div>
   </article>
 
-  <!-- ═════════════ News Archive ═════════════ -->
-  <section id="news" class="paper relative bg-surface-container-low border-b border-outline-variant py-20 md:py-28 overflow-hidden">
-    <div class="grid-overlay absolute inset-0 opacity-20"></div>
-    <div class="relative z-10 max-w-container-max mx-auto px-6 md:px-margin">
-      <div class="flex items-end justify-between gap-6 mb-10 reveal">
-        <div>
-          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase flex items-center gap-2 mb-4">
-            <span class="w-8 h-[1px] bg-primary block"></span>News Archive
-          </span>
-          <h2 class="font-headline-lg text-headline-lg text-on-surface uppercase mb-4">Newsletters &amp; Announcements</h2>
-          <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Seasonal newsletters, recruitment flyers, and event announcements from the team. Select any item to read it full size.</p>
-        </div>
-        <span class="hidden md:block font-label-caps text-[10px] text-outline-variant tracking-widest">ARC-24-26</span>
-      </div>
-
-      <div class="flex flex-wrap items-center gap-2 mb-14 reveal" role="group" aria-label="Filter the news archive">
-          <button type="button" class="pill" data-filter="all" aria-pressed="true">All <span class="pill-n">12</span></button>
-          <button type="button" class="pill" data-filter="sp26" aria-pressed="false">Spring 2026 <span class="pill-n">02</span></button>
-          <button type="button" class="pill" data-filter="fa25" aria-pressed="false">Fall 2025 <span class="pill-n">01</span></button>
-          <button type="button" class="pill" data-filter="wi25" aria-pressed="false">Winter 2025 <span class="pill-n">03</span></button>
-          <button type="button" class="pill" data-filter="fa24" aria-pressed="false">Fall 2024 <span class="pill-n">04</span></button>
-          <button type="button" class="pill" data-filter="event" aria-pressed="false">Events <span class="pill-n">02</span></button>
-      </div>
-
-      <div class="flex flex-col gap-16 md:gap-20">
-      <div class="news-group reveal" data-season="event">
-        <div class="flex items-center gap-4 mb-7">
-          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Events &amp; Flyers</span>
-          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
-          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">MISC</span>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
-          <button type="button" class="news-card" data-full="res/articles/CDRFlyler.jpeg" data-tag="Flyer" data-title="Critical Design Review — February 2026" data-desc="Cornell Hyperloop invited alumni to our Critical Design Review on February 28th, 2026 at 11:00 AM. CDR is a major milestone where the team presents the year&#x27;s full design and progress for external feedback.">
-            <span class="doc-preview sm sq"><span class="page block"><img src="res/articles/thumbs/CDRFlyler.avif" alt="Critical Design Review — February 2026" width="520" height="520" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Flyer</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Critical Design Review</span>
-          </button>
-          <button type="button" class="news-card" data-full="res/articles/givingDayFlyer2026.jpeg" data-tag="Flyer" data-title="Cornell Giving Day 2026" data-desc="Support Cornell Hyperloop on Giving Day, March 12, 2026. Gifts directly fund advanced parts, cutting-edge materials, and essential testing that keep our team competing at the highest level.">
-            <span class="doc-preview sm sq"><span class="page block"><img src="res/articles/thumbs/givingDayFlyer2026.avif" alt="Cornell Giving Day 2026" width="520" height="520" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Flyer</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Giving Day 2026</span>
-          </button>
-        </div>
-      </div>
-      <div class="news-group reveal" data-season="sp26">
-        <div class="flex items-center gap-4 mb-7">
-          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Spring 2026</span>
-          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
-          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">SEM-SP26</span>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
-          <button type="button" class="news-card" data-full="res/articles/sp26Eng.png" data-tag="Flyer" data-title="Spring 2026 Recruitment — Engineering" data-desc="Recruiting freshmen and sophomores to join our Electrical and Business teams for Spring 2026. Come help design what&#x27;s next in high-speed transportation.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/sp26Eng.avif" alt="Spring 2026 Recruitment — Engineering" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Flyer</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Recruitment — Engineering</span>
-          </button>
-          <button type="button" class="news-card" data-full="res/articles/sp26Business.png" data-tag="Flyer" data-title="Spring 2026 Recruitment — Business" data-desc="Recruiting new members to join the Cornell Hyperloop Business team for Spring 2026. Help drive sponsorships, outreach, and team operations.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/sp26Business.avif" alt="Spring 2026 Recruitment — Business" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Flyer</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Recruitment — Business</span>
-          </button>
-        </div>
-      </div>
-      <div class="news-group reveal" data-season="fa25">
-        <div class="flex items-center gap-4 mb-7">
-          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Fall 2025</span>
-          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
-          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">SEM-FA25</span>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
-          <button type="button" class="news-card" data-full="res/articles/fa2025NewsLetter.jpeg" data-tag="Newsletter" data-title="Fall 2025 Newsletter — Keeping in The Loop" data-desc="Our Fall 2025 edition of Keeping in The Loop is here. We share exciting updates on our technical progress, upcoming events, and our ongoing mission to revolutionize high-speed transportation.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/fa2025NewsLetter.avif" alt="Fall 2025 Newsletter — Keeping in The Loop" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Keeping in The Loop</span>
-          </button>
-        </div>
-      </div>
-      <div class="news-group reveal" data-season="wi25">
-        <div class="flex items-center gap-4 mb-7">
-          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Winter 2025</span>
-          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
-          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">SEM-WI25</span>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
-          <button type="button" class="news-card" data-full="res/articles/winter 2025 page-0.jpg" data-tag="Newsletter · Pg 1" data-title="Winter 2025 Newsletter — Page 1" data-desc="The Winter 2025 edition of our team newsletter. Page 1 covers team highlights, semester milestones, and a look at what Cornell Hyperloop accomplished heading into the new year.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-0.avif" alt="Winter 2025 Newsletter — Page 1" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter · Pg 1</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025</span>
-          </button>
-          <button type="button" class="news-card" data-full="res/articles/winter 2025 page-1.jpg" data-tag="Newsletter · Pg 2" data-title="Winter 2025 Newsletter — Page 2" data-desc="Page 2 of the Winter 2025 newsletter. Dives into subteam-level updates across Mechanical, Electrical, and Business, highlighting key design decisions and progress made during the semester.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-1.avif" alt="Winter 2025 Newsletter — Page 2" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter · Pg 2</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025</span>
-          </button>
-          <button type="button" class="news-card" data-full="res/articles/winter 2025 page-2.jpg" data-tag="Newsletter · Pg 3" data-title="Winter 2025 Newsletter — Page 3" data-desc="Page 3 of the Winter 2025 newsletter. Wraps up with a look ahead at competition goals, team growth, and the road to European Hyperloop Week.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/winter-2025-page-2.avif" alt="Winter 2025 Newsletter — Page 3" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter · Pg 3</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Winter 2025</span>
-          </button>
-        </div>
-      </div>
-      <div class="news-group reveal" data-season="fa24">
-        <div class="flex items-center gap-4 mb-7">
-          <span class="font-label-caps text-label-caps text-primary tracking-[0.2em] uppercase">Fall 2024</span>
-          <span class="flex-1 h-px bg-gradient-to-r from-primary-container/40 to-transparent"></span>
-          <span class="font-label-caps text-[10px] text-outline-variant tracking-widest">SEM-FA24</span>
-        </div>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-5 gap-y-10">
-          <button type="button" class="news-card" data-full="res/articles/fa24NewsLetter.jpg" data-tag="Newsletter" data-title="Fall 2024 Newsletter — Full Team" data-desc="The Fall 2024 full-team newsletter. Covers the semester&#x27;s biggest milestones across all subteams, competition prep updates, and a look at the team&#x27;s direction heading into winter.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/fa24NewsLetter.avif" alt="Fall 2024 Newsletter — Full Team" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Full Team — FA24</span>
-          </button>
-          <button type="button" class="news-card" data-full="res/articles/24NewsLetterMech.jpg" data-tag="Newsletter" data-title="Fall 2024 Newsletter — Mechanical" data-desc="The Mechanical subteam&#x27;s Fall 2024 update. Highlights structural design progress, chassis iterations, and braking system development for the competition pod.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterMech.avif" alt="Fall 2024 Newsletter — Mechanical" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Mechanical — FA24</span>
-          </button>
-          <button type="button" class="news-card" data-full="res/articles/24NewsLetterElectrical.jpg" data-tag="Newsletter" data-title="Fall 2024 Newsletter — Electrical" data-desc="The Electrical subteam&#x27;s Fall 2024 update. Covers advances in magnetic levitation research, power distribution, PCB design, and embedded controls work.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterElectrical.avif" alt="Fall 2024 Newsletter — Electrical" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Electrical — FA24</span>
-          </button>
-          <button type="button" class="news-card" data-full="res/articles/24NewsLetterBusiness.jpg" data-tag="Newsletter" data-title="Fall 2024 Newsletter — Business" data-desc="The Business subteam&#x27;s Fall 2024 update. Recaps sponsorship outreach, fundraising progress, and team operations highlights from the semester.">
-            <span class="doc-preview sm"><span class="page block"><img src="res/articles/thumbs/24NewsLetterBusiness.avif" alt="Fall 2024 Newsletter — Business" width="520" height="673" loading="lazy" decoding="async"/><span class="page-cta"><span class="font-label-caps text-[10px] tracking-[0.2em] uppercase text-on-surface">View</span></span></span></span>
-            <span class="block font-label-caps text-[10px] text-primary-container uppercase tracking-[0.16em] mb-1">Newsletter</span>
-            <span class="block font-headline-md font-semibold text-on-surface uppercase text-[14px] leading-snug">Business — FA24</span>
-          </button>
-        </div>
-      </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ── CTA ── -->
   <section class="py-16 bg-surface-container border-b border-outline-variant relative overflow-hidden">
     <div class="scan-line absolute inset-0 opacity-50"></div>
@@ -1024,7 +961,7 @@
     row.addEventListener('blur', hideTip);
   });
 
-  // --- News archive: season filter ---
+  // --- Index filter: by type; years with nothing left are hidden ---
   var pills = document.querySelectorAll('.pill');
   var newsGroups = document.querySelectorAll('.news-group');
   pills.forEach(function(pill){
@@ -1032,16 +969,21 @@
       var filter = pill.dataset.filter;
       pills.forEach(function(p){ p.setAttribute('aria-pressed', String(p === pill)); });
       newsGroups.forEach(function(group){
-        var show = filter === 'all' || group.dataset.season === filter;
-        group.hidden = !show;
-        if (show) group.classList.add('is-in');
+        var any = false;
+        group.querySelectorAll('.news-card').forEach(function(card){
+          var show = filter === 'all' || card.dataset.type === filter;
+          card.hidden = !show;
+          if (show) any = true;
+        });
+        group.hidden = !any;
+        if (any) group.classList.add('is-in');
       });
     });
   });
 
   // --- News archive: full-size viewer (steps through the items currently shown) ---
   var viewer = document.getElementById('viewer');
-  var newsCards = document.querySelectorAll('.news-card');
+  var newsCards = document.querySelectorAll('.news-card:not(.is-paper)');
   if (viewer && typeof viewer.showModal === 'function') {
     var vImg = document.getElementById('viewer-img');
     var vTag = document.getElementById('viewer-tag');
@@ -1073,7 +1015,7 @@
 
     newsCards.forEach(function(card){
       card.addEventListener('click', function(){
-        shown = Array.prototype.slice.call(document.querySelectorAll('.news-group:not([hidden]) .news-card'));
+        shown = Array.prototype.slice.call(document.querySelectorAll('.news-group:not([hidden]) .news-card:not(.is-paper):not([hidden])'));
         current = shown.indexOf(card);
         opener = card;
         render();

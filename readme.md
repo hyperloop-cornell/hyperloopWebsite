@@ -62,6 +62,6 @@ hyperloop_website/
 - **Image optimization** — Run `tools/convert_images.py` to convert any new JPG/PNG assets to AVIF before referencing them in HTML or `res/members.json`.
 - **New subteam page** — Copy an existing file from `subteam-views/`, update content, add a card to `subteams.html`, and add the path to the `PAGES` array in `sw.js`.
 - **Nav links** — Edit the `NAV_LINKS` array at the top of `shared.js`.
-- **News archive** — Add the image to `res/articles/`, save a 520px-wide AVIF thumbnail in `res/articles/thumbs/`, and add a `news-card` button to the matching season group in `research.html` (update the filter counts).
+- **News archive** — Add the image to `res/articles/`, save a 520px-wide AVIF thumbnail in `res/articles/thumbs/`, and add a `news-card` button (with its `data-type`) to the matching academic-year group in the `research.html` index (update the filter counts).
 - **Research papers** — Add the PDF to `res/research_papers/` (URL-safe filename), save a page-one preview as AVIF in `res/research/`, and add an `<article>` plus an index row to `research.html`.
 - **Color / typography** — The Tailwind config block is duplicated in each HTML file's `<head>`. Update all files if changing the design system (or consolidate into a shared config file if a build step is introduced).
